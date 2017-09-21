@@ -29,7 +29,7 @@ export default function rootReducer(
       return {
         ...currentState,
         RxItems: currentState.RxItems.map(
-          RxItem => (RxItem.id === action.RxItem.id ? action.RxItem : RxItem)
+          RxItem => (RxItem.id === action.itemId ? action.item : RxItem)
         )
       };
     case 'ADD_ITEM':

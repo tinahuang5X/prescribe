@@ -6,7 +6,8 @@ export default function RxItemComponent({
   onAddItem,
   onRemoveItem,
   onSelectItem,
-  onDeselectItem
+  onDeselectItem,
+  onSwitch
 }) {
   // console.log(item, '<<<<< in RxItemComponent');
   if (!item) return <h5>"No Prescriptions!!"</h5>;
@@ -30,6 +31,12 @@ export default function RxItemComponent({
     selected ? onDeselectItem(item.id) : onSelectItem(item.id);
   }
 
+  function handleSwitch(event) {
+    // event.preventDefault();
+    console.log(item.id, item);
+    onSwitch(item.id, item);
+  }
+
   return (
     <div className="card RxItemComponent">
       {/* {console.log(item, ' in the component')} */}
@@ -40,7 +47,9 @@ export default function RxItemComponent({
               <thead>
                 <tr>
                   <th style={{ width: '30px' }}>Select</th>
-                  <th style={{ width: '80px' }}>Genreic Name</th>
+                  <th style={{ width: '180px' }} onClick={handleSwitch}>
+                    Genreic Name (switch to Brand)
+                  </th>
                   <th style={{ width: '100px' }}>Brand Name</th>
                   <th style={{ width: '130px' }}>Indications</th>
                   <th style={{ width: '130px' }}>Dosage</th>

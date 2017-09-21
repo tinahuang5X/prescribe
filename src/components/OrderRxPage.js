@@ -19,7 +19,8 @@ export default function OrderRxPage({
   onDeselectItem,
   onAddRx,
   onSubmit,
-  onTransmit
+  onTransmit,
+  onSwitch
 }) {
   return (
     //<div id={id} className="OrderPage">
@@ -32,6 +33,7 @@ export default function OrderRxPage({
           onRemoveItem={onRemoveItem}
           onSelectItem={onSelectItem}
           onDeselectItem={onDeselectItem}
+          onSwitch={onSwitch}
         />
         <AddRxComponent onAddRx={onAddRx} />
         <OrderRxFormComponent patientInfo={patientInfo} onSubmit={onSubmit} />

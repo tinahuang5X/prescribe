@@ -28,6 +28,10 @@ function mapDispatchToProps(dispatch, ownProps) {
     },
 
     onDeselectItem: itemId => dispatch({ type: 'DESELECT_ITEM', itemId }),
+    onSwitch: (itemId, item) => {
+      console.log('hi', item, item.brand);
+      dispatch(updateRxItemProcess(itemId, item, { generic: item.brand }));
+    },
     onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
       dispatch(
         createRxItemProcess({

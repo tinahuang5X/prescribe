@@ -7,7 +7,8 @@ export default function RxComponent({
   onAddItem,
   onRemoveItem,
   onSelectItem,
-  onDeselectItem
+  onDeselectItem,
+  onSwitch
 }) {
   // const { items } = props;
   // const items = props.items;
@@ -25,6 +26,7 @@ export default function RxComponent({
             onRemoveItem={onRemoveItem}
             onSelectItem={onSelectItem}
             onDeselectItem={onDeselectItem}
+            onSwitch={onSwitch}
           />
         )}
       </div>

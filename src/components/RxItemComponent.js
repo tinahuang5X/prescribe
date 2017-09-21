@@ -1,25 +1,38 @@
 import React from 'react';
 
 export default function RxItemComponent({
+  selected,
   item,
   onAddItem,
+  onRemoveItem,
   onSelectItem,
   onDeselectItem
 }) {
+  // console.log(item, '<<<<< in RxItemComponent');
   if (!item) return <h5>"No Prescriptions!!"</h5>;
 
   function handleClick(event) {
     event.preventDefault();
+    console.log(item, '<<<<< handleClick');
     onAddItem(item.id);
   }
 
+  function handleRemove(event) {
+    event.preventDefault();
+    console.log(item, '<<<<< handleClick');
+    onRemoveItem(item.id);
+  }
+
   function handleSelect(event) {
-    //event.preventDefault();
-    item.selected ? onDeselectItem(item.id) : onSelectItem(item.id);
+    // event.preventDefault();
+    console.log(item, '<<<< handleSelect');
+    // onSelectItem(item.id);
+    selected ? onDeselectItem(item.id) : onSelectItem(item.id);
   }
 
   return (
     <div className="card RxItemComponent">
+      {/* {console.log(item, ' in the component')} */}
       <div className="col s12 m7">
         <div className="card horizontal">
           <div className="card-content">
@@ -31,8 +44,9 @@ export default function RxItemComponent({
                   <th style={{ width: '100px' }}>Brand Name</th>
                   <th style={{ width: '130px' }}>Indications</th>
                   <th style={{ width: '130px' }}>Dosage</th>
-                  <th style={{ width: '180px' }}>Side Effects</th>
-                  <th style={{ width: '130px' }}>Action</th>
+                  <th style={{ width: '100px' }}>Side Effects</th>
+                  <th style={{ width: '50px' }}>Action</th>
+                  <th style={{ width: '50px' }}>Action</th>
                 </tr>
               </thead>
 
@@ -41,14 +55,12 @@ export default function RxItemComponent({
                   <td>
                     <div>
                       <input
-                        id="selectRx"
-                        name="selectRx"
-                        defaultValue="selectRx"
+                        id={`selectRx-${item.id}`}
                         type="checkbox"
-                        checked={item.selected === true}
+                        checked={selected === true}
                         onChange={handleSelect}
                       />
-                      <label htmlFor="selectRx" />
+                      <label htmlFor={`selectRx-${item.id}`} />
                     </div>
                   </td>
                   <td>
@@ -71,9 +83,20 @@ export default function RxItemComponent({
                       <a
                         href="."
                         className="waves-effect waves-light btn"
+                        onClick={handleRemove}
+                        style={{ margin: 'auto' }}>
+                        REMOVE
+                      </a>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="card-action">
+                      <a
+                        href="."
+                        className="waves-effect waves-light btn"
                         onClick={handleClick}
                         style={{ margin: 'auto' }}>
-                        ADD
+                        ORDER
                       </a>
                     </div>
                   </td>

@@ -8,7 +8,7 @@ storiesOf('RxPadComponent', module).add('Transmit path', () =>
     items={[
       {
         id: 1,
-        imagePath: 'https://www.drugs.com/images/pills/nlm/200000131.jpg',
+
         generic: 'Atorvastatin',
         brand: 'Liptor',
         indications: 'lower cholesterol',

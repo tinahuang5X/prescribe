@@ -6,6 +6,7 @@ function loadStories() {
   require('../src/components/OrderRxFormComponent.story');
   require('../src/components/RxPadComponent.story');
   require('../src/components/OrderRxPageLayout.story');
+  require('../src/components/AddRxComponent.story');
 
   // Require your stories here...
 }

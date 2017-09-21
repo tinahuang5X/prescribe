@@ -17,18 +17,15 @@ export default function OrderRxPageLayout(props) {
                 }}>
                 We Prescribe
               </a>
-              <a
-                href="."
-                data-activates="orderMenu"
-                className="button-collapse">
-                <i className="material-icons">menu</i>
+              <a href="." data-activates="orderRx" className="button-collapse">
+                <i className="material-icons">Prescriptions</i>
               </a>
               <ul className="right hide-on-med-and-down">
                 <li className="active">
                   <a href=".">Order Rx</a>
                 </li>
               </ul>
-              <ul className="side-nav" id="orderMenu">
+              <ul className="side-nav" id="orderRx">
                 <li className="active">
                   <a href=".">Order Rx</a>
                 </li>
@@ -48,7 +45,7 @@ export default function OrderRxPageLayout(props) {
           {props.children[0]}
         </div>
         <div
-          className="OrderRxForm"
+          className="AddRx"
           style={{
             display: 'inline-table',
             float: 'left',
@@ -59,6 +56,17 @@ export default function OrderRxPageLayout(props) {
           {props.children[1]}
         </div>
         <div
+          className="OrderRxForm"
+          style={{
+            display: 'inline-table',
+            float: 'left',
+            flexdirection: 'column',
+            width: '25%',
+            marginLeft: '10px'
+          }}>
+          {props.children[2]}
+        </div>
+        <div
           className="RxPad"
           style={{
             display: 'flex',
@@ -66,7 +74,7 @@ export default function OrderRxPageLayout(props) {
             width: '30%',
             marginLeft: '30px'
           }}>
-          {props.children[2]}
+          {props.children[3]}
         </div>
       </div>
     </div>

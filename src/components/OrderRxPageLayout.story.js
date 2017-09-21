@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import OrderRxPageLayout from './OrderRxPageLayout';
 import RxComponent from './RxComponent';
-
+import AddRxComponent from './AddRxComponent';
 import OrderRxFormComponent from './OrderRxFormComponent';
 import RxPadComponent from './RxPadComponent';
 
@@ -12,7 +12,7 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
       items={[
         {
           id: 1,
-
+          selected: true,
           generic: 'Atorvastatin',
           brand: 'Liptor',
           indications: 'lower cholesterol',
@@ -21,7 +21,7 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
         },
         {
           id: 2,
-
+          selected: false,
           generic: 'Levothyroxine',
           brand: 'Synthroid',
           indications: 'treat hypothyroidism',
@@ -30,7 +30,7 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
         },
         {
           id: 3,
-
+          selected: true,
           generic: 'Atorvastatin',
           brand: 'Liptor',
           indications: 'lower cholesterol',
@@ -39,7 +39,7 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
         },
         {
           id: 4,
-
+          selcted: false,
           generic: 'Atorvastatin',
           brand: 'Liptor',
           indications: 'lower cholesterol',
@@ -47,7 +47,9 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
           sideeffects: 'allergic reaction, red skin rash'
         }
       ]}
+      selectedItemIds={[2, 4]}
     />
+    <AddRxComponent />
     <OrderRxFormComponent
       patientInfo={{
         name: 'Lisa',
@@ -68,7 +70,7 @@ storiesOf('OrderRxPageLayout', module).add('Layout path', () =>
       ]}
       patientInfo={{
         name: 'Lisa',
-        birthdate: '7/8/1980'
+        dob: '7/8/1980'
       }}
     />
   </OrderRxPageLayout>

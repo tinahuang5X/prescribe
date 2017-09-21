@@ -5,6 +5,7 @@ import RxItemComponent from './RxItemComponent';
 
 storiesOf('RxItemComponent', module).add('Rx item passed in', () =>
   <RxItemComponent
+    selected={true}
     item={{
       id: 1,
 

@@ -9,6 +9,11 @@ export default class OrderFormComponent extends Component {
     return (
       <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
+          <h5
+            className="header"
+            style={{ textAlign: 'center', textDecoration: 'underline' }}>
+            Patient Info
+          </h5>
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
@@ -38,7 +43,7 @@ export default class OrderFormComponent extends Component {
               className="btn waves-effect waves-light green accent-5"
               type="submit"
               name="action">
-              SUBMIT
+              SUBMIT TO RX PAD
             </button>
             {this.state.hasValidationError
               ? <p style={{ color: 'red', fontWeight: 'bold' }}>
@@ -47,6 +52,7 @@ export default class OrderFormComponent extends Component {
               : null}
           </div>
         </div>
+        <br />
       </form>
     );
   }

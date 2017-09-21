@@ -2,16 +2,22 @@ import React from 'react';
 
 import OrderRxPageLayout from './OrderRxPageLayout';
 import RxComponent from './RxComponent';
-
+import AddRxComponent from './AddRxComponent';
 import OrderRxFormComponent from './OrderRxFormComponent';
 import RxPadComponent from './RxPadComponent';
 
 export default function OrderRxPage({
   //id,
   RxItems,
+  selected,
+  selectedItemIds,
   orderItems,
   patientInfo,
   onAddItem,
+  onRemoveItem,
+  onSelectItem,
+  onDeselectItem,
+  onAddRx,
   onSubmit,
   onTransmit
 }) {
@@ -19,15 +25,28 @@ export default function OrderRxPage({
     //<div id={id} className="OrderPage">
     <div className="OrderRxPage">
       <OrderRxPageLayout>
-        <RxComponent items={RxItems} onAddItem={onAddItem} />
+        <RxComponent
+          items={RxItems}
+          selectedItemIds={selectedItemIds}
+          onAddItem={onAddItem}
+          onRemoveItem={onRemoveItem}
+          onSelectItem={onSelectItem}
+          onDeselectItem={onDeselectItem}
+        />
+        <AddRxComponent onAddRx={onAddRx} />
         <OrderRxFormComponent patientInfo={patientInfo} onSubmit={onSubmit} />
-        {patientInfo
+        {/* {patientInfo
           ? <RxPadComponent
               items={orderItems}
               patientInfo={patientInfo}
               onTransmit={onTransmit}
             />
-          : null}
+          : null} */}
+        <RxPadComponent
+          items={orderItems}
+          patientInfo={patientInfo}
+          onTransmit={onTransmit}
+        />
       </OrderRxPageLayout>
     </div>
   );

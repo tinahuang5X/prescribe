@@ -27,7 +27,7 @@ storiesOf('RxComponent', module).add('All Rx items passed in', () =>
       },
       {
         id: 3,
-
+        selected: true,
         generic: 'Atorvastatin',
         brand: 'Liptor',
         indications: 'lower cholesterol',
@@ -36,7 +36,7 @@ storiesOf('RxComponent', module).add('All Rx items passed in', () =>
       },
       {
         id: 4,
-
+        selected: false,
         generic: 'Atorvastatin',
         brand: 'Liptor',
         indications: 'lower cholesterol',
@@ -44,6 +44,7 @@ storiesOf('RxComponent', module).add('All Rx items passed in', () =>
         sideeffects: 'allergic reaction, red skin rash'
       }
     ]}
+    selectedItemIds={[2, 4]}
     onAddItem={itemId => {
       console.log(itemId);
     }}

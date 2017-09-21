@@ -18,7 +18,7 @@ export default function RxPadComponent({
       className="card-panel grey lighten-3 RxPadComponent"
       style={{ width: '400px' }}>
       <img
-        src="http://www.clker.com/cliparts/5/8/6/4/1267321431676379771rx%20medical%20button.svg.med.png"
+        src="http://www.ipharmd.net/images/rx_bold_red_box.png"
         alt="rxImage"
         width="50px"
       />&nbsp;&nbsp;&nbsp;<div
@@ -49,7 +49,9 @@ export default function RxPadComponent({
         approved by:
         <span style={{ textDecoration: 'underline' }}>Dr. Tina Huang</span>
       </p>
-      <button className="waves-effect waves-light btn" onClick={handleClick}>
+      <button
+        className="waves-effect waves-light btn red darken-2"
+        onClick={handleClick}>
         TRANSMIT TO PHARMACY
       </button>
     </div>

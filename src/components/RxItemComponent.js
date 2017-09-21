@@ -47,10 +47,8 @@ export default function RxItemComponent({
               <thead>
                 <tr>
                   <th style={{ width: '30px' }}>Select</th>
-                  <th style={{ width: '180px' }} onClick={handleSwitch}>
-                    Genreic Name (switch to Brand)
-                  </th>
-                  <th style={{ width: '100px' }}>Brand Name</th>
+                  <th style={{ width: '130px' }}>Genreic Name </th>
+                  {/* <th style={{ width: '100px' }}>Brand Name</th> */}
                   <th style={{ width: '130px' }}>Indications</th>
                   <th style={{ width: '130px' }}>Dosage</th>
                   <th style={{ width: '100px' }}>Side Effects</th>
@@ -74,10 +72,19 @@ export default function RxItemComponent({
                   </td>
                   <td>
                     {item.generic}
+                    <br />
+                    <span
+                      onClick={handleSwitch}
+                      style={{
+                        color: 'brown',
+                        textDecoration: 'underline'
+                      }}>
+                      switch to Brand
+                    </span>
                   </td>
-                  <td>
+                  {/* <td>
                     {item.brand}
-                  </td>
+                  </td> */}
                   <td>
                     {item.indications}
                   </td>
@@ -91,7 +98,7 @@ export default function RxItemComponent({
                     <div className="card-action">
                       <a
                         href="."
-                        className="waves-effect waves-light btn"
+                        className="waves-effect waves-light btn red darken-2"
                         onClick={handleRemove}
                         style={{ margin: 'auto' }}>
                         REMOVE
@@ -102,7 +109,7 @@ export default function RxItemComponent({
                     <div className="card-action">
                       <a
                         href="."
-                        className="waves-effect waves-light btn"
+                        className="waves-effect waves-light btn red darken-2"
                         onClick={handleClick}
                         style={{ margin: 'auto' }}>
                         ORDER

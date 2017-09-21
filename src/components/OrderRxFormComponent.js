@@ -40,7 +40,7 @@ export default class OrderFormComponent extends Component {
 
           <div className="col s12 center">
             <button
-              className="btn waves-effect waves-light green accent-5"
+              className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
               SUBMIT TO RX PAD

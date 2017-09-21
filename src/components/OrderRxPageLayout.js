@@ -8,7 +8,7 @@ export default function OrderRxPageLayout(props) {
       <header>
         <div className="navbar-fixed">
           <nav>
-            <div className="nav-wrapper light-green">
+            <div className="nav-wrapper red darken-2">
               <a
                 href="index.html"
                 className="brand-logo"
@@ -22,7 +22,7 @@ export default function OrderRxPageLayout(props) {
               </a>
               <ul className="right hide-on-med-and-down">
                 <li className="active">
-                  <a href=".">Order Rx</a>
+                  <a href=".">Refresh Drug List</a>
                 </li>
               </ul>
               <ul className="side-nav" id="orderRx">

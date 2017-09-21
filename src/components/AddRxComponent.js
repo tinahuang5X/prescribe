@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class addRxComponent extends Component {
+class AddRxComponent extends Component {
   render() {
     return (
       <form className="col s12" onSubmit={this.handleAddRx}>
         <div className="row">
           <h5
             className="header"
-            style={{ textAlign: 'center', textDecoration: 'underline' }}>
+            style={{
+              textAlign: 'center',
+              textDecoration: 'underline',
+              color: 'brown'
+            }}>
             Drug Info
           </h5>
           <div className="input-field col s12">
@@ -94,5 +99,7 @@ export default class addRxComponent extends Component {
     const sideeffects = $form.icon_sideeffects.value.trim();
 
     this.props.onAddRx({ generic, brand, indications, dosage, sideeffects });
+    this.props.history.push('/');
   };
 }
+export default withRouter(AddRxComponent);

@@ -11,7 +11,11 @@ export default class OrderFormComponent extends Component {
         <div className="row">
           <h5
             className="header"
-            style={{ textAlign: 'center', textDecoration: 'underline' }}>
+            style={{
+              textAlign: 'center',
+              textDecoration: 'underline',
+              color: 'brown'
+            }}>
             Patient Info
           </h5>
           <div className="input-field col s12">

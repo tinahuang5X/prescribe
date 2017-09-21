@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import RxItemComponent from './RxItemComponent';
 export default function RxComponent({
   items,
+  selected,
   selectedItemIds,
   onAddItem,
   onRemoveItem,
@@ -29,6 +30,17 @@ export default function RxComponent({
             onSwitch={onSwitch}
           />
         )}
+        <br />
+        <Link
+          to="/add-drug"
+          style={{
+            color: 'brown',
+            marginLeft: '40%',
+            fontSize: '20px',
+            textDecoration: 'underline'
+          }}>
+          GO TO ADD-DRUG PAGE
+        </Link>
       </div>
     );
   } else {

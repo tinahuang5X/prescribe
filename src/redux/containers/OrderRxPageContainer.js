@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import OrderRxPage from '../../components/OrderRxPage';
 
 import getRxItemsProcess from '../thunks/getRxItemsProcess';
-import createRxItemProcess from '../thunks/createRxItemProcess';
+
 import deleteRxItemProcess from '../thunks/deleteRxItemProcess';
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
 
 function mapStateToProps(state, ownProps) {
   return {
     RxItems: state.RxItems,
+    selected: state.selected,
     selectedItemIds: state.selectedItemIds,
     orderItems: state.orderItems,
     patientInfo: state.patientInfo
   };
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   return {
     onMount: () => dispatch(getRxItemsProcess()),
     onAddItem: itemId => dispatch({ type: 'ADD_ITEM', itemId }),
@@ -32,16 +33,16 @@ function mapDispatchToProps(dispatch, ownProps) {
       console.log('hi', item, item.brand);
       dispatch(updateRxItemProcess(itemId, item, { generic: item.brand }));
     },
-    onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
-      dispatch(
-        createRxItemProcess({
-          generic,
-          brand,
-          indications,
-          dosage,
-          sideeffects
-        })
-      ),
+    // onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
+    //   dispatch(
+    //     createRxItemProcess({
+    //       generic,
+    //       brand,
+    //       indications,
+    //       dosage,
+    //       sideeffects
+    //     })
+    //   ),
 
     onSubmit: ({ name, dob }) =>
       dispatch({

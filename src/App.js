@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-//import env from './env';
-//import logo from './logo.svg';
-//import './App.css';
-// import OrderPage from './components/OrderPage';
-import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import setupStore from './redux/setupStore';
 import OrderRxPageContainer from './redux/containers/OrderRxPageContainer';
+import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
+import setupStore from './redux/setupStore';
 
-//app = new App({});
-//element = app.render()
-//putItIntoDom(element);
-//app.componentDidMount();
+import { Provider } from 'react-redux';
 
 const store = setupStore();
 
@@ -20,8 +14,26 @@ export default class App extends Component {
     return (
       <div className="App">
         <Provider store={store}>
-          <OrderRxPageContainer />
-        </Provider>
+          <Router>
+            <Switch>
+              {/* <Route
+                exact
+                path="/"
+                render={props => <IndexPageContainer {...props} />}
+              /> */}
+              <Route
+                exact
+                path="/"
+                render={props => <OrderRxPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/add-drug"
+                render={props => <CreateRxPageContainer {...props} />}
+              />
+            </Switch>
+          </Router>
+        </Provider>;
       </div>
     );
   }

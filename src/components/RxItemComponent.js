@@ -112,7 +112,7 @@ export default function RxItemComponent({
                         className="waves-effect waves-light btn red darken-2"
                         onClick={handleClick}
                         style={{ margin: 'auto' }}>
-                        ORDER
+                        <span className="testClick">ORDER</span>
                       </a>
                     </div>
                   </td>

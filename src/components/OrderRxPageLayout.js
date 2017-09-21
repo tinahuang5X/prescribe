@@ -15,7 +15,7 @@ export default function OrderRxPageLayout(props) {
                 style={{
                   marginLeft: '20px'
                 }}>
-                We Prescribe
+                Prescribe
               </a>
               <a href="." data-activates="orderRx" className="button-collapse">
                 <i className="material-icons">Prescriptions</i>

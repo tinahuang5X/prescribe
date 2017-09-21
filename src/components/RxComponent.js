@@ -32,6 +32,6 @@ export default function RxComponent({
       </div>
     );
   } else {
-    return <div>...LOADING PLEASE WAIT</div>;
+    return <div>...LOADING, PLEASE WAIT</div>;
   }
 }

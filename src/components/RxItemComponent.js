@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export default function RxItemComponent({
   selected,
   item,
@@ -47,13 +47,14 @@ export default function RxItemComponent({
               <thead>
                 <tr>
                   <th style={{ width: '30px' }}>Select</th>
-                  <th style={{ width: '130px' }}>Genreic Name </th>
+                  <th style={{ width: '100px' }}>Genreic Name </th>
                   {/* <th style={{ width: '100px' }}>Brand Name</th> */}
-                  <th style={{ width: '130px' }}>Indications</th>
-                  <th style={{ width: '130px' }}>Dosage</th>
-                  <th style={{ width: '100px' }}>Side Effects</th>
-                  <th style={{ width: '50px' }}>Action</th>
-                  <th style={{ width: '50px' }}>Action</th>
+                  <th style={{ width: '100px' }}>Indications</th>
+                  <th style={{ width: '80px' }}>Dosage</th>
+
+                  <th style={{ width: '30px' }}>Action</th>
+                  <th style={{ width: '30px' }}>Action</th>
+                  <th style={{ width: '70px' }}>Action</th>
                 </tr>
               </thead>
 
@@ -91,9 +92,7 @@ export default function RxItemComponent({
                   <td>
                     {item.dosage}
                   </td>
-                  <td>
-                    {item.sideeffects}
-                  </td>
+
                   <td>
                     <div className="card-action">
                       <a
@@ -115,6 +114,19 @@ export default function RxItemComponent({
                         <span className="testClick">ORDER</span>
                       </a>
                     </div>
+                  </td>
+                  <td>
+                    <Link
+                      to={`/drugs/${item.id}`}
+                      //to="/add-drug"
+                      style={{
+                        color: 'brown',
+
+                        fontSize: '18px',
+                        textDecoration: 'underline'
+                      }}>
+                      EDIT DRUG
+                    </Link>
                   </td>
                 </tr>
               </tbody>

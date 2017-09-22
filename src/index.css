@@ -1,2 +1,13 @@
 @import '../node_modules/material-design-icons/iconfont/material-icons.css';
 @import '../node_modules/materialize-css/dist/css/materialize.css';
+body {
+  background-image: url('http://img.freepik.com/free-vector/gingham-style-background_1048-2586.jpg?size=338&ext=jpg');
+}
+
+.RxItemComponent {
+  margin-left: 20px;
+}
+
+.RxComponent {
+  margin-bottom: 200px;
+}

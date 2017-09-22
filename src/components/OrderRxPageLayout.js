@@ -34,7 +34,7 @@ export default function OrderRxPageLayout(props) {
           </nav>
         </div>
       </header>
-      <div className="Container" style={{ height: '1300px' }}>
+      <div className="Container">
         <div
           className="Rx"
           style={{

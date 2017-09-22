@@ -23,8 +23,8 @@ export default function createRxItem(RxItem) {
         generic: record.fields.generic,
         brand: record.fields.brand,
         indications: record.fields.indications,
-        dosage: record.fields.dosage,
-        sideeffects: record.fields.sideeffects
+        dosage: record.fields.dosage
+        //sideeffects: record.fields.sideeffects
       };
     });
 }

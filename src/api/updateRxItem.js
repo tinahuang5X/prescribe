@@ -19,8 +19,8 @@ export default function updateRxitem(itemId, item, change) {
         generic: record.fields.generic,
         brand: record.fields.brand,
         indications: record.fields.indications,
-        dosage: record.fields.dosage,
-        sideeffects: record.fields.sideeffects
+        dosage: record.fields.dosage
+        //sideeffects: record.fields.sideeffects
       };
     });
 }

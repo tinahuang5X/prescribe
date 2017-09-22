@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class AddRxComponent extends Component {
+class EditRxComponent extends Component {
   render() {
     return (
-      <form className="col s12" onSubmit={this.handleAddRx}>
+      <form className="col s12" onSubmit={this.handleEditRx}>
         <div className="row">
           <h5
             className="header"
@@ -19,10 +19,11 @@ class AddRxComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">call_to_action</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_generic"
               type="text"
               className="validate"
-              placeholder="Generic"
+              placeholder={this.props.RxItem.generic}
               required
             />
             <label htmlFor="icon_generic" />
@@ -31,39 +32,39 @@ class AddRxComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">branding_watermark</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_brand"
               type="text"
               className="validate"
-              placeholder="Brand"
+              placeholder={this.props.RxItem.brand}
               required
             />
             <label htmlFor="icon_brand" />
           </div>
-
           <div className="input-field col s12">
             <i className="material-icons prefix">featured_play_list</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_indications"
               type="text"
               className="validate"
-              placeholder="Indications"
+              placeholder={this.props.RxItem.indications}
               required
             />
             <label htmlFor="icon_indications" />
           </div>
-
           <div className="input-field col s12">
             <i className="material-icons prefix">assessment</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_dosage"
               type="text"
               className="validate"
-              placeholder="Dosage"
+              placeholder={this.props.RxItem.dosage}
               required
             />
             <label htmlFor="icon_dosage" />
           </div>
-
           {/* <div className="input-field col s12">
             <i className="material-icons prefix">announcement</i>
             <input
@@ -75,13 +76,12 @@ class AddRxComponent extends Component {
             />
             <label htmlFor="icon_sideeffects" />
           </div> */}
-
           <div className="col s12 center">
             <button
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
-              ADD TO DRUG LIST
+              UPDATE DRUG INFO
             </button>
           </div>
         </div>
@@ -89,7 +89,7 @@ class AddRxComponent extends Component {
       </form>
     );
   }
-  handleAddRx = event => {
+  handleEditRx = event => {
     //const { onSubmit } = this.props;
     event.preventDefault();
     const $form = event.target;
@@ -99,8 +99,13 @@ class AddRxComponent extends Component {
     const dosage = $form.icon_dosage.value.trim();
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
-    this.props.onAddRx({ generic, brand, indications, dosage });
+    this.props.onEditRx(this.props.RxItem.id, {
+      generic,
+      brand,
+      indications,
+      dosage
+    });
     this.props.history.push('/');
   };
 }
-export default withRouter(AddRxComponent);
+export default withRouter(EditRxComponent);

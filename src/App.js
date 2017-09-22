@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import OrderRxPageContainer from './redux/containers/OrderRxPageContainer';
 import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
+import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
 import setupStore from './redux/setupStore';
 
 import { Provider } from 'react-redux';
@@ -30,6 +31,11 @@ export default class App extends Component {
                 exact
                 path="/add-drug"
                 render={props => <CreateRxPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/drugs/:drugId"
+                render={props => <UpdateRxPageContainer {...props} />}
               />
             </Switch>
           </Router>

@@ -34,12 +34,14 @@ export default function RxComponent({
         <Link
           to="/add-drug"
           style={{
+            borderStyle: 'solid',
+            backgroundColor: 'white',
             color: 'brown',
             marginLeft: '40%',
-            fontSize: '20px',
-            textDecoration: 'underline'
+            fontSize: '30px',
+            fontWeight: 'bold'
           }}>
-          GO TO ADD-DRUG PAGE
+          &nbsp;&nbsp;GO TO ADD DRUG PAGE&nbsp;&nbsp;
         </Link>
       </div>
     );

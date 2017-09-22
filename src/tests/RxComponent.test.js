@@ -11,8 +11,8 @@ describe('a unit test for RxComponent', () => {
       generic: 'Atorvastatin',
       brand: 'Liptor',
       indications: 'lower cholesterol',
-      dosage: '10 mg once daily',
-      sideeffects: 'allergic reaction, red skin rash'
+      dosage: '10 mg once daily'
+      //sideeffects: 'allergic reaction, red skin rash'
     },
     {
       id: 2,
@@ -20,8 +20,8 @@ describe('a unit test for RxComponent', () => {
       generic: 'Levothyroxine',
       brand: 'Synthroid',
       indications: 'treat hypothyroidism',
-      dosage: '100 mcg once daily',
-      sideeffects: 'hypersensitivity pneumonitis,'
+      dosage: '100 mcg once daily'
+      //sideeffects: 'hypersensitivity pneumonitis,'
     },
     {
       id: 3,
@@ -29,8 +29,8 @@ describe('a unit test for RxComponent', () => {
       generic: 'Metformin',
       brand: 'Glucophage',
       indications: 'treat type 2 diabetes',
-      dosage: '500 mg: 1 tablet orally twice a day',
-      sideeffects: 'abdominal discomfort'
+      dosage: '500 mg: 1 tablet orally twice a day'
+      //sideeffects: 'abdominal discomfort'
     },
     {
       id: 4,
@@ -38,8 +38,8 @@ describe('a unit test for RxComponent', () => {
       generic: 'Azithromycin',
       brand: 'Zithromax',
       indications: 'treat infections caused by bacteria',
-      dosage: '500 mg: 1 tablet once daily for three days',
-      sideeffects: 'diarrhea'
+      dosage: '500 mg: 1 tablet once daily for three days'
+      //sideeffects: 'diarrhea'
     }
   ];
   const onAddItem = jest.fn();
@@ -51,8 +51,8 @@ describe('a unit test for RxComponent', () => {
         generic: 'Atorvastatin',
         brand: 'Liptor',
         indications: 'lower cholesterol',
-        dosage: '10 mg once daily',
-        sideeffects: 'allergic reaction, red skin rash'
+        dosage: '10 mg once daily'
+        //sideeffects: 'allergic reaction, red skin rash'
       }
     ];
     const fullWrapper = mount(

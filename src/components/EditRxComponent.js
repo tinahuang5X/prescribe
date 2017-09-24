@@ -24,7 +24,7 @@ class EditRxComponent extends Component {
               type="text"
               className="validate"
               placeholder={this.props.RxItem.generic}
-              required
+              //required
             />
             <label htmlFor="icon_generic" />
           </div>
@@ -37,7 +37,7 @@ class EditRxComponent extends Component {
               type="text"
               className="validate"
               placeholder={this.props.RxItem.brand}
-              required
+              //required
             />
             <label htmlFor="icon_brand" />
           </div>
@@ -49,7 +49,7 @@ class EditRxComponent extends Component {
               type="text"
               className="validate"
               placeholder={this.props.RxItem.indications}
-              required
+              //required
             />
             <label htmlFor="icon_indications" />
           </div>
@@ -61,7 +61,7 @@ class EditRxComponent extends Component {
               type="text"
               className="validate"
               placeholder={this.props.RxItem.dosage}
-              required
+              //required
             />
             <label htmlFor="icon_dosage" />
           </div>
@@ -93,10 +93,14 @@ class EditRxComponent extends Component {
     //const { onSubmit } = this.props;
     event.preventDefault();
     const $form = event.target;
-    const generic = $form.icon_generic.value.trim();
-    const brand = $form.icon_brand.value.trim();
-    const indications = $form.icon_indications.value.trim();
-    const dosage = $form.icon_dosage.value.trim();
+    let generic = $form.icon_generic.value.trim();
+    if (!generic) generic = this.props.RxItem.generic;
+    let brand = $form.icon_brand.value.trim();
+    if (!brand) brand = this.props.RxItem.brand;
+    let indications = $form.icon_indications.value.trim();
+    if (!indications) indications = this.props.RxItem.indications;
+    let dosage = $form.icon_dosage.value.trim();
+    if (!dosage) dosage = this.props.RxItem.dosage;
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
     this.props.onEditRx(this.props.RxItem.id, {

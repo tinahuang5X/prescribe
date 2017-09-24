@@ -47,7 +47,7 @@ export default function RxItemComponent({
               <thead>
                 <tr>
                   <th style={{ width: '30px' }}>Select</th>
-                  <th style={{ width: '100px' }}>Genreic Name </th>
+                  <th style={{ width: '100px' }}>Generic Name </th>
                   {/* <th style={{ width: '100px' }}>Brand Name</th> */}
                   <th style={{ width: '100px' }}>Indications</th>
                   <th style={{ width: '80px' }}>Dosage</th>

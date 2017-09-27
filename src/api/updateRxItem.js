@@ -1,5 +1,5 @@
 export default function updateRxitem(itemId, item, change) {
-  console.log(itemId, change);
+  console.log(itemId, item, change);
   return fetch(
     `https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescription/${itemId}`,
     {

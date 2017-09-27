@@ -12,7 +12,6 @@ const item = [
     brand: 'b',
     indications: 'c',
     dosage: 'd'
-    //sideeffects: 'allergic reaction, red skin rash'
   }
 ];
 
@@ -24,7 +23,6 @@ let RxItems = [
     brand: 'Liptor',
     indications: 'lower cholesterol',
     dosage: '10 mg once daily'
-    //sideeffects: 'allergic reaction, red skin rash'
   },
   {
     id: 2,

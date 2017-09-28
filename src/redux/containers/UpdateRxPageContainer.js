@@ -9,7 +9,8 @@ function mapStateToProps(state, ownProps) {
   // store.getState
   const { RxItems } = state;
 
-  //if (RxItems===null) //I want to dislay loading
+  //if (RxItems===null) I want to dislay loading
+
   const { drugId } = ownProps.match.params;
   const RxItem = RxItems.find(item => item.id === drugId) || null;
   //const RxItem = RxItemById[drugId] || null;

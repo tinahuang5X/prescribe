@@ -93,14 +93,14 @@ class EditRxComponent extends Component {
     //const { onSubmit } = this.props;
     event.preventDefault();
     const $form = event.target;
-    let generic = $form.icon_generic.value.trim();
-    if (!generic) generic = this.props.RxItem.generic;
-    let brand = $form.icon_brand.value.trim();
-    if (!brand) brand = this.props.RxItem.brand;
-    let indications = $form.icon_indications.value.trim();
-    if (!indications) indications = this.props.RxItem.indications;
-    let dosage = $form.icon_dosage.value.trim();
-    if (!dosage) dosage = this.props.RxItem.dosage;
+    let generic = $form.icon_generic.value.trim() || this.props.RxItem.generic;
+    let brand = $form.icon_brand.value.trim() || this.props.RxItem.brand;
+
+    let indications =
+      $form.icon_indications.value.trim() || this.props.RxItem.indications;
+
+    let dosage = $form.icon_dosage.value.trim() || this.props.RxItem.dosage;
+
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
     this.props.onEditRx(this.props.RxItem.id, {

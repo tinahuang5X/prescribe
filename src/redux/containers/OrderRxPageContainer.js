@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 import OrderRxPage from '../../components/OrderRxPage';
 
 import getRxItemsProcess from '../thunks/getRxItemsProcess';
-
+import getFilteredRxItemsProcess from '../thunks/getFilteredRxItemsProcess';
+import getSortedRxItemsProcess from '../thunks/getSortedRxItemsProcess';
 import deleteRxItemProcess from '../thunks/deleteRxItemProcess';
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
 
 function mapStateToProps(state, ownProps) {
   return {
+    filter: state.filter,
+    sort: state.sort,
     RxItems: state.RxItems,
     selected: state.selected,
     selectedItemIds: state.selectedItemIds,
@@ -21,6 +24,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     onMount: () => dispatch(getRxItemsProcess()),
+    onSubmitFilter: filter => dispatch(getFilteredRxItemsProcess(filter)),
+    onSubmitSort: sort => dispatch(getSortedRxItemsProcess(sort)),
     onAddItem: itemId => dispatch({ type: 'ADD_ITEM', itemId }),
     onRemoveItem: itemId => dispatch(deleteRxItemProcess(itemId)),
     onSelectItem: itemId => {

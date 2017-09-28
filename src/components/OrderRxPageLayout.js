@@ -45,7 +45,7 @@ export default function OrderRxPageLayout(props) {
           {props.children[0]}
         </div>
         <div
-          className="OrderRxForm"
+          className="ManageRxList"
           style={{
             display: 'inline-table',
             float: 'left',
@@ -56,7 +56,7 @@ export default function OrderRxPageLayout(props) {
           {props.children[1]}
         </div>
         <div
-          className="RxPad"
+          className="OrderRxForm"
           style={{
             display: 'inline-table',
             float: 'left',
@@ -66,16 +66,17 @@ export default function OrderRxPageLayout(props) {
           }}>
           {props.children[2]}
         </div>
-        {/* <div
+        <div
           className="RxPad"
           style={{
-            display: 'flex',
+            display: 'inline-table',
+            float: 'left',
             flexdirection: 'column',
-            width: '30%',
-            marginLeft: '30px'
+            width: '25%',
+            marginLeft: '10px'
           }}>
           {props.children[3]}
-        </div> */}
+        </div>
       </div>
     </div>
   );

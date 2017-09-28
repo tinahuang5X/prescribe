@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import { Button, Dropdown, NavItem } from 'react-materialize';
 //import Dropdown from 'react-dropdown';
+import image from '../images/pill.png';
 
 export default class ManageRxListComponent extends Component {
   render() {
@@ -41,6 +42,14 @@ export default class ManageRxListComponent extends Component {
           </div>
         </form>
 
+        <br />
+        <img
+          src={image}
+          alt="heart-img"
+          width="130px"
+          style={{ marginLeft: '30px' }}
+        />
+        <br />
         <br />
         <div className="col s12" style={{ marginLeft: '14px' }}>
           <a

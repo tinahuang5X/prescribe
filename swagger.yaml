@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Q3 Project:RESTful "CRUD" API with Express and Knex
+
+host: prescribe.surge.sh
+
+basePath: /api/v1
+
+schemes:
+
+  - http
+  - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+  - text/plain
+paths:
+  /:
+
+    x-swagger-router-controller: drugs
+    get:
+      summary: get all prescription drugs
+      description: This endpoint returns all drugs available in the database
+
+      operationId: getDrugs
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/getDrugs"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    post:
+      summary: Add a new drug to the database
+      description: Add a new drug
+      operationId: addDrug
+
+      parameters:
+        - name: drug
+          in: body
+          description: drug object
+          required: true
+          schema:
+            $ref: "#/definitions/NewDrug"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Drug"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  drugs/{drug_id}:
+
+    x-swagger-router-controller: drugs
+    get:
+      summary: Edit a specific drug from our database.
+      description: Retrieve a single drug by id
+      operationId: getDrug
+
+      parameters:
+        - name: drug_id
+          type: integer
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetUserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"

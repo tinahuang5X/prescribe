@@ -18,6 +18,7 @@ export default function createRxItem(RxItem) {
   })
     .then(response => response.json())
     .then(record => {
+      console.log(record);
       return {
         id: record.id,
         generic: record.fields.generic,

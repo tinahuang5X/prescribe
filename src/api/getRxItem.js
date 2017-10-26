@@ -1,6 +1,6 @@
 export default function getRxItem(itemId) {
   return fetch(
-    `https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescriptions${itemId}`,
+    `https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescriptions/${itemId}`,
     {
       method: 'GET',
       headers: { Authorization: 'Bearer keyHJ1xR1rls6rSoR' }

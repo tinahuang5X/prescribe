@@ -12,6 +12,9 @@ export default function rootReducer(
     case 'SET_ITEMS':
       console.log(action.RxItems);
       return { ...currentState, RxItems: action.RxItems };
+    case 'SET_ITEM':
+      console.log(action.RxItem);
+      return { ...currentState, RxItem: action.RxItem };
     case 'SELECT_ITEM':
       return {
         ...currentState,

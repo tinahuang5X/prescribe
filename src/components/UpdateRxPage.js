@@ -7,6 +7,7 @@ export default function UpdateRxPage({
   RxItem,
   onEditRx
 }) {
+  //console.log('foo', props);
   return (
     //<div id={id} className="OrderPage">
     <div
@@ -18,6 +19,7 @@ export default function UpdateRxPage({
         borderStyle: 'solid',
         backgroundColor: 'MISTYROSE'
       }}>
+      {console.log(RxItem)}
       <EditRxComponent RxItem={RxItem} onEditRx={onEditRx} />
     </div>
   );

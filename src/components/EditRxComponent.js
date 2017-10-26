@@ -26,6 +26,7 @@ class EditRxComponent extends Component {
               placeholder={this.props.RxItem.generic}
               //required
             />
+            console.log(this.props.RxItem);
             <label htmlFor="icon_generic" />
           </div>
 
@@ -85,6 +86,7 @@ class EditRxComponent extends Component {
             </button>
           </div>
         </div>
+
         <br />
       </form>
     );
@@ -93,13 +95,14 @@ class EditRxComponent extends Component {
     //const { onSubmit } = this.props;
     event.preventDefault();
     const $form = event.target;
-    let generic = $form.icon_generic.value.trim() || this.props.RxItem.generic;
-    let brand = $form.icon_brand.value.trim() || this.props.RxItem.brand;
+    const generic =
+      $form.icon_generic.value.trim() || this.props.RxItem.generic;
+    const brand = $form.icon_brand.value.trim() || this.props.RxItem.brand;
 
-    let indications =
+    const indications =
       $form.icon_indications.value.trim() || this.props.RxItem.indications;
 
-    let dosage = $form.icon_dosage.value.trim() || this.props.RxItem.dosage;
+    const dosage = $form.icon_dosage.value.trim() || this.props.RxItem.dosage;
 
     //const sideeffects = $form.icon_sideeffects.value.trim();
 

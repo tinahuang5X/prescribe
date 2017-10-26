@@ -31,6 +31,7 @@ export default class ManageRxListComponent extends Component {
                   backgroundColor: 'white',
                   color: 'black'
                 }}
+                required
               />
               <button
                 type="submit"
@@ -45,7 +46,7 @@ export default class ManageRxListComponent extends Component {
         <br />
         <img
           src={image}
-          alt="heart-img"
+          alt="pill-img"
           width="130px"
           style={{ marginLeft: '30px' }}
         />

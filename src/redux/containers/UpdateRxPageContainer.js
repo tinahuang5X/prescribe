@@ -5,23 +5,33 @@ import UpdateRxPage from '../../components/UpdateRxPage';
 
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
 import getRxItemProcess from '../thunks/getRxItemProcess';
+import getRxItemsProcess from '../thunks/getRxItemsProcess';
 
 function mapStateToProps(state, ownProps) {
   // store.getState
   const { RxItems } = state;
 
+  //if (RxItems===null) I want to dislay loading
+
   const { drugId } = ownProps.match.params;
   const RxItem = RxItems.find(item => item.id === drugId) || null;
   //const RxItem = RxItemById[drugId] || null;
+  console.log(RxItems);
   return {
     RxItem
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
-  //let itemId = ownProps.match.params.drugId;
+  // let itemId = ownProps.match.params.drugId;
   return {
-    onMount: () => dispatch(getRxItemProcess(ownProps.match.params.drugId)),
+    onMount: () => {
+      dispatch(getRxItemsProcess()).then(() => {
+        dispatch(getRxItemProcess(ownProps.match.params.drugId));
+      });
+    },
+    //onMount: () => dispatch(getRxItemsProcess()),
+    //onMount: () => dispatch(getRxItemProcess(ownProps.match.params.drugId)),
     onEditRx: (itemId, item) =>
       dispatch(
         updateRxItemProcess(itemId, item, {

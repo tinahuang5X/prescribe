@@ -8,7 +8,7 @@ export default function getRxItem(itemId) {
   )
     .then(response => {
       console.log(response);
-      response.json();
+      return response.json();
     })
     .then(record => {
       console.log(record);

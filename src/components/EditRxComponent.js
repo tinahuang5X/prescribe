@@ -23,10 +23,10 @@ class EditRxComponent extends Component {
               id="icon_generic"
               type="text"
               className="validate"
-              placeholder={this.props.RxItem.generic}
+              placeholder={this.props.RxItem && this.props.RxItem.generic}
               //required
             />
-            console.log(this.props.RxItem);
+
             <label htmlFor="icon_generic" />
           </div>
 
@@ -37,9 +37,10 @@ class EditRxComponent extends Component {
               id="icon_brand"
               type="text"
               className="validate"
-              placeholder={this.props.RxItem.brand}
+              placeholder={this.props.RxItem && this.props.RxItem.brand}
               //required
             />
+            {console.log(this.props.RxItem)}
             <label htmlFor="icon_brand" />
           </div>
           <div className="input-field col s12">
@@ -49,7 +50,7 @@ class EditRxComponent extends Component {
               id="icon_indications"
               type="text"
               className="validate"
-              placeholder={this.props.RxItem.indications}
+              placeholder={this.props.RxItem && this.props.RxItem.indications}
               //required
             />
             <label htmlFor="icon_indications" />
@@ -61,7 +62,7 @@ class EditRxComponent extends Component {
               id="icon_dosage"
               type="text"
               className="validate"
-              placeholder={this.props.RxItem.dosage}
+              placeholder={this.props.RxItem && this.props.RxItem.dosage}
               //required
             />
             <label htmlFor="icon_dosage" />

@@ -1,6 +1,6 @@
 export default function rootReducer(
   currentState = {
-    RxItems: null,
+    RxItems: [],
     selectedItemIds: [],
     orderItems: [],
     patientInfo: null

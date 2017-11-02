@@ -3,7 +3,9 @@ export default function rootReducer(
     RxItems: [],
     selectedItemIds: [],
     orderItems: [],
-    patientInfo: null
+    patientInfo: null,
+    doctorInfo: [],
+    doctors: []
   },
   action
 ) {
@@ -57,10 +59,21 @@ export default function rootReducer(
         ...currentState,
         RxItems: [...currentState.RxItems, action.addedItem]
       };
+
+    case 'SUBMIT_MDINFO':
+      return {
+        ...currentState,
+        doctors: [...currentState.doctors, action.addedDoctor]
+      };
     case 'SUBMIT_INFO':
       return {
         ...currentState,
         patientInfo: action.patientInfo
+      };
+    case 'SUBMIT_LOGININFO':
+      return {
+        ...currentState,
+        doctorInfo: [...currentState.doctorInfo, action.addedInfo]
       };
 
     case 'TRANSMIT_ORDER':

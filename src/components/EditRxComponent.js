@@ -113,7 +113,7 @@ class EditRxComponent extends Component {
       indications,
       dosage
     });
-    this.props.history.push('/');
+    this.props.history.push('/order');
   };
 }
 export default withRouter(EditRxComponent);

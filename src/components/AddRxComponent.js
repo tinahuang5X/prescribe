@@ -100,7 +100,7 @@ class AddRxComponent extends Component {
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
     this.props.onAddRx({ generic, brand, indications, dosage });
-    this.props.history.push('/');
+    this.props.history.push('/order');
   };
 }
 export default withRouter(AddRxComponent);

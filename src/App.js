@@ -4,6 +4,8 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import OrderRxPageContainer from './redux/containers/OrderRxPageContainer';
 import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
 import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
+import LoginPageContainer from './redux/containers/LoginPageContainer';
+import SignupPageContainer from './redux/containers/SignupPageContainer';
 import setupStore from './redux/setupStore';
 
 import { Provider } from 'react-redux';
@@ -17,14 +19,19 @@ export default class App extends Component {
         <Provider store={store}>
           <Router>
             <Switch>
-              {/* <Route
-                exact
-                path="/"
-                render={props => <IndexPageContainer {...props} />}
-              /> */}
               <Route
                 exact
                 path="/"
+                render={props => <SignupPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/login"
+                render={props => <LoginPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/order"
                 render={props => <OrderRxPageContainer {...props} />}
               />
               <Route

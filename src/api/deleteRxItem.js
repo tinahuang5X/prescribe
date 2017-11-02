@@ -1,16 +1,16 @@
+import env from '../env';
+
 export default function deleteRxItem(itemId) {
   console.log(itemId);
-  return fetch(
-    `https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescription/${itemId}`,
-    {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Bearer keyHJ1xR1rls6rSoR'
-      }
-    }
-  )
-    .then(response => response.json())
+  return fetch(`${env.API_BASE_URL}/drugs/${itemId}`, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
     .then(record => {
+      console.log(record);
       return {
         deleted: true,
         id: record.id

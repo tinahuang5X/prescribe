@@ -1,18 +1,24 @@
+import env from '../env';
+
 export default function getRxItems() {
-  return fetch('https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescriptions', {
-    headers: { Authorization: 'Bearer keyHJ1xR1rls6rSoR' }
-  })
-    .then(response => response.json())
-    .then(data =>
-      data.records.map(record => ({
+  return fetch(`${env.API_BASE_URL}/doctors/1/drugs`)
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(records => {
+      console.log(records);
+
+      return records.map(record => ({
         id: record.id,
-        generic: record.fields.generic,
-        brand: record.fields.brand,
-        indications: record.fields.indications,
-        dosage: record.fields.dosage,
-        sideeffects: record.fields.sideeffects
-      }))
-    );
+        doctorId: record.doctorId,
+        generic: record.generic,
+        brand: record.brand,
+        indications: record.indications
+        //dosage: record.fields.dosage,
+        //sideeffects: record.fields.sideeffects
+      }));
+    });
   // .then(messages => {
   //   console.log(messages);
   // });

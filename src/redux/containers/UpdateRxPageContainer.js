@@ -14,9 +14,10 @@ function mapStateToProps(state, ownProps) {
   //if (RxItems===null) I want to dislay loading
 
   const { drugId } = ownProps.match.params;
-  const RxItem = RxItems.find(item => item.id === drugId) || null;
+  const drugIdInt = parseInt(drugId, 10);
+  const RxItem = RxItems.find(item => item.id === drugIdInt) || [];
   //const RxItem = RxItemById[drugId] || null;
-  console.log(RxItems);
+
   return {
     RxItem
   };
@@ -32,15 +33,17 @@ function mapDispatchToProps(dispatch, ownProps) {
     },
     //onMount: () => dispatch(getRxItemsProcess()),
     //onMount: () => dispatch(getRxItemProcess(ownProps.match.params.drugId)),
-    onEditRx: (itemId, item) =>
-      dispatch(
+    onEditRx: (itemId, item) => {
+      console.log(itemId, item);
+      return dispatch(
         updateRxItemProcess(itemId, item, {
           generic: item.generic,
           brand: item.brand,
-          indications: item.indications,
-          dosage: item.dosage
+          indications: item.indications
+          //dosage: item.dosage
         })
-      )
+      );
+    }
   };
 }
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

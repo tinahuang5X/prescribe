@@ -1,25 +1,22 @@
+import env from '../env';
+
 export default function updateRxitem(itemId, item, change) {
   console.log(itemId, item, change);
-  return fetch(
-    `https://api.airtable.com/v0/appWreDYfOK0lIvZM/Prescription/${itemId}`,
-    {
-      method: 'PATCH',
-      headers: {
-        Authorization: 'Bearer keyHJ1xR1rls6rSoR',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ fields: change })
-    }
-  )
+  return fetch(`${env.API_BASE_URL}/drugs/${itemId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(change)
+  })
     .then(response => response.json())
     .then(record => {
       console.log(record);
       return {
         id: record.id,
-        generic: record.fields.generic,
-        brand: record.fields.brand,
-        indications: record.fields.indications,
-        dosage: record.fields.dosage
+        doctorId: record.doctorId,
+        generic: record.generic,
+        brand: record.brand,
+        indications: record.indications
+        //dosage: record.fields.dosage
         //sideeffects: record.fields.sideeffects
       };
     });

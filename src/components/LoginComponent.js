@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginComponent extends Component {
   render() {
@@ -42,19 +42,19 @@ class LoginComponent extends Component {
           </div>
 
           <div className="col s12 center">
-            {/* <button
+            <button
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
               LOG IN
-            </button> */}
-            <Link
+            </button>
+            {/* <Link
               to="/order"
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
               LOG IN
-            </Link>
+            </Link> */}
           </div>
         </div>
         <br />

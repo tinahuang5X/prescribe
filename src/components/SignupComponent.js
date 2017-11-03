@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SignupComponent extends Component {
   render() {
@@ -56,7 +56,7 @@ class SignupComponent extends Component {
             <i className="material-icons prefix">lock</i>
             <input
               id="icon_password"
-              type="text"
+              type="password"
               className="validate"
               placeholder="Password"
               required
@@ -65,12 +65,19 @@ class SignupComponent extends Component {
           </div>
 
           <div className="col s12 center">
-            <button
+            {/* <button
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
               SIGN UP
-            </button>
+            </button> */}
+            <Link
+              to="/login"
+              className="btn waves-effect waves-light red darken-2"
+              type="submit"
+              name="action">
+              SIGN UP
+            </Link>
           </div>
         </div>
         <br />
@@ -88,7 +95,7 @@ class SignupComponent extends Component {
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
     this.props.onSignup({ firstName, lastName, email, password });
-    this.props.history.push('/login');
+    //this.props.history.push('/login');
   };
 }
 export default withRouter(SignupComponent);

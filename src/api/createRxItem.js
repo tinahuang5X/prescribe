@@ -1,10 +1,14 @@
 import env from '../env';
 
 export default function createRxItem(RxItem) {
+  let storedToken = localStorage.getItem('token');
+  let storedId = localStorage.getItem('doctorId');
+  console.log(storedToken, storedId);
   console.log(RxItem);
-  return fetch(`${env.API_BASE_URL}/doctors/1/drugs`, {
+  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
     method: 'POST',
     headers: {
+      Authorization: storedToken,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({

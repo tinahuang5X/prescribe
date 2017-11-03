@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class LoginComponent extends Component {
   render() {
@@ -33,7 +33,7 @@ class LoginComponent extends Component {
             <i className="material-icons prefix">lock</i>
             <input
               id="icon_password"
-              type="text"
+              type="password"
               className="validate"
               placeholder="Password"
               required
@@ -42,12 +42,19 @@ class LoginComponent extends Component {
           </div>
 
           <div className="col s12 center">
-            <button
+            {/* <button
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
               LOG IN
-            </button>
+            </button> */}
+            <Link
+              to="/order"
+              className="btn waves-effect waves-light red darken-2"
+              type="submit"
+              name="action">
+              LOG IN
+            </Link>
           </div>
         </div>
         <br />

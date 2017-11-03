@@ -2,6 +2,9 @@ import env from '../env';
 
 export default function doctorLogin(doctorInfo) {
   console.log(doctorInfo);
+  //localStorage.clear();
+  //localStorage.removeItem('token');
+  //localStorage.removeItem('doctorId');
   return fetch(`${env.API_BASE_URL}/token`, {
     method: 'POST',
     headers: {
@@ -18,6 +21,9 @@ export default function doctorLogin(doctorInfo) {
     })
     .then(record => {
       console.log(record);
+      //localStorage.setItem('token', record.token);
+      //localStorage.setItem('doctorId', record.id);
+
       return {
         id: record.id,
         firstName: record.firstName,

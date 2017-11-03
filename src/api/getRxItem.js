@@ -1,7 +1,17 @@
 import env from '../env';
 
 export default function getRxItem(itemId) {
-  return fetch(`${env.API_BASE_URL}/doctors/1/drugs/${itemId}`)
+  let storedToken = localStorage.getItem('token');
+  let storedId = localStorage.getItem('doctorId');
+  console.log(storedToken, storedId);
+
+  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs/${itemId}`, {
+    method: 'GET',
+    headers: {
+      Authorization: storedToken,
+      'Content-Type': 'application/json'
+    }
+  })
     .then(response => {
       console.log(response);
       return response.json();

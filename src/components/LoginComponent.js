@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class LoginComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasValidationError: false };
+  }
   render() {
     return (
       <form className="col s12" onSubmit={this.handleLogin}>
@@ -48,6 +52,11 @@ class LoginComponent extends Component {
               name="action">
               LOG IN
             </button>
+            {this.state.hasValidationError
+              ? <p style={{ color: 'red', fontWeight: 'bold' }}>
+                  {' '}Please enter valid data.{' '}
+                </p>
+              : null}
             {/* <Link
               to="/order"
               className="btn waves-effect waves-light red darken-2"
@@ -69,8 +78,12 @@ class LoginComponent extends Component {
     const password = $form.icon_password.value.trim();
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
-    this.props.onLogin({ email, password });
-    this.props.history.push('/order');
+    let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (email.match(regEmail) && password.length >= 8) {
+      this.props.onLogin({ email, password });
+      this.props.history.push('/order');
+    } else this.setState({ hasValidationError: true });
   };
 }
 export default withRouter(LoginComponent);

@@ -20,6 +20,9 @@ export default function getRxItems() {
       console.log(records);
 
       return records.map(record => ({
+        // .then(record => {
+        //   console.log(record);
+        //   return {
         id: record.id,
         doctorId: record.doctorId,
         generic: record.generic,

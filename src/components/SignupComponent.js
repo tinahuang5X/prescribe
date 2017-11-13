@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SignupComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasValidationError: false };
+  }
   render() {
     return (
       <form className="col s12" onSubmit={this.handleSignup}>
@@ -71,13 +75,34 @@ class SignupComponent extends Component {
               name="action">
               SIGN UP
             </button>
-            {/* <Link
+            {this.state.hasValidationError
+              ? <p style={{ color: 'red', fontWeight: 'bold' }}>
+                  {' '}Please enter valid data and a password at least 8
+                  characters long.{' '}
+                </p>
+              : null}
+            <br />
+            <br />
+            <p
+              className="header"
+              style={{
+                textAlign: 'center',
+                color: 'brown'
+              }}>
+              _____________________________________________________________________________________________________________
+              <br />
+              <br />If you have already signed up, please click the button below
+              to log in.
+            </p>
+
+            <br />
+            <Link
               to="/login"
               className="btn waves-effect waves-light red darken-2"
               type="submit"
               name="action">
-              SIGN UP
-            </Link> */}
+              LOG IN
+            </Link>
           </div>
         </div>
         <br />
@@ -94,8 +119,18 @@ class SignupComponent extends Component {
     const password = $form.icon_password.value.trim();
     //const sideeffects = $form.icon_sideeffects.value.trim();
 
-    this.props.onSignup({ firstName, lastName, email, password });
-    this.props.history.push('/login');
+    let regName = /^[a-zA-Z ]{2,30}$/;
+    let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (
+      firstName.match(regName) &&
+      lastName.match(regName) &&
+      email.match(regEmail) &&
+      password.length >= 8
+    ) {
+      this.props.onSignup({ firstName, lastName, email, password });
+      this.props.history.push('/login');
+    } else this.setState({ hasValidationError: true });
   };
 }
 export default withRouter(SignupComponent);

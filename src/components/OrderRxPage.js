@@ -26,12 +26,15 @@ export default function OrderRxPage({
   //onAddRx,
   onSubmit,
   onTransmit,
-  onSwitch
+  onSwitch,
+  onLogout,
+  history
 }) {
+  //console.log(onLogout);
   return (
     //<div id={id} className="OrderPage">
     <div className="OrderRxPage">
-      <OrderRxPageLayout>
+      <OrderRxPageLayout onLogout={onLogout} history={history}>
         <RxComponent
           items={RxItems}
           selected={selected}

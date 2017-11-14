@@ -21,8 +21,9 @@ export default function doctorLogin(doctorInfo) {
     })
     .then(record => {
       console.log(record);
-      //localStorage.setItem('token', record.token);
-      //localStorage.setItem('doctorId', record.id);
+      let storedToken = localStorage.getItem('token');
+      let storedId = localStorage.getItem('doctorId');
+      console.log(storedToken, storedId);
 
       return {
         id: record.id,

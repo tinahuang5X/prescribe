@@ -65,6 +65,13 @@ export default function rootReducer(
         ...currentState,
         doctors: [...currentState.doctors, action.addedDoctor]
       };
+
+    case 'REMOVE_MDINFO':
+      return {
+        ...currentState,
+        doctors: [...currentState.doctors, action.doctorInfo]
+      };
+
     case 'SUBMIT_INFO':
       return {
         ...currentState,

@@ -8,8 +8,10 @@ import getFilteredRxItemsProcess from '../thunks/getFilteredRxItemsProcess';
 import getSortedRxItemsProcess from '../thunks/getSortedRxItemsProcess';
 import deleteRxItemProcess from '../thunks/deleteRxItemProcess';
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
+//import doctorLoginProcess from '../thunks/doctorLoginProcess';
 
 function mapStateToProps(state, ownProps) {
+  console.log(state, ownProps);
   return {
     filter: state.filter,
     sort: state.sort,
@@ -32,6 +34,7 @@ function mapDispatchToProps(dispatch) {
       console.log(itemId, 'is this unique?');
       dispatch({ type: 'SELECT_ITEM', itemId });
     },
+    onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null }),
 
     onDeselectItem: itemId => dispatch({ type: 'DESELECT_ITEM', itemId }),
     onSwitch: (itemId, item) => {

@@ -1,6 +1,6 @@
 import env from '../env';
 
-export default function doctorSignup(doctorInfo) {
+export default function doctorSignup(doctorInfo, history) {
   console.log(doctorInfo);
   return fetch(`${env.API_BASE_URL}/doctors`, {
     method: 'POST',
@@ -17,10 +17,16 @@ export default function doctorSignup(doctorInfo) {
   })
     .then(response => {
       console.log(response);
-      return response.json();
+      if (response.status === 400) history.push('/');
+
+      return response.text();
     })
     .then(record => {
       console.log(record);
+      //localStorage.removeItem('message');
+      localStorage.setItem('message', record);
+      let storedMsg = localStorage.getItem('message');
+      console.log(storedMsg);
       return {
         id: record.id,
         firstName: record.firstName,

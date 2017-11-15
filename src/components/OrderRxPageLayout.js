@@ -35,9 +35,9 @@ class OrderRxPageLayout extends Component {
                   <i className="material-icons">Prescriptions</i>
                 </a>
                 <ul className="right hide-on-med-and-down">
-                  <li className="active">
+                  {/* <li className="active">
                     <a href=".">Refresh Drug List</a>
-                  </li>
+                  </li> */}
                   <li className="active">
                     <button
                       className="btn waves-effect waves-light red darken-2"

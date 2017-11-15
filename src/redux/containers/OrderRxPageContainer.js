@@ -1,3 +1,4 @@
+//import { compose } from 'recompose';
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 
@@ -8,10 +9,10 @@ import getFilteredRxItemsProcess from '../thunks/getFilteredRxItemsProcess';
 import getSortedRxItemsProcess from '../thunks/getSortedRxItemsProcess';
 import deleteRxItemProcess from '../thunks/deleteRxItemProcess';
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
-//import doctorLoginProcess from '../thunks/doctorLoginProcess';
 
 function mapStateToProps(state, ownProps) {
   console.log(state, ownProps);
+
   return {
     filter: state.filter,
     sort: state.sort,
@@ -19,7 +20,8 @@ function mapStateToProps(state, ownProps) {
     selected: state.selected,
     selectedItemIds: state.selectedItemIds,
     orderItems: state.orderItems,
-    patientInfo: state.patientInfo
+    patientInfo: state.patientInfo,
+    doctorInfo: state.doctorInfo
   };
 }
 
@@ -76,3 +78,4 @@ const onDidMount = lifecycle({
 });
 
 export default compose(connectToStore, onDidMount)(OrderRxPage);
+//export default compose(connectToStore)(OrderRxPage);

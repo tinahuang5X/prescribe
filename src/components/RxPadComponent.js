@@ -47,7 +47,7 @@ export default function RxPadComponent({
       )}
       <p>
         approved by:&nbsp;&nbsp;
-        <span style={{ textDecoration: 'underline' }}>Dr. Tina Huang</span>
+        <span style={{ textDecoration: 'underline' }}>Dr. </span>
       </p>
       <button
         className="waves-effect waves-light btn red darken-2"

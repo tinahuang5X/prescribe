@@ -1,6 +1,6 @@
 import env from '../env';
 
-export default function doctorLogin(doctorInfo) {
+export default function doctorLogin(doctorInfo, history) {
   console.log(doctorInfo);
   //localStorage.clear();
   //localStorage.removeItem('token');
@@ -17,6 +17,7 @@ export default function doctorLogin(doctorInfo) {
   })
     .then(response => {
       console.log(response);
+      if (response.status === 400) history.push('/login');
       return response.json();
     })
     .then(record => {

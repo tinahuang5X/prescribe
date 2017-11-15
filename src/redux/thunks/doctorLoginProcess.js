@@ -1,9 +1,9 @@
 import doctorLogin from '../../api/doctorLogin';
 
-export default function doctorLoginProcess(doctorInfo) {
+export default function doctorLoginProcess(doctorInfo, history) {
   return (dispatch, getState) => {
     //localStorage.clear();
-    return doctorLogin(doctorInfo).then(doctorInfo => {
+    return doctorLogin(doctorInfo, history).then(doctorInfo => {
       localStorage.setItem('token', doctorInfo.token);
       localStorage.setItem('doctorId', doctorInfo.id);
       let storedToken = localStorage.getItem('token');

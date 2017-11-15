@@ -4,12 +4,22 @@ import { withRouter, Link } from 'react-router-dom';
 class SignupComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasValidationError: false };
+    this.state = {
+      hasValidationError: false,
+      theStoredMsg: null
+    };
   }
+
   render() {
     return (
       <form className="col s12" onSubmit={this.handleSignup}>
         <div className="row">
+          {console.log(this.state.theStoreMsg)}
+          {this.state.theStoredMsg
+            ? <p style={{ color: 'red', fontWeight: 'bold' }}>
+                {this.state.theStoredMsg}
+              </p>
+            : null}
           <h5
             className="header"
             style={{
@@ -112,6 +122,11 @@ class SignupComponent extends Component {
   handleSignup = event => {
     //const { onSubmit } = this.props;
     event.preventDefault();
+    //localStorage.removeItem('message');
+    //let storedMsg = localStorage.getItem('message');
+    //console.log(storedMsg);
+
+    console.log(this.state.theStoredMsg);
     const $form = event.target;
     const firstName = $form.icon_firstName.value.trim();
     const lastName = $form.icon_lastName.value.trim();
@@ -129,8 +144,19 @@ class SignupComponent extends Component {
       password.length >= 8
     ) {
       this.props.onSignup({ firstName, lastName, email, password });
-      this.props.history.push('/login');
-    } else this.setState({ hasValidationError: true });
+      let storedMsg = localStorage.getItem('message');
+      console.log(storedMsg);
+      if (storedMsg) {
+        this.setState({ theStoredMsg: storedMsg });
+        this.setState({ hasValidationError: false });
+      } else {
+        this.props.history.push('/login');
+      }
+    } else {
+      this.setState({ theStoredMsg: null });
+      this.setState({ hasValidationError: true });
+      console.log(this.state.hasValidationError);
+    }
   };
 }
 export default withRouter(SignupComponent);

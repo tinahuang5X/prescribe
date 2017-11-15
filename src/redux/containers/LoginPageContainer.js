@@ -7,9 +7,12 @@ import doctorLoginProcess from '../thunks/doctorLoginProcess';
 import getRxItemsProcess from '../thunks/getRxItemsProcess';
 
 function mapDispatchToProps(dispatch, ownProps) {
+  console.log('find', ownProps.history);
   return {
     onLogin: ({ email, password }) => {
-      dispatch(doctorLoginProcess({ email, password })).then(() => {
+      dispatch(
+        doctorLoginProcess({ email, password }, ownProps.history)
+      ).then(() => {
         dispatch(getRxItemsProcess());
       });
     }

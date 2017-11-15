@@ -14,12 +14,6 @@ class SignupComponent extends Component {
     return (
       <form className="col s12" onSubmit={this.handleSignup}>
         <div className="row">
-          {console.log(this.state.theStoreMsg)}
-          {this.state.theStoredMsg
-            ? <p style={{ color: 'red', fontWeight: 'bold' }}>
-                {this.state.theStoredMsg}
-              </p>
-            : null}
           <h5
             className="header"
             style={{
@@ -37,7 +31,7 @@ class SignupComponent extends Component {
               type="text"
               className="validate"
               placeholder="First Name"
-              required
+              //required
             />
             <label htmlFor="icon_firstName" />
           </div>
@@ -49,7 +43,7 @@ class SignupComponent extends Component {
               type="text"
               className="validate"
               placeholder="Last Name"
-              required
+              //required
             />
             <label htmlFor="icon_lastName" />
           </div>
@@ -61,7 +55,7 @@ class SignupComponent extends Component {
               type="text"
               className="validate"
               placeholder="Email Address"
-              required
+              //required
             />
             <label htmlFor="icon_email" />
           </div>
@@ -73,7 +67,7 @@ class SignupComponent extends Component {
               type="password"
               className="validate"
               placeholder="Password"
-              required
+              //required
             />
             <label htmlFor="icon_password" />
           </div>
@@ -85,10 +79,28 @@ class SignupComponent extends Component {
               name="action">
               SIGN UP
             </button>
+            <br />
+            <br />
             {this.state.hasValidationError
-              ? <p style={{ color: 'red', fontWeight: 'bold' }}>
-                  {' '}Please enter valid data and a password at least 8
-                  characters long.{' '}
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Please enter valid data and a password at least 8 characters
+                  long.
+                </p>
+              : null}
+            {console.log(this.state.theStoredMsg)}
+            {this.state.theStoredMsg
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  {this.state.theStoredMsg}
                 </p>
               : null}
             <br />
@@ -104,7 +116,6 @@ class SignupComponent extends Component {
               <br />If you have already signed up, please click the button below
               to log in.
             </p>
-
             <br />
             <Link
               to="/login"

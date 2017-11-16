@@ -17,15 +17,23 @@ export default function doctorLogin(doctorInfo, history) {
   })
     .then(response => {
       console.log(response);
-      if (response.status === 400) history.push('/login');
+      if (response.status === 400) {
+        history.push('/login');
+        localStorage.setItem('message', 'Wrong email or password.');
+        let storedMsg = localStorage.getItem('message');
+        console.log(storedMsg);
+        //console.log(response.statusText);
+      }
       return response.json();
     })
     .then(record => {
       console.log(record);
+      localStorage.setItem('token', record.token);
+      localStorage.setItem('doctorId', record.id);
       let storedToken = localStorage.getItem('token');
       let storedId = localStorage.getItem('doctorId');
       console.log(storedToken, storedId);
-
+      history.push('/order');
       return {
         id: record.id,
         firstName: record.firstName,

@@ -4,7 +4,10 @@ import { withRouter } from 'react-router-dom';
 class LoginComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasValidationError: false };
+    this.state = {
+      hasValidationError: false,
+      theStoredMsg: null
+    };
   }
   render() {
     return (
@@ -28,7 +31,7 @@ class LoginComponent extends Component {
               type="text"
               className="validate"
               placeholder="Email Address"
-              required
+              //required
             />
             <label htmlFor="icon_email" />
           </div>
@@ -40,7 +43,7 @@ class LoginComponent extends Component {
               type="password"
               className="validate"
               placeholder="Password"
-              required
+              //required
             />
             <label htmlFor="icon_password" />
           </div>
@@ -53,8 +56,23 @@ class LoginComponent extends Component {
               LOG IN
             </button>
             {this.state.hasValidationError
-              ? <p style={{ color: 'red', fontWeight: 'bold' }}>
-                  {' '}Please enter valid data.{' '}
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Please enter valid data.
+                </p>
+              : null}
+            {this.state.theStoredMsg
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  {this.state.theStoredMsg}
                 </p>
               : null}
             {/* <Link
@@ -82,8 +100,17 @@ class LoginComponent extends Component {
 
     if (email.match(regEmail) && password.length >= 8) {
       this.props.onLogin({ email, password });
-      this.props.history.push('/order');
-    } else this.setState({ hasValidationError: true });
+      let storedMsg = localStorage.getItem('message');
+      console.log(storedMsg);
+      if (storedMsg) {
+        this.setState({ theStoredMsg: storedMsg });
+        this.setState({ hasValidationError: false });
+      }
+    } else {
+      this.setState({ theStoredMsg: null });
+      this.setState({ hasValidationError: true });
+      console.log(this.state.hasValidationError);
+    }
   };
 }
 export default withRouter(LoginComponent);

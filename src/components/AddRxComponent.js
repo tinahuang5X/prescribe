@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class AddRxComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasValidationError: false };
+  }
   render() {
     return (
       <form className="col s12" onSubmit={this.handleAddRx}>
@@ -23,7 +27,7 @@ class AddRxComponent extends Component {
               type="text"
               className="validate"
               placeholder="Generic"
-              required
+              //required
             />
             <label htmlFor="icon_generic" />
           </div>
@@ -35,7 +39,7 @@ class AddRxComponent extends Component {
               type="text"
               className="validate"
               placeholder="Brand"
-              required
+              //required
             />
             <label htmlFor="icon_brand" />
           </div>
@@ -47,7 +51,7 @@ class AddRxComponent extends Component {
               type="text"
               className="validate"
               placeholder="Indications"
-              required
+              //required
             />
             <label htmlFor="icon_indications" />
           </div>
@@ -59,7 +63,7 @@ class AddRxComponent extends Component {
               type="text"
               className="validate"
               placeholder="Dosage"
-              required
+              //required
             />
             <label htmlFor="icon_dosage" />
           </div>
@@ -83,6 +87,16 @@ class AddRxComponent extends Component {
               name="action">
               ADD TO DRUG LIST
             </button>
+            {this.state.hasValidationError
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Please enter valid data.
+                </p>
+              : null}
           </div>
         </div>
         <br />
@@ -98,9 +112,11 @@ class AddRxComponent extends Component {
     const indications = $form.icon_indications.value.trim();
     const dosage = $form.icon_dosage.value.trim();
     //const sideeffects = $form.icon_sideeffects.value.trim();
-
-    this.props.onAddRx({ generic, brand, indications, dosage });
-    this.props.history.push('/order');
+    let regName = /^[a-zA-Z ]{2,30}$/;
+    if (generic.match(regName) && brand.match(regName)) {
+      this.props.onAddRx({ generic, brand, indications, dosage });
+      this.props.history.push('/order');
+    } else this.setState({ hasValidationError: true });
   };
 }
 export default withRouter(AddRxComponent);

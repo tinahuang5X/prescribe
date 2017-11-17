@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class EditRxComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasValidationError: false };
+  }
   render() {
     return (
       <form className="col s12" onSubmit={this.handleEditRx}>
@@ -85,6 +89,16 @@ class EditRxComponent extends Component {
               name="action">
               UPDATE DRUG INFO
             </button>
+            {this.state.hasValidationError
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Please enter valid data.
+                </p>
+              : null}
           </div>
         </div>
 
@@ -106,14 +120,16 @@ class EditRxComponent extends Component {
     const dosage = $form.icon_dosage.value.trim() || this.props.RxItem.dosage;
 
     //const sideeffects = $form.icon_sideeffects.value.trim();
-
-    this.props.onEditRx(this.props.RxItem.id, {
-      generic,
-      brand,
-      indications,
-      dosage
-    });
-    this.props.history.push('/order');
+    let regName = /^[a-zA-Z ]{2,30}$/;
+    if (generic.match(regName) && brand.match(regName)) {
+      this.props.onEditRx(this.props.RxItem.id, {
+        generic,
+        brand,
+        indications,
+        dosage
+      });
+      this.props.history.push('/order');
+    } else this.setState({ hasValidationError: true });
   };
 }
 export default withRouter(EditRxComponent);

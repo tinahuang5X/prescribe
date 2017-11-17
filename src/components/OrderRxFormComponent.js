@@ -53,8 +53,13 @@ export default class OrderRxFormComponent extends Component {
                 SUBMIT TO RX PAD
               </button>
               {this.state.hasValidationError
-                ? <p style={{ color: 'red', fontWeight: 'bold' }}>
-                    {' '}Please enter valid data.{' '}
+                ? <p
+                    style={{
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textAlign: 'center'
+                    }}>
+                    Please enter valid data.
                   </p>
                 : null}
             </div>

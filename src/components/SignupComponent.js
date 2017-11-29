@@ -160,8 +160,6 @@ class SignupComponent extends Component {
       if (storedMsg) {
         this.setState({ theStoredMsg: storedMsg });
         this.setState({ hasValidationError: false });
-      } else {
-        this.props.history.push('/login');
       }
     } else {
       this.setState({ theStoredMsg: null });

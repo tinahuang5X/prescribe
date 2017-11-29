@@ -11,3 +11,8 @@ body {
 .RxComponent {
   margin-bottom: 200px;
 }
+
+.PatientsComponent {
+  width: 90%;
+  margin: 80px auto 100px;
+}

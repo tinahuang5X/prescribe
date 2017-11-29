@@ -5,7 +5,8 @@ export default function rootReducer(
     orderItems: [],
     patientInfo: null,
     doctorInfo: [],
-    doctors: []
+    doctors: [],
+    patients: []
   },
   action
 ) {
@@ -14,6 +15,9 @@ export default function rootReducer(
     case 'SET_ITEMS':
       console.log(action.RxItems);
       return { ...currentState, RxItems: action.RxItems };
+    case 'SET_PATIENTS':
+      console.log(action.patients);
+      return { ...currentState, patients: action.patients };
     case 'SET_ITEM':
       console.log(action.RxItem);
       return { ...currentState, RxItem: action.RxItem };
@@ -51,6 +55,14 @@ export default function rootReducer(
         // selectedMessageId: null,
         RxItems: currentState.RxItems.filter(
           RxItem => RxItem.id !== action.itemId
+        )
+      };
+    case 'DELETE_PATIENT':
+      return {
+        ...currentState,
+        // selectedMessageId: null,
+        Patients: currentState.Patients.filter(
+          Patient => Patient.id !== action.patientId
         )
       };
 

@@ -17,16 +17,23 @@ export default function doctorSignup(doctorInfo, history) {
   })
     .then(response => {
       console.log(response);
-      if (response.status === 400) history.push('/');
+      if (response.status === 400) {
+        localStorage.setItem('message', 'Email already exists.');
+        let storedMsg = localStorage.getItem('message');
+        console.log(storedMsg);
+        history.push('/');
 
-      return response.text();
+        //console.log(response.statusText);
+      }
+      return response.json();
     })
     .then(record => {
       console.log(record);
-      //localStorage.removeItem('message');
-      localStorage.setItem('message', record);
-      let storedMsg = localStorage.getItem('message');
-      console.log(storedMsg);
+      localStorage.removeItem('message');
+      // localStorage.setItem('message', record);
+      // let storedMsg = localStorage.getItem('message');
+      // console.log(storedMsg);
+      history.push('/login');
       return {
         id: record.id,
         firstName: record.firstName,

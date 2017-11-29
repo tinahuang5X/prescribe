@@ -6,6 +6,7 @@ import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
 import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import SignupPageContainer from './redux/containers/SignupPageContainer';
+import PatientsPageContainer from './redux/containers/PatientsPageContainer';
 import setupStore from './redux/setupStore';
 
 import { Provider } from 'react-redux';
@@ -43,6 +44,11 @@ export default class App extends Component {
                 exact
                 path="/drugs/:drugId"
                 render={props => <UpdateRxPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/patients"
+                render={props => <PatientsPageContainer {...props} />}
               />
             </Switch>
           </Router>

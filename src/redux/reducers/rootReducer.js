@@ -21,6 +21,9 @@ export default function rootReducer(
     case 'SET_ITEM':
       console.log(action.RxItem);
       return { ...currentState, RxItem: action.RxItem };
+    case 'SET_PATIENT':
+      console.log(action.patient);
+      return { ...currentState, patient: action.patient };
     case 'SELECT_ITEM':
       return {
         ...currentState,
@@ -39,6 +42,16 @@ export default function rootReducer(
         ...currentState,
         RxItems: currentState.RxItems.map(
           RxItem => (RxItem.id === action.itemId ? action.item : RxItem)
+        )
+      };
+
+    case 'UPDATE_PATIENT':
+      console.log(currentState.patients);
+      return {
+        ...currentState,
+        patients: currentState.patients.map(
+          patient =>
+            patient.id === action.patientId ? action.patient : patient
         )
       };
     case 'ADD_ITEM':
@@ -61,8 +74,8 @@ export default function rootReducer(
       return {
         ...currentState,
         // selectedMessageId: null,
-        Patients: currentState.Patients.filter(
-          Patient => Patient.id !== action.patientId
+        patients: currentState.patients.filter(
+          patient => patient.id !== action.patientId
         )
       };
 
@@ -70,6 +83,11 @@ export default function rootReducer(
       return {
         ...currentState,
         RxItems: [...currentState.RxItems, action.addedItem]
+      };
+    case 'SUBMIT_PTINFO':
+      return {
+        ...currentState,
+        patients: [...currentState.patients, action.addedPatient]
       };
 
     case 'SUBMIT_MDINFO':

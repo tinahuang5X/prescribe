@@ -19,9 +19,10 @@ export default function doctorLogin(doctorInfo, history) {
       console.log(response);
       if (response.status === 400) {
         localStorage.setItem('message', 'Wrong email or password.');
+
         let storedMsg = localStorage.getItem('message');
         console.log(storedMsg);
-        history.push('/login');
+        //if (storedMsg === 'Wrong email or password.') history.push('/login');
 
         //console.log(response.statusText);
       }

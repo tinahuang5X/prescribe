@@ -1,6 +1,6 @@
 import env from '../env';
 
-export default function updateRxitem(itemId, item, change) {
+export default function updateRxItem(itemId, item, change) {
   console.log(itemId, item, change);
   return fetch(`${env.API_BASE_URL}/drugs/${itemId}`, {
     method: 'PATCH',

@@ -1,7 +1,17 @@
 @import '../node_modules/material-design-icons/iconfont/material-icons.css';
 @import '../node_modules/materialize-css/dist/css/materialize.css';
+
 body {
   background-image: url('http://img.freepik.com/free-vector/gingham-style-background_1048-2586.jpg?size=338&ext=jpg');
+}
+
+.PatientsComponent {
+  width: 100%;
+  padding: 60px;
+  height: 100%;
+  padding-bottom: 150px;
+  /*margin: 80px auto 100px;*/
+  background-image: url('https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0354/6125/r0_christmas_green_gingham2_shop_preview.png');
 }
 
 .RxItemComponent {
@@ -10,9 +20,8 @@ body {
 
 .RxComponent {
   margin-bottom: 200px;
-}
-
-.PatientsComponent {
-  width: 90%;
-  margin: 80px auto 100px;
+  /*background-image: url('http://www.publicdomainpictures.net/pictures/60000/velka/checks-blue-gingham-background-1382536271KYj.jpg');*/
+  /*background-image: url('https://static.tumblr.com/ca36c9feb40a3c7a1a3056fe121a15f0/tepyaok/sv0npv6i2/tumblr_static_filename_640_v2.jpg');*/
+  /*background-image: url('https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0304/3278/rr0006_uk-blue-gingham_shop_preview.jpg');
+  background-image: url('https://www.chicshelfpaper.com/images/P/6218-480-72dpi-01.jpg');*/
 }

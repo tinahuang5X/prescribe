@@ -7,6 +7,9 @@ import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import SignupPageContainer from './redux/containers/SignupPageContainer';
 import PatientsPageContainer from './redux/containers/PatientsPageContainer';
+import UpdatePtPageContainer from './redux/containers/UpdatePtPageContainer';
+import CreatePtPageContainer from './redux/containers/CreatePtPageContainer';
+
 import setupStore from './redux/setupStore';
 
 import { Provider } from 'react-redux';
@@ -49,6 +52,16 @@ export default class App extends Component {
                 exact
                 path="/patients"
                 render={props => <PatientsPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/patients/:patientId"
+                render={props => <UpdatePtPageContainer {...props} />}
+              />
+              <Route
+                exact
+                path="/add-patient"
+                render={props => <CreatePtPageContainer {...props} />}
               />
             </Switch>
           </Router>

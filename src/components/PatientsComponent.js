@@ -27,7 +27,7 @@ export default function PatientsComponent({
             borderStyle: 'solid',
             backgroundColor: 'white',
             color: 'brown',
-            marginLeft: '40%',
+            marginLeft: '30%',
             fontSize: '30px',
             fontWeight: 'bold'
           }}>

@@ -1,6 +1,6 @@
 import env from '../env';
 
-export default function doctorSignup(doctorInfo, history) {
+export default function doctorSignup(doctorInfo) {
   console.log(doctorInfo);
   return fetch(`${env.API_BASE_URL}/doctors`, {
     method: 'POST',
@@ -18,28 +18,19 @@ export default function doctorSignup(doctorInfo, history) {
     .then(response => {
       console.log(response);
       if (response.status === 400) {
-        localStorage.setItem('message', 'Email already exists.');
-        let storedMsg = localStorage.getItem('message');
-        console.log(storedMsg);
-        history.push('/');
-
-        //console.log(response.statusText);
+        throw new Error('HTTP_400');
       }
+
       return response.json();
     })
     .then(record => {
       console.log(record);
-      localStorage.removeItem('message');
-      // localStorage.setItem('message', record);
-      // let storedMsg = localStorage.getItem('message');
-      // console.log(storedMsg);
-      history.push('/login');
+
       return {
         id: record.id,
         firstName: record.firstName,
         lastName: record.lastName,
-        email: record.email,
-        token: record.token
+        email: record.email
       };
     });
 }

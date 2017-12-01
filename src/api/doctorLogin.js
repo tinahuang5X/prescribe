@@ -1,10 +1,8 @@
 import env from '../env';
 
-export default function doctorLogin(doctorInfo, history) {
+export default function doctorLogin(doctorInfo) {
   console.log(doctorInfo);
-  //localStorage.clear();
-  //localStorage.removeItem('token');
-  //localStorage.removeItem('doctorId');
+
   return fetch(`${env.API_BASE_URL}/token`, {
     method: 'POST',
     headers: {
@@ -18,25 +16,14 @@ export default function doctorLogin(doctorInfo, history) {
     .then(response => {
       console.log(response);
       if (response.status === 400) {
-        localStorage.setItem('message', 'Wrong email or password.');
-
-        let storedMsg = localStorage.getItem('message');
-        console.log(storedMsg);
-        //if (storedMsg === 'Wrong email or password.') history.push('/login');
-
-        //console.log(response.statusText);
+        throw new Error('HTTP_400');
       }
+
       return response.json();
     })
     .then(record => {
       console.log(record);
-      localStorage.removeItem('message');
-      localStorage.setItem('token', record.token);
-      localStorage.setItem('doctorId', record.id);
-      let storedToken = localStorage.getItem('token');
-      let storedId = localStorage.getItem('doctorId');
-      console.log(storedToken, storedId);
-      history.push('/patients');
+
       return {
         id: record.id,
         firstName: record.firstName,

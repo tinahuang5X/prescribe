@@ -17,13 +17,16 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
       dispatch(
-        createRxItemProcess({
-          generic,
-          brand,
-          indications,
-          dosage,
-          sideeffects
-        })
+        createRxItemProcess(
+          {
+            generic,
+            brand,
+            indications,
+            dosage,
+            sideeffects
+          },
+          ownProps.history
+        )
       )
   };
 }

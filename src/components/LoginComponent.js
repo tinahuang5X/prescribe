@@ -5,8 +5,7 @@ class LoginComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasValidationError: false,
-      theStoredMsg: null
+      hasValidationError: false
     };
   }
   render() {
@@ -55,6 +54,17 @@ class LoginComponent extends Component {
               name="action">
               LOG IN
             </button>
+
+            {this.props.errorType === 'SUBMIT_LOGININFO_ERROR'
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Wrong email or password
+                </p>
+              : null}
             {this.state.hasValidationError
               ? <p
                   style={{
@@ -62,17 +72,8 @@ class LoginComponent extends Component {
                     fontWeight: 'bold',
                     textAlign: 'center'
                   }}>
-                  Please enter valid data.
-                </p>
-              : null}
-            {this.state.theStoredMsg
-              ? <p
-                  style={{
-                    color: 'red',
-                    fontWeight: 'bold',
-                    textAlign: 'center'
-                  }}>
-                  {this.state.theStoredMsg}
+                  Please enter valid data, such as an email address in the right
+                  format and a password at least 8 characters long.
                 </p>
               : null}
             {/* <Link
@@ -94,22 +95,14 @@ class LoginComponent extends Component {
     const $form = event.target;
     const email = $form.icon_email.value.trim();
     const password = $form.icon_password.value.trim();
-    //const sideeffects = $form.icon_sideeffects.value.trim();
 
     let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (email.match(regEmail) && password.length >= 8) {
       this.props.onLogin({ email, password });
-      let storedMsg = localStorage.getItem('message');
-      console.log(storedMsg);
-      if (storedMsg) {
-        this.setState({ theStoredMsg: storedMsg });
-        this.setState({ hasValidationError: false });
-      }
+      this.setState({ hasValidationError: false });
     } else {
-      this.setState({ theStoredMsg: null });
       this.setState({ hasValidationError: true });
-      console.log(this.state.hasValidationError);
     }
   };
 }

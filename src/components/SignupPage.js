@@ -4,7 +4,7 @@ import SignupComponent from './SignupComponent';
 
 export default function SignupPage({
   //id,
-
+  errorType,
   onSignup
 }) {
   return (
@@ -20,7 +20,7 @@ export default function SignupPage({
         backgroundColor: 'MISTYROSE'
         //backgroundImage: 'url(' + { Background } + ')'
       }}>
-      <SignupComponent onSignup={onSignup} />
+      <SignupComponent onSignup={onSignup} errorType={errorType} />
     </div>
   );
 }

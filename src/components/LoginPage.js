@@ -4,7 +4,7 @@ import LoginComponent from './LoginComponent';
 
 export default function LoginPage({
   //id,
-
+  errorType,
   onLogin
 }) {
   return (
@@ -20,7 +20,7 @@ export default function LoginPage({
         backgroundColor: 'MISTYROSE'
         //backgroundImage: 'url(' + { Background } + ')'
       }}>
-      <LoginComponent onLogin={onLogin} />
+      <LoginComponent onLogin={onLogin} errorType={errorType} />
     </div>
   );
 }

@@ -5,8 +5,7 @@ class SignupComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasValidationError: false,
-      theStoredMsg: null
+      hasValidationError: false
     };
   }
 
@@ -81,6 +80,16 @@ class SignupComponent extends Component {
             </button>
             <br />
             <br />
+            {this.props.errorType === 'SUBMIT_MDINFO_ERROR'
+              ? <p
+                  style={{
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                  }}>
+                  Email already taken
+                </p>
+              : null}
             {this.state.hasValidationError
               ? <p
                   style={{
@@ -88,21 +97,11 @@ class SignupComponent extends Component {
                     fontWeight: 'bold',
                     textAlign: 'center'
                   }}>
-                  Please enter valid data and a password at least 8 characters
-                  long.
+                  Please enter valid data, such as an email address in the right
+                  format and a password at least 8 characters long.
                 </p>
               : null}
-            {console.log(this.state.theStoredMsg)}
-            {this.state.theStoredMsg
-              ? <p
-                  style={{
-                    color: 'red',
-                    fontWeight: 'bold',
-                    textAlign: 'center'
-                  }}>
-                  {this.state.theStoredMsg}
-                </p>
-              : null}
+
             <br />
             <br />
             <p
@@ -133,9 +132,6 @@ class SignupComponent extends Component {
   handleSignup = event => {
     //const { onSubmit } = this.props;
     event.preventDefault();
-    //localStorage.removeItem('message');
-    //let storedMsg = localStorage.getItem('message');
-    //console.log(storedMsg);
 
     console.log(this.state.theStoredMsg);
     const $form = event.target;
@@ -143,7 +139,6 @@ class SignupComponent extends Component {
     const lastName = $form.icon_lastName.value.trim();
     const email = $form.icon_email.value.trim();
     const password = $form.icon_password.value.trim();
-    //const sideeffects = $form.icon_sideeffects.value.trim();
 
     let regName = /^[a-zA-Z ]{2,30}$/;
     let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -155,16 +150,9 @@ class SignupComponent extends Component {
       password.length >= 8
     ) {
       this.props.onSignup({ firstName, lastName, email, password });
-      let storedMsg = localStorage.getItem('message');
-      console.log(storedMsg);
-      if (storedMsg) {
-        this.setState({ theStoredMsg: storedMsg });
-        this.setState({ hasValidationError: false });
-      }
+      this.setState({ hasValidationError: false });
     } else {
-      this.setState({ theStoredMsg: null });
       this.setState({ hasValidationError: true });
-      console.log(this.state.hasValidationError);
     }
   };
 }

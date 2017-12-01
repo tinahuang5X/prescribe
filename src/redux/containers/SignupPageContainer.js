@@ -6,6 +6,12 @@ import SignupPage from '../../components/SignupPage';
 
 import doctorSignupProcess from '../thunks/doctorSignupProcess';
 
+function mapStateToProps(state, ownProps) {
+  return {
+    errorType: state.errorType
+  };
+}
+
 function mapDispatchToProps(dispatch, ownProps) {
   console.log('hello', dispatch, ownProps);
   return {
@@ -22,7 +28,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   };
 }
 
-const connectToStore = connect(null, mapDispatchToProps);
+const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 // const onDidMount = lifecycle({
 //   componentDidMount() {
 //     this.props.onMount();

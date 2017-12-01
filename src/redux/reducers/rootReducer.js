@@ -96,6 +96,12 @@ export default function rootReducer(
         doctors: [...currentState.doctors, action.addedDoctor]
       };
 
+    case 'SUBMIT_MDINFO_ERROR':
+      return {
+        ...currentState,
+        errorType: action.type
+      };
+
     case 'REMOVE_MDINFO':
       return {
         ...currentState,
@@ -111,6 +117,11 @@ export default function rootReducer(
       return {
         ...currentState,
         doctorInfo: [...currentState.doctorInfo, action.addedInfo]
+      };
+    case 'SUBMIT_LOGININFO_ERROR':
+      return {
+        ...currentState,
+        errorType: action.type
       };
 
     case 'TRANSMIT_ORDER':

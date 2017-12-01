@@ -5,6 +5,11 @@ import LoginPage from '../../components/LoginPage';
 
 import doctorLoginProcess from '../thunks/doctorLoginProcess';
 //import getRxItemsProcess from '../thunks/getRxItemsProcess';
+function mapStateToProps(state, ownProps) {
+  return {
+    errorType: state.errorType
+  };
+}
 
 function mapDispatchToProps(dispatch, ownProps) {
   console.log('find', ownProps.history);
@@ -22,5 +27,5 @@ function mapDispatchToProps(dispatch, ownProps) {
   };
 }
 
-const connectToStore = connect(null, mapDispatchToProps);
+const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 export default compose(connectToStore)(LoginPage);

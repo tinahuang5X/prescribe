@@ -113,9 +113,13 @@ class AddRxComponent extends Component {
     const dosage = $form.icon_dosage.value.trim();
     //const sideeffects = $form.icon_sideeffects.value.trim();
     let regName = /^[a-zA-Z ]{2,30}$/;
-    if (generic.match(regName) && brand.match(regName)) {
+    if (
+      generic.match(regName) &&
+      brand.match(regName) &&
+      indications &&
+      dosage
+    ) {
       this.props.onAddRx({ generic, brand, indications, dosage });
-      this.props.history.push('/order');
     } else this.setState({ hasValidationError: true });
   };
 }

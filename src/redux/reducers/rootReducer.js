@@ -65,7 +65,6 @@ export default function rootReducer(
     case 'DELETE_ITEM':
       return {
         ...currentState,
-        // selectedMessageId: null,
         RxItems: currentState.RxItems.filter(
           RxItem => RxItem.id !== action.itemId
         )

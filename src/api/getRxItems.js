@@ -28,8 +28,6 @@ export default function getRxItems() {
         generic: record.generic,
         brand: record.brand,
         indications: record.indications
-        //dosage: record.fields.dosage,
-        //sideeffects: record.fields.sideeffects
       }));
     });
   // .then(messages => {

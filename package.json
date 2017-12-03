@@ -6,6 +6,7 @@
     "@storybook/react": "^3.2.8",
     "enzyme": "^2.9.1",
     "material-design-icons": "^3.0.1",
+    "material-ui": "^0.19.4",
     "materialize-css": "^0.100.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

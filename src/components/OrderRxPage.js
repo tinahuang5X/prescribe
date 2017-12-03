@@ -2,8 +2,8 @@ import React from 'react';
 
 import OrderRxPageLayout from './OrderRxPageLayout';
 import ManageRxListComponent from './ManageRxListComponent';
-import RxComponent from './RxComponent';
-
+//import RxComponent from './RxComponent';
+import DrugsComponent from './DrugsComponent';
 import OrderRxFormComponent from './OrderRxFormComponent';
 import RxPadComponent from './RxPadComponent';
 
@@ -14,6 +14,7 @@ export default function OrderRxPage({
   sort,
   selected,
   RxItems,
+
   selectedItemIds,
   orderItems,
   patientInfo,
@@ -35,7 +36,7 @@ export default function OrderRxPage({
     //<div id={id} className="OrderPage">
     <div className="OrderRxPage">
       <OrderRxPageLayout onLogout={onLogout} history={history}>
-        <RxComponent
+        {/* <RxComponent
           items={RxItems}
           selected={selected}
           selectedItemIds={selectedItemIds}
@@ -44,7 +45,8 @@ export default function OrderRxPage({
           onSelectItem={onSelectItem}
           onDeselectItem={onDeselectItem}
           onSwitch={onSwitch}
-        />
+        /> */}
+        <DrugsComponent items={RxItems} onRemoveItem={onRemoveItem} />
         <ManageRxListComponent
           sort={sort}
           filter={filter}

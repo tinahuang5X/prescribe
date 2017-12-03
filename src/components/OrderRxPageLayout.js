@@ -19,7 +19,7 @@ class OrderRxPageLayout extends Component {
         <header>
           <div className="navbar-fixed">
             <nav>
-              <div className="nav-wrapper red darken-2">
+              <div className="nav-wrapper blue-grey darken-3">
                 <a
                   href="index.html"
                   className="brand-logo"
@@ -40,7 +40,7 @@ class OrderRxPageLayout extends Component {
                   </li> */}
                   <li className="active">
                     <button
-                      className="btn waves-effect waves-light red darken-2"
+                      className="btn waves-effect waves-light blue-grey darken-3"
                       onClick={this.handleLogout}
                       type="submit"
                       name="action">
@@ -57,16 +57,10 @@ class OrderRxPageLayout extends Component {
         </header>
         {console.log(this.props)}
         <div className="Container">
-          <div
-            className="Rx"
-            style={{
-              display: 'inline-table',
-              float: 'left',
-              width: '70%'
-            }}>
+          <div className="Rx">
             {this.props.children[0]}
           </div>
-          <div
+          {/* <div
             className="ManageRxList"
             style={{
               display: 'inline-table',
@@ -98,7 +92,7 @@ class OrderRxPageLayout extends Component {
               marginLeft: '10px'
             }}>
             {this.props.children[3]}
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -106,6 +100,7 @@ class OrderRxPageLayout extends Component {
   handleLogout = event => {
     event.preventDefault();
     localStorage.clear();
+    //localStorage.removeItem('token');
     let token1 = localStorage.getItem('token');
     console.log('this', token1, this.props);
     this.props.onLogout();

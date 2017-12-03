@@ -17,6 +17,7 @@ function mapStateToProps(state, ownProps) {
     filter: state.filter,
     sort: state.sort,
     RxItems: state.RxItems,
+
     selected: state.selected,
     selectedItemIds: state.selectedItemIds,
     orderItems: state.orderItems,

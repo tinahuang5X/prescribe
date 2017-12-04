@@ -9,6 +9,7 @@ import getFilteredRxItemsProcess from '../thunks/getFilteredRxItemsProcess';
 import getSortedRxItemsProcess from '../thunks/getSortedRxItemsProcess';
 import deleteRxItemProcess from '../thunks/deleteRxItemProcess';
 import updateRxItemProcess from '../thunks/updateRxItemProcess';
+import createRxItemProcess from '../thunks/createRxItemProcess';
 
 function mapStateToProps(state, ownProps) {
   console.log(state, ownProps);
@@ -26,7 +27,7 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getRxItemsProcess()),
     onSubmitFilter: filter => dispatch(getFilteredRxItemsProcess(filter)),
@@ -44,16 +45,19 @@ function mapDispatchToProps(dispatch) {
       console.log('hi', item, item.brand);
       dispatch(updateRxItemProcess(itemId, item, { generic: item.brand }));
     },
-    // onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
-    //   dispatch(
-    //     createRxItemProcess({
-    //       generic,
-    //       brand,
-    //       indications,
-    //       dosage,
-    //       sideeffects
-    //     })
-    //   ),
+    onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
+      dispatch(
+        createRxItemProcess(
+          {
+            generic,
+            brand,
+            indications,
+            dosage,
+            sideeffects
+          },
+          ownProps.history
+        )
+      ),
 
     onSubmit: ({ name, dob }) =>
       dispatch({

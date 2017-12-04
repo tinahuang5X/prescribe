@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {
   Table,
@@ -12,10 +14,39 @@ import {
 } from 'material-ui/Table';
 
 class DrugsComponent extends Component {
+  state = {
+    open: false,
+    itemId: null
+  };
+
+  handleOpen = event => {
+    this.setState({ open: true });
+    let tag = event.target;
+    console.log(event.target);
+    let val = tag.getAttribute('value');
+    let valNum = parseInt(val, 10);
+    console.log(tag, val, valNum);
+    this.setState({ itemId: valNum });
+  };
+
+  handleClose = event => {
+    this.setState({ open: false });
+  };
+  handleSubmit = event => {
+    this.setState({ open: false });
+
+    console.log(this.state.itemId);
+    this.props.onRemoveItem(this.state.itemId);
+  };
+
   render() {
     const style = {
       textAlign: 'center'
     };
+    const actions = [
+      <FlatButton label="Cancel" primary={true} onClick={this.handleClose} />,
+      <FlatButton label="Submit" primary={true} onClick={this.handleSubmit} />
+    ];
     if (this.props.items && Array.isArray(this.props.items)) {
       return (
         <div className="DrugsComponent">
@@ -69,15 +100,39 @@ class DrugsComponent extends Component {
                       backgroundColor="#1E88E5"
                       style={style}
                     /> */}
-
-                    <a
+                    <div>
+                      {/* <RaisedButton
+                        label="Remove"
+                        value={item.id}
+                        onClick={this.handleOpen}
+                      /> */}
+                      <a
+                        value={item.id}
+                        className="waves-effect waves-light btn light-blue lighten-1"
+                        onClick={this.handleOpen}
+                        style={{ margin: 'auto' }}>
+                        REMOVE
+                      </a>
+                      <Dialog
+                        actions={actions}
+                        modal={false}
+                        open={this.state.open}
+                        onRequestClose={this.handleClose}
+                        overlayStyle={{
+                          backgroundColor: 'lightgray',
+                          opacity: 0.1
+                        }}>
+                        Are you sure you want to delete this drug from the list?
+                      </Dialog>
+                    </div>
+                    {/* <a
                       href="."
                       value={item.id}
                       className="waves-effect waves-light btn light-blue accent-4"
                       onClick={this.handleRemove}
                       style={{ margin: 'auto' }}>
                       REMOVE
-                    </a>
+                    </a> */}
 
                     {console.log(item.id, index)}
                   </TableRowColumn>
@@ -86,7 +141,7 @@ class DrugsComponent extends Component {
                       href={`#/drugs/${item.id}`}
                       label="Edit"
                       labelColor="#ffffff"
-                      backgroundColor="#2196F3"
+                      backgroundColor="#29b6f6"
                       style={style}
                     />
                   </TableRowColumn>
@@ -96,18 +151,6 @@ class DrugsComponent extends Component {
           </Table>
           <br />
           <br />
-          <Link
-            to="/add-drug"
-            style={{
-              borderStyle: 'solid',
-              backgroundColor: 'white',
-              color: '#37474f',
-              marginLeft: '40%',
-              fontSize: '30px',
-              fontWeight: 'bold'
-            }}>
-            &nbsp;&nbsp;GO TO ADD DRUG PAGE&nbsp;&nbsp;
-          </Link>
         </div>
       );
     } else {

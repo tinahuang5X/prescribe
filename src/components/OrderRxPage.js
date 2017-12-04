@@ -9,7 +9,7 @@ import RxPadComponent from './RxPadComponent';
 
 export default function OrderRxPage({
   //id,
-
+  onAddRx,
   filter,
   sort,
   selected,
@@ -35,17 +35,10 @@ export default function OrderRxPage({
   return (
     //<div id={id} className="OrderPage">
     <div className="OrderRxPage">
-      <OrderRxPageLayout onLogout={onLogout} history={history}>
-        {/* <RxComponent
-          items={RxItems}
-          selected={selected}
-          selectedItemIds={selectedItemIds}
-          onAddItem={onAddItem}
-          onRemoveItem={onRemoveItem}
-          onSelectItem={onSelectItem}
-          onDeselectItem={onDeselectItem}
-          onSwitch={onSwitch}
-        /> */}
+      <OrderRxPageLayout
+        onLogout={onLogout}
+        history={history}
+        onAddRx={onAddRx}>
         <DrugsComponent items={RxItems} onRemoveItem={onRemoveItem} />
         <ManageRxListComponent
           sort={sort}
@@ -54,13 +47,7 @@ export default function OrderRxPage({
           onSubmitSort={onSubmitSort}
         />
         <OrderRxFormComponent patientInfo={patientInfo} onSubmit={onSubmit} />
-        {/* {patientInfo
-          ? <RxPadComponent
-              items={orderItems}
-              patientInfo={patientInfo}
-              onTransmit={onTransmit}
-            />
-          : null} */}
+
         <RxPadComponent
           items={orderItems}
           patientInfo={patientInfo}

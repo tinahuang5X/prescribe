@@ -58,6 +58,21 @@ function mapDispatchToProps(dispatch, ownProps) {
           ownProps.history
         )
       ),
+    onEditRx: (itemId, item) => {
+      console.log(itemId, item);
+      return dispatch(
+        updateRxItemProcess(
+          itemId,
+          item,
+          {
+            generic: item.generic,
+            brand: item.brand,
+            indications: item.indications
+          },
+          ownProps.history
+        )
+      );
+    },
 
     onSubmit: ({ name, dob }) =>
       dispatch({

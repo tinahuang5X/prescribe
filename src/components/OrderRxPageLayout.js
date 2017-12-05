@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+//import RaisedButton from 'material-ui/RaisedButton';
 
 class OrderRxPageLayout extends Component {
   state = {
@@ -81,11 +81,11 @@ class OrderRxPageLayout extends Component {
                 <ul className="right hide-on-med-and-down">
                   <li className="active">
                     <div>
-                      <RaisedButton
+                      <a
                         className="waves-effect waves-light btn blue-grey darken-3"
-                        label="Add Drug"
-                        onClick={this.handleOpen}
-                      />
+                        onClick={this.handleOpen}>
+                        add drug
+                      </a>
                       <Dialog
                         title="ADD DRUG"
                         titleStyle={{
@@ -152,6 +152,8 @@ class OrderRxPageLayout extends Component {
                             </div>
 
                             <div className="col s12 center">
+                              <br />
+
                               <button
                                 className="btn waves-effect waves-light light-blue lighten-1"
                                 type="submit"
@@ -184,7 +186,6 @@ class OrderRxPageLayout extends Component {
                   </li>
                   <li className="active">
                     <a
-                      href="."
                       className="waves-effect waves-light btn blue-grey darken-3"
                       onClick={this.handleLogout}>
                       Log Out

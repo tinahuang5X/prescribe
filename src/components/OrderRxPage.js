@@ -10,6 +10,7 @@ import RxPadComponent from './RxPadComponent';
 export default function OrderRxPage({
   //id,
   onAddRx,
+  onEditRx,
   filter,
   sort,
   selected,
@@ -39,7 +40,11 @@ export default function OrderRxPage({
         onLogout={onLogout}
         history={history}
         onAddRx={onAddRx}>
-        <DrugsComponent items={RxItems} onRemoveItem={onRemoveItem} />
+        <DrugsComponent
+          items={RxItems}
+          onRemoveItem={onRemoveItem}
+          onEditRx={onEditRx}
+        />
         <ManageRxListComponent
           sort={sort}
           filter={filter}

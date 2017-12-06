@@ -14,7 +14,8 @@ function mapDispatchToProps(dispatch, ownProps) {
           dob,
           phone,
           address
-        })
+        }),
+        ownProps.history
       )
   };
 }

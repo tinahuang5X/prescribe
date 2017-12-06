@@ -107,7 +107,7 @@ class AddPtComponent extends Component {
     const address = $form.icon_address.value.trim();
 
     let regName = /^[a-zA-Z ]{2,30}$/;
-    //let regDob = /^[0,1]?\d{1}\/(([0-2]?\d{1})|([3][0,1]{1}))\/(([1]{1}[9]{1}[9]{1}\d{1})|([2-9]{1}\d{3}))$/;
+
     let regDob = /^(([1-9])|(0[1-9])|(1[0-2]))\/(([0-9])|([0-2][0-9])|(3[0-1]))\/(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$/;
     let regPhone = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
 

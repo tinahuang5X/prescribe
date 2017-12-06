@@ -1,6 +1,6 @@
 import env from '../env';
 
-export default function createpatient(patient) {
+export default function createPatient(patient) {
   let storedToken = localStorage.getItem('token');
   let storedId = localStorage.getItem('doctorId');
   console.log(storedToken, storedId);

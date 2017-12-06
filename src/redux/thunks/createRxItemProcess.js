@@ -8,7 +8,7 @@ export default function createRxItemProcess(newItem, history) {
 
         addedItem: createdRxItem
       });
-      history.push('/order');
+      history.push('/drugs');
       return createdRxItem;
     });
   };

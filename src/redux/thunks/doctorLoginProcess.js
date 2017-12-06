@@ -15,7 +15,7 @@ export default function doctorLoginProcess(doctorInfo, history) {
         let storedToken = localStorage.getItem('token');
         let storedId = localStorage.getItem('doctorId');
         console.log(storedToken, storedId);
-        history.push('/patients');
+        history.push('/drugs');
         return doctorInfo;
       })
       .catch(error => {

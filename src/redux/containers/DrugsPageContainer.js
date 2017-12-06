@@ -2,7 +2,7 @@
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 
-import OrderRxPage from '../../components/OrderRxPage';
+import DrugsPage from '../../components/DrugsPage';
 
 import getRxItemsProcess from '../thunks/getRxItemsProcess';
 import getFilteredRxItemsProcess from '../thunks/getFilteredRxItemsProcess';
@@ -97,5 +97,5 @@ const onDidMount = lifecycle({
   }
 });
 
-export default compose(connectToStore, onDidMount)(OrderRxPage);
+export default compose(connectToStore, onDidMount)(DrugsPage);
 //export default compose(connectToStore)(OrderRxPage);

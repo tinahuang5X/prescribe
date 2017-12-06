@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
+
 import { withRouter } from 'react-router-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-//import TextField from 'material-ui/TextField';
 
-//import RaisedButton from 'material-ui/RaisedButton';
 import {
   Table,
   TableBody,
@@ -23,11 +21,34 @@ function getItemProperty(items, itemId, propertyName) {
 }
 
 class DrugsComponent extends Component {
-  state = {
-    openRemove: false,
-    open: false,
-    itemId: null,
-    hasValidationError: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      generic: '',
+      brand: '',
+      indications: '',
+      openRemove: false,
+      open: false,
+      itemId: null,
+      hasValidationError: false
+    };
+  }
+  handleChangeGeneric = event => {
+    event.preventDefault();
+
+    this.setState({ generic: event.target.value });
+  };
+  handleChangeBrand = event => {
+    event.preventDefault();
+
+    this.setState({ brand: event.target.value });
+  };
+  handleChangeIndications = event => {
+    event.preventDefault();
+
+    this.setState({
+      indications: event.target.value
+    });
   };
   handleOpenRemove = event => {
     this.setState({ openRemove: true });
@@ -74,6 +95,7 @@ class DrugsComponent extends Component {
     const generic =
       $form.icon_generic.value.trim() ||
       getItemProperty(items, itemId, 'generic');
+
     const brand =
       $form.icon_brand.value.trim() || getItemProperty(items, itemId, 'brand');
 
@@ -97,9 +119,6 @@ class DrugsComponent extends Component {
   };
 
   render() {
-    // const style = {
-    //   textAlign: 'center'
-    // };
     const actions = [
       <FlatButton
         label="Cancel"
@@ -226,6 +245,15 @@ class DrugsComponent extends Component {
                                 id="icon_generic"
                                 type="text"
                                 className="validate"
+                                value={
+                                  this.state.generic ||
+                                  getItemProperty(
+                                    this.props.items,
+                                    this.state.itemId,
+                                    'generic'
+                                  )
+                                }
+                                onChange={this.handleChangeGeneric}
                                 placeholder={getItemProperty(
                                   this.props.items,
                                   this.state.itemId,
@@ -246,6 +274,15 @@ class DrugsComponent extends Component {
                                 id="icon_brand"
                                 type="text"
                                 className="validate"
+                                value={
+                                  this.state.brand ||
+                                  getItemProperty(
+                                    this.props.items,
+                                    this.state.itemId,
+                                    'brand'
+                                  )
+                                }
+                                onChange={this.handleChangeBrand}
                                 placeholder={getItemProperty(
                                   this.props.items,
                                   this.state.itemId,
@@ -265,6 +302,15 @@ class DrugsComponent extends Component {
                                 id="icon_indications"
                                 type="text"
                                 className="validate"
+                                value={
+                                  this.state.indications ||
+                                  getItemProperty(
+                                    this.props.items,
+                                    this.state.itemId,
+                                    'indications'
+                                  )
+                                }
+                                onChange={this.handleChangeIndications}
                                 placeholder={getItemProperty(
                                   this.props.items,
                                   this.state.itemId,
@@ -313,43 +359,5 @@ class DrugsComponent extends Component {
       return <div>...LOADING, PLEASE WAIT</div>;
     }
   }
-
-  //Table Properties - onCellClick	- function
-  //Called when a row cell is clicked. rowNumber is the row number
-  //and columnId is the column number or the column key.
-
-  // handleCellClick = rowNumber => {
-  //   console.log(rowNumber);
-  //   this.handleRemove = event => {
-  //     event.preventDefault();
-  //     console.log(rowNumber);
-  //     this.props.onRemoveItem(this.props.items[rowNumber].id);
-  //   };
-  // };
-
-  // handleRemove = event => {
-  //   event.preventDefault();
-  //   this.handleCellClick = rowNumber => {
-  //     console.log(rowNumber);
-  //     this.props.onRemoveItem(this.props.items[rowNumber].id);
-  //     console.log(rowNumber);
-  //   };
-  // };
-
-  //TableRow Properties - rowNumber	- number
-  //Number to identify the row. This property is automatically populated
-  //when used with the TableBody component.
-
-  handleRemove = event => {
-    event.preventDefault();
-
-    let tag = event.target;
-
-    let val = tag.getAttribute('value');
-    let valNum = parseInt(val, 10);
-    console.log(tag, val, valNum);
-
-    this.props.onRemoveItem(valNum);
-  };
 }
 export default withRouter(DrugsComponent);

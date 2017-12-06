@@ -5,7 +5,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 //import RaisedButton from 'material-ui/RaisedButton';
 
-class OrderRxPageLayout extends Component {
+class DrugsPageLayout extends Component {
   state = {
     open: false,
     hasValidationError: false
@@ -192,9 +192,6 @@ class OrderRxPageLayout extends Component {
                     </a>
                   </li>
                 </ul>
-                <ul className="side-nav" id="orderRx">
-                  <li className="active">Order Rx</li>
-                </ul>
               </div>
             </nav>
           </div>
@@ -209,4 +206,4 @@ class OrderRxPageLayout extends Component {
     );
   }
 }
-export default withRouter(OrderRxPageLayout);
+export default withRouter(DrugsPageLayout);

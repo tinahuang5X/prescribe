@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import OrderRxPageContainer from './redux/containers/OrderRxPageContainer';
-import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
-import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
+import DrugsPageContainer from './redux/containers/DrugsPageContainer';
+//import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
+//import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import SignupPageContainer from './redux/containers/SignupPageContainer';
 import PatientsPageContainer from './redux/containers/PatientsPageContainer';
-import UpdatePtPageContainer from './redux/containers/UpdatePtPageContainer';
-import CreatePtPageContainer from './redux/containers/CreatePtPageContainer';
+//import UpdatePtPageContainer from './redux/containers/UpdatePtPageContainer';
+//import CreatePtPageContainer from './redux/containers/CreatePtPageContainer';
 
 import setupStore from './redux/setupStore';
 
@@ -36,10 +36,10 @@ export default class App extends Component {
                 />
                 <Route
                   exact
-                  path="/order"
-                  render={props => <OrderRxPageContainer {...props} />}
+                  path="/drugs"
+                  render={props => <DrugsPageContainer {...props} />}
                 />
-                <Route
+                {/* <Route
                   exact
                   path="/add-drug"
                   render={props => <CreateRxPageContainer {...props} />}
@@ -48,13 +48,13 @@ export default class App extends Component {
                   exact
                   path="/drugs/:drugId"
                   render={props => <UpdateRxPageContainer {...props} />}
-                />
+                /> */}
                 <Route
                   exact
                   path="/patients"
                   render={props => <PatientsPageContainer {...props} />}
                 />
-                <Route
+                {/* <Route
                   exact
                   path="/patients/:patientId"
                   render={props => <UpdatePtPageContainer {...props} />}
@@ -63,7 +63,7 @@ export default class App extends Component {
                   exact
                   path="/add-patient"
                   render={props => <CreatePtPageContainer {...props} />}
-                />
+                /> */}
               </Switch>
             </Router>
           </Provider>;

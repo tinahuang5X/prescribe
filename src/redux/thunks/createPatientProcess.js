@@ -1,6 +1,6 @@
 import createPatient from '../../api/createPatient';
 
-export default function createPatientProcess(newPatient) {
+export default function createPatientProcess(newPatient, history) {
   return (dispatch, getState) => {
     return createPatient(newPatient).then(createdPatient => {
       dispatch({
@@ -8,6 +8,8 @@ export default function createPatientProcess(newPatient) {
 
         addedPatient: createdPatient
       });
+
+      history.push('/patients');
       return createdPatient;
     });
   };

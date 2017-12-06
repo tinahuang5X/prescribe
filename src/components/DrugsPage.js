@@ -1,13 +1,13 @@
 import React from 'react';
 
-import OrderRxPageLayout from './OrderRxPageLayout';
+import DrugsPageLayout from './DrugsPageLayout';
 import ManageRxListComponent from './ManageRxListComponent';
 //import RxComponent from './RxComponent';
 import DrugsComponent from './DrugsComponent';
 import OrderRxFormComponent from './OrderRxFormComponent';
 import RxPadComponent from './RxPadComponent';
 
-export default function OrderRxPage({
+export default function DrugsPage({
   //id,
   onAddRx,
   onEditRx,
@@ -35,11 +35,8 @@ export default function OrderRxPage({
   //console.log(onLogout);
   return (
     //<div id={id} className="OrderPage">
-    <div className="OrderRxPage">
-      <OrderRxPageLayout
-        onLogout={onLogout}
-        history={history}
-        onAddRx={onAddRx}>
+    <div className="DrugsPage">
+      <DrugsPageLayout onLogout={onLogout} onAddRx={onAddRx}>
         <DrugsComponent
           items={RxItems}
           onRemoveItem={onRemoveItem}
@@ -58,7 +55,7 @@ export default function OrderRxPage({
           patientInfo={patientInfo}
           onTransmit={onTransmit}
         />
-      </OrderRxPageLayout>
+      </DrugsPageLayout>
     </div>
   );
 }

@@ -7,6 +7,8 @@ import PatientsPage from '../../components/PatientsPage';
 import getPatientsProcess from '../thunks/getPatientsProcess';
 
 import deletePatientProcess from '../thunks/deletePatientProcess';
+import updatePatientProcess from '../thunks/updatePatientProcess';
+import createPatientProcess from '../thunks/createPatientProcess';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -14,27 +16,44 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getPatientsProcess()),
 
-    onRemovePatient: patientId => dispatch(deletePatientProcess(patientId))
+    onRemovePatient: patientId => dispatch(deletePatientProcess(patientId)),
+    onAddPt: ({ name, dob, phone, address }) =>
+      dispatch(
+        createPatientProcess(
+          {
+            name,
+            dob,
+            phone,
+            address
+          },
+          ownProps.history
+        )
+      ),
 
-    //onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null }),
+    onEditPt: (patientId, patient) => {
+      console.log(patientId, patient);
+      return dispatch(
+        updatePatientProcess(
+          patientId,
+          patient,
+          {
+            name: patient.name,
+            dob: patient.dob,
+            phone: patient.phone,
+            address: patient.address
+          },
+          ownProps.history
+        )
+      );
+    },
 
-    // onAddRx: ({ generic, brand, indications, dosage, sideeffects }) =>
-    //   dispatch(
-    //     createRxItemProcess({
-    //       generic,
-    //       brand,
-    //       indications,
-    //       dosage,
-    //       sideeffects
-    //     })
-    //   ),
+    onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null })
   };
 }
-
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({

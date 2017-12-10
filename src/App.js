@@ -7,6 +7,7 @@ import DrugsPageContainer from './redux/containers/DrugsPageContainer';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import SignupPageContainer from './redux/containers/SignupPageContainer';
 import PatientsPageContainer from './redux/containers/PatientsPageContainer';
+import PrescribePageContainer from './redux/containers/PrescribePageContainer';
 //import UpdatePtPageContainer from './redux/containers/UpdatePtPageContainer';
 //import CreatePtPageContainer from './redux/containers/CreatePtPageContainer';
 
@@ -53,6 +54,11 @@ export default class App extends Component {
                   exact
                   path="/patients"
                   render={props => <PatientsPageContainer {...props} />}
+                />
+                <Route
+                  exact
+                  path="/prescribe"
+                  render={props => <PrescribePageContainer {...props} />}
                 />
                 {/* <Route
                   exact

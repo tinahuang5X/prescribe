@@ -5,7 +5,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 //import RaisedButton from 'material-ui/RaisedButton';
 
-class DrugsPageLayout extends Component {
+class PrescribePageLayout extends Component {
   state = {
     open: false,
     hasValidationError: false
@@ -57,14 +57,14 @@ class DrugsPageLayout extends Component {
       //   onClick={this.handleClose}
       // />
     ];
-    if (
-      !this.props.children ||
-      !this.props.children[0] ||
-      !this.props.children[1]
-    )
-      return null;
+    // if (
+    //   !this.props.children ||
+    //   !this.props.children[0] ||
+    //   !this.props.children[1]
+    // )
+    //   return null;
     return (
-      <div className="DrugsPageLayout">
+      <div className="OrderRxPageLayout">
         <header>
           <div className="navbar-fixed">
             <nav>
@@ -201,12 +201,12 @@ class DrugsPageLayout extends Component {
         </header>
         {console.log(this.props)}
         <div className="Container">
-          <div className="Rx">
-            {this.props.children[0]}
+          <div className="prescribe">
+            {this.props.children}
           </div>
         </div>
       </div>
     );
   }
 }
-export default withRouter(DrugsPageLayout);
+export default withRouter(PrescribePageLayout);

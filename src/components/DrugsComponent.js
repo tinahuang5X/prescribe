@@ -24,9 +24,9 @@ class DrugsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      generic: '',
-      brand: '',
-      indications: '',
+      generic: null,
+      brand: null,
+      indications: null,
       openRemove: false,
       open: false,
       itemId: null,
@@ -73,6 +73,11 @@ class DrugsComponent extends Component {
   handleClose = event => {
     this.setState({ open: false });
     this.setState({ hasValidationError: false });
+    this.setState({
+      generic: null,
+      brand: null,
+      indications: null
+    });
   };
 
   handleCloseRemove = event => {
@@ -112,6 +117,11 @@ class DrugsComponent extends Component {
       });
 
       this.setState({ open: false });
+      this.setState({
+        generic: null,
+        brand: null,
+        indications: null
+      });
     } else {
       this.setState({ hasValidationError: true });
       this.setState({ open: true });
@@ -246,19 +256,16 @@ class DrugsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.generic ||
-                                  getItemProperty(
-                                    this.props.items,
-                                    this.state.itemId,
-                                    'generic'
-                                  )
+                                  typeof this.state.generic === 'string'
+                                    ? this.state.generic
+                                    : getItemProperty(
+                                        this.props.items,
+                                        this.state.itemId,
+                                        'generic'
+                                      )
                                 }
                                 onChange={this.handleChangeGeneric}
-                                placeholder={getItemProperty(
-                                  this.props.items,
-                                  this.state.itemId,
-                                  'generic'
-                                )}
+                                placeholder="Generic"
                                 //required
                               />
 
@@ -275,19 +282,16 @@ class DrugsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.brand ||
-                                  getItemProperty(
-                                    this.props.items,
-                                    this.state.itemId,
-                                    'brand'
-                                  )
+                                  typeof this.state.brand === 'string'
+                                    ? this.state.brand
+                                    : getItemProperty(
+                                        this.props.items,
+                                        this.state.itemId,
+                                        'brand'
+                                      )
                                 }
                                 onChange={this.handleChangeBrand}
-                                placeholder={getItemProperty(
-                                  this.props.items,
-                                  this.state.itemId,
-                                  'brand'
-                                )}
+                                placeholder="Brand"
                                 //required
                               />
                               {console.log(this.props.items[index])}
@@ -303,19 +307,16 @@ class DrugsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.indications ||
-                                  getItemProperty(
-                                    this.props.items,
-                                    this.state.itemId,
-                                    'indications'
-                                  )
+                                  typeof this.state.indications === 'string'
+                                    ? this.state.indications
+                                    : getItemProperty(
+                                        this.props.items,
+                                        this.state.itemId,
+                                        'indications'
+                                      )
                                 }
                                 onChange={this.handleChangeIndications}
-                                placeholder={getItemProperty(
-                                  this.props.items,
-                                  this.state.itemId,
-                                  'indications'
-                                )}
+                                placeholder="Indications"
                                 //required
                               />
                               <label htmlFor="icon_indications" />

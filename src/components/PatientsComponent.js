@@ -24,10 +24,10 @@ class PatientsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      dob: '',
-      phone: '',
-      address: '',
+      name: null,
+      dob: null,
+      phone: null,
+      address: null,
       openRemove: false,
       open: false,
       patientId: null,
@@ -86,6 +86,12 @@ class PatientsComponent extends Component {
   handleClose = event => {
     this.setState({ open: false });
     this.setState({ hasValidationError: false });
+    this.setState({
+      name: null,
+      dob: null,
+      phone: null,
+      address: null
+    });
   };
 
   handleCloseRemove = event => {
@@ -134,6 +140,12 @@ class PatientsComponent extends Component {
       });
 
       this.setState({ open: false });
+      this.setState({
+        name: null,
+        dob: null,
+        phone: null,
+        address: null
+      });
     } else {
       this.setState({ hasValidationError: true });
       this.setState({ open: true });
@@ -273,19 +285,16 @@ class PatientsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.name ||
-                                  getPatientProperty(
-                                    this.props.patients,
-                                    this.state.patientId,
-                                    'name'
-                                  )
+                                  typeof this.state.name === 'string'
+                                    ? this.state.name
+                                    : getPatientProperty(
+                                        this.props.patients,
+                                        this.state.patientId,
+                                        'name'
+                                      )
                                 }
                                 onChange={this.handleChangeName}
-                                placeholder={getPatientProperty(
-                                  this.props.patients,
-                                  this.state.patientId,
-                                  'name'
-                                )}
+                                placeholder="Name"
                                 //required
                               />
 
@@ -300,19 +309,16 @@ class PatientsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.dob ||
-                                  getPatientProperty(
-                                    this.props.patients,
-                                    this.state.patientId,
-                                    'dob'
-                                  )
+                                  typeof this.state.dob === 'string'
+                                    ? this.state.dob
+                                    : getPatientProperty(
+                                        this.props.patients,
+                                        this.state.patientId,
+                                        'dob'
+                                      )
                                 }
                                 onChange={this.handleChangeDob}
-                                placeholder={getPatientProperty(
-                                  this.props.patients,
-                                  this.state.patientId,
-                                  'dob'
-                                )}
+                                placeholder="Date of Birth mm/dd/yyyy"
                                 //required
                               />
                               {console.log(this.props.patients[index])}
@@ -326,19 +332,16 @@ class PatientsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.phone ||
-                                  getPatientProperty(
-                                    this.props.patients,
-                                    this.state.patientId,
-                                    'phone'
-                                  )
+                                  typeof this.state.phone === 'string'
+                                    ? this.state.phone
+                                    : getPatientProperty(
+                                        this.props.patients,
+                                        this.state.patientId,
+                                        'phone'
+                                      )
                                 }
                                 onChange={this.handleChangePhone}
-                                placeholder={getPatientProperty(
-                                  this.props.patients,
-                                  this.state.patientId,
-                                  'phone'
-                                )}
+                                placeholder="Phone Number (xxx) xxx-xxxx"
                                 //required
                               />
                               <label htmlFor="icon_phone" />
@@ -353,19 +356,16 @@ class PatientsComponent extends Component {
                                 type="text"
                                 className="validate"
                                 value={
-                                  this.state.address ||
-                                  getPatientProperty(
-                                    this.props.patients,
-                                    this.state.patientId,
-                                    'address'
-                                  )
+                                  typeof this.state.address === 'string'
+                                    ? this.state.address
+                                    : getPatientProperty(
+                                        this.props.patients,
+                                        this.state.patientId,
+                                        'address'
+                                      )
                                 }
                                 onChange={this.handleChangeAddress}
-                                placeholder={getPatientProperty(
-                                  this.props.patients,
-                                  this.state.patientId,
-                                  'address'
-                                )}
+                                placeholder="Address"
                                 //required
                               />
                               <label htmlFor="icon_address" />

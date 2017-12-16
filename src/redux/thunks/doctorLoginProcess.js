@@ -12,9 +12,12 @@ export default function doctorLoginProcess(doctorInfo, history) {
 
         localStorage.setItem('token', doctorInfo.token);
         localStorage.setItem('doctorId', doctorInfo.id);
+        localStorage.setItem('firstName', doctorInfo.firstName);
+        localStorage.setItem('lastName', doctorInfo.lastName);
+
         let storedToken = localStorage.getItem('token');
         let storedId = localStorage.getItem('doctorId');
-        console.log(storedToken, storedId);
+        console.log(storedToken, storedId, doctorInfo);
         history.push('/drugs');
         return doctorInfo;
       })

@@ -169,26 +169,27 @@ class PatientsComponent extends Component {
             onCellClick={this.handleCellClick}>
             <TableHeader>
               <TableRow>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '10%' }}>
                   Name
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '12%' }}>
                   Date of Birth
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '18%' }}>
                   Phone Number
                 </TableHeaderColumn>
                 <TableHeaderColumn
                   style={{
                     fontSize: '20px',
-                    width: '300px'
+                    //width: '300px',
+                    width: '21%'
                   }}>
                   Address
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '15%' }}>
                   Action
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '15%' }}>
                   Action
                 </TableHeaderColumn>
               </TableRow>
@@ -196,23 +197,24 @@ class PatientsComponent extends Component {
             <TableBody>
               {this.props.patients.map((patient, index) =>
                 <TableRow key={index} rowNumber={this.rowNumber}>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '11%' }}>
                     {patient.name}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '12%' }}>
                     {patient.dob}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '14%' }}>
                     {patient.phone}
                   </TableRowColumn>
                   <TableRowColumn
                     style={{
                       fontSize: '15px',
-                      width: '300px'
+
+                      width: '23%'
                     }}>
                     {patient.address}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '16%' }}>
                     <div>
                       <a
                         value={patient.id}
@@ -236,7 +238,7 @@ class PatientsComponent extends Component {
 
                     {console.log(patient.id, index)}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '16%' }}>
                     <div>
                       <a
                         value={patient.id}

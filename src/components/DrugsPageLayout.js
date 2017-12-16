@@ -70,12 +70,12 @@ class DrugsPageLayout extends Component {
             <nav>
               <div className="nav-wrapper blue-grey darken-3">
                 <a
-                  href="."
+                  href="#/drugs"
                   className="brand-logo"
                   style={{
                     marginLeft: '20px'
                   }}>
-                  Prescribe
+                  My Drugs
                 </a>
 
                 <ul className="right hide-on-med-and-down">
@@ -184,7 +184,14 @@ class DrugsPageLayout extends Component {
                     <a
                       href="#/patients"
                       className="waves-effect waves-light btn blue-grey darken-3">
-                      Patients
+                      My Patients
+                    </a>
+                  </li>
+                  <li className="active">
+                    <a
+                      href="#/prescribe"
+                      className="waves-effect waves-light btn blue-grey darken-3">
+                      Prescribe
                     </a>
                   </li>
                   <li className="active">

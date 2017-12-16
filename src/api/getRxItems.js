@@ -1,3 +1,39 @@
+// import env from '../env';
+//
+// export default function getRxItems() {
+//   let storedToken = localStorage.getItem('token');
+//   let storedId = localStorage.getItem('doctorId');
+//   console.log(storedToken, storedId);
+//
+//   return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
+//     method: 'GET',
+//     headers: {
+//       Authorization: storedToken,
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//     .then(response => {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(records => {
+//       console.log(records);
+//
+//       return records.map(record => ({
+//         // .then(record => {
+//         //   console.log(record);
+//         //   return {
+//         id: record.id,
+//         doctorId: record.doctorId,
+//         generic: record.generic,
+//         brand: record.brand,
+//         indications: record.indications
+//       }));
+//     });
+//   // .then(messages => {
+//   //   console.log(messages);
+//   // });
+// }
 import env from '../env';
 
 export default function getRxItems() {
@@ -5,10 +41,18 @@ export default function getRxItems() {
   let storedId = localStorage.getItem('doctorId');
   console.log(storedToken, storedId);
 
-  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
+  // return (
+  //   fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: storedToken,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  return fetch(`${env.API_BASE_URL}/drugs`, {
     method: 'GET',
     headers: {
-      Authorization: storedToken,
+      Authorization: 'JWT ' + storedToken,
       'Content-Type': 'application/json'
     }
   })
@@ -30,6 +74,7 @@ export default function getRxItems() {
         indications: record.indications
       }));
     });
+
   // .then(messages => {
   //   console.log(messages);
   // });

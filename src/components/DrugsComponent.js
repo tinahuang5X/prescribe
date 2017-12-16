@@ -145,23 +145,31 @@ class DrugsComponent extends Component {
             onCellClick={this.handleCellClick}>
             <TableHeader>
               <TableRow>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '14%' }}>
                   Generic Name
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '20%' }}>
                   Brand Name
                 </TableHeaderColumn>
                 <TableHeaderColumn
                   style={{
                     fontSize: '20px',
-                    width: '300px'
+                    width: '25%'
                   }}>
                   Indications
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn
+                  style={{
+                    fontSize: '20px',
+                    width: '20%'
+                  }}>
                   Action
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px' }}>
+                <TableHeaderColumn
+                  style={{
+                    fontSize: '20px',
+                    width: '20%'
+                  }}>
                   Action
                 </TableHeaderColumn>
               </TableRow>
@@ -169,20 +177,20 @@ class DrugsComponent extends Component {
             <TableBody>
               {this.props.items.map((item, index) =>
                 <TableRow key={index} rowNumber={this.rowNumber}>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '15%' }}>
                     {item.generic}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '15%' }}>
                     {item.brand}
                   </TableRowColumn>
                   <TableRowColumn
                     style={{
                       fontSize: '15px',
-                      width: '300px'
+                      width: '28%'
                     }}>
                     {item.indications}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '21%' }}>
                     <div>
                       <a
                         value={item.id}
@@ -205,7 +213,7 @@ class DrugsComponent extends Component {
 
                     {console.log(item.id, index)}
                   </TableRowColumn>
-                  <TableRowColumn style={{ fontSize: '15px' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '21%' }}>
                     <div>
                       <a
                         value={item.id}
@@ -294,7 +302,7 @@ class DrugsComponent extends Component {
                                 placeholder="Brand"
                                 //required
                               />
-                              {console.log(this.props.items[index])}
+                              {/* {console.log(this.props.items[index])} */}
                               <label htmlFor="icon_brand" />
                             </div>
                             <div className="input-field col s12">

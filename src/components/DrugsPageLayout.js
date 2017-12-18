@@ -57,12 +57,7 @@ class DrugsPageLayout extends Component {
       //   onClick={this.handleClose}
       // />
     ];
-    if (
-      !this.props.children ||
-      !this.props.children[0] ||
-      !this.props.children[1]
-    )
-      return null;
+    if (!this.props.children) return null;
     return (
       <div className="DrugsPageLayout">
         <header>
@@ -209,7 +204,7 @@ class DrugsPageLayout extends Component {
         {console.log(this.props)}
         <div className="Container">
           <div className="Rx">
-            {this.props.children[0]}
+            {this.props.children}
           </div>
         </div>
       </div>

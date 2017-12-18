@@ -6,7 +6,8 @@ export default function rootReducer(
     patientInfo: null,
     doctorInfo: [],
     doctors: [],
-    patients: []
+    patients: [],
+    rxInfo: null
   },
   action
 ) {
@@ -104,7 +105,7 @@ export default function rootReducer(
     case 'REMOVE_MDINFO':
       return {
         ...currentState,
-        doctors: [...currentState.doctors, action.doctorInfo]
+        doctorInfo: [...currentState.doctorInfo, action.doctorInfo]
       };
 
     case 'SUBMIT_INFO':
@@ -112,6 +113,14 @@ export default function rootReducer(
         ...currentState,
         patientInfo: action.patientInfo
       };
+
+    case 'SUBMIT_RX':
+      console.log(action.rxInfo);
+      return {
+        ...currentState,
+        rxInfo: action.rxInfo
+      };
+
     case 'SUBMIT_LOGININFO':
       return {
         ...currentState,

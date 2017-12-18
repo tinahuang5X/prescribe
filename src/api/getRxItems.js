@@ -62,17 +62,18 @@ export default function getRxItems() {
     })
     .then(records => {
       console.log(records);
-
-      return records.map(record => ({
-        // .then(record => {
-        //   console.log(record);
-        //   return {
-        id: record.id,
-        doctorId: record.doctorId,
-        generic: record.generic,
-        brand: record.brand,
-        indications: record.indications
-      }));
+      if (records.error === 'Invalid token') return 'UNAUTHORIZED';
+      else
+        return records.map(record => ({
+          // .then(record => {
+          //   console.log(record);
+          //   return {
+          id: record.id,
+          doctorId: record.doctorId,
+          generic: record.generic,
+          brand: record.brand,
+          indications: record.indications
+        }));
     });
 
   // .then(messages => {

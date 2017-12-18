@@ -5,10 +5,16 @@ export default function createPatient(patient) {
   let storedId = localStorage.getItem('doctorId');
   console.log(storedToken, storedId);
   console.log(patient);
-  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
+  // return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
+  //   method: 'POST',
+  //   headers: {
+  //     Authorization: storedToken,
+  //     'Content-Type': 'application/json'
+  //   },
+  return fetch(`${env.API_BASE_URL}/patients/1`, {
     method: 'POST',
     headers: {
-      Authorization: storedToken,
+      // Authorization: storedToken,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({

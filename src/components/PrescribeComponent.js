@@ -4,15 +4,15 @@ import AutoComplete from 'material-ui/AutoComplete';
 class PrescribeComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasValidationError: false };
+    this.state = { hasValidationError: false, clearForm: true };
   }
+
   render() {
     let d = new Date().toDateString();
     const nameField = [];
-    const dobField = [];
+
     const genericField = [];
-    const brandField = [];
-    const indicationsField = [];
+
     const strengthField = ['5mg', '10mg', '20mg', '30mg', '40mg'];
     const dosageField = [
       'Take one tablet by mouth once daily',
@@ -24,21 +24,19 @@ class PrescribeComponent extends Component {
     ];
 
     if (this.props.patients && Array.isArray(this.props.patients)) {
-      for (let patients of this.props.patients) {
-        nameField.push(patients.name);
-        dobField.push(patients.dob);
+      for (let patient of this.props.patients) {
+        nameField.push(patient.name);
       }
     }
 
     if (this.props.items && Array.isArray(this.props.items)) {
       for (let item of this.props.items) {
         genericField.push(item.generic);
-        brandField.push(item.brand);
-        indicationsField.push(item.indications);
       }
     }
-    let firstName = localStorage.getItem('firstName');
-    let lastName = localStorage.getItem('lastName');
+
+    //let firstName = localStorage.getItem('firstName');
+    //let lastName = localStorage.getItem('lastName');
     //console.log(firstName, lastName);
 
     return (
@@ -46,7 +44,7 @@ class PrescribeComponent extends Component {
         className="PrescribeComponent"
         style={{
           width: '800px',
-          height: '1100px',
+          height: '1200px',
           margin: 'auto'
         }}>
         <form className="col s12" onSubmit={this.handleSubmit}>
@@ -85,27 +83,6 @@ class PrescribeComponent extends Component {
           />
           <br />
           <br />
-          {/* <AutoComplete
-            id="dob"
-            floatingLabelText="Type or select a patient's date of birth (case insensitive)"
-            floatingLabelStyle={{
-              fontSize: '20px',
-              color: 'lightgray',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            inputStyle={{
-              fontSize: '20px',
-              //color: '#29b6f6',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            underlineStyle={{ width: '500px', marginLeft: '120px' }}
-            menuStyle={{ marginLeft: '120px' }}
-            filter={AutoComplete.caseInsensitiveFilter}
-            dataSource={dobField}
-          /> */}
-          <br />
           <br />
           <AutoComplete
             id="generic"
@@ -130,27 +107,6 @@ class PrescribeComponent extends Component {
           {console.log(this.props.items)}
           <br />
           <br />
-          {/* <AutoComplete
-            id="brand"
-            floatingLabelText="Type or select a brand name (case insensitive)"
-            floatingLabelStyle={{
-              fontSize: '20px',
-              color: 'lightgray',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            inputStyle={{
-              fontSize: '20px',
-              //color: '#29b6f6',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            underlineStyle={{ width: '500px', marginLeft: '120px' }}
-            menuStyle={{ marginLeft: '120px' }}
-            filter={AutoComplete.caseInsensitiveFilter}
-            dataSource={brandField}
-          /> */}
-          <br />
           <br />
           <AutoComplete
             id="strength"
@@ -174,28 +130,6 @@ class PrescribeComponent extends Component {
             dataSource={strengthField}
           />
           <br />
-          <br />
-          {/* <AutoComplete
-            id="indications"
-            floatingLabelText="Type or select an indication (case insensitive)"
-            floatingLabelStyle={{
-              fontSize: '20px',
-              color: 'lightgray',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            inputStyle={{
-              fontSize: '20px',
-              //color: '#29b6f6',
-              width: '500px',
-              marginLeft: '120px'
-            }}
-            underlineStyle={{ width: '500px', marginLeft: '120px' }}
-            menuStyle={{ marginLeft: '100px' }}
-            listStyle={{ width: '500px' }}
-            filter={AutoComplete.caseInsensitiveFilter}
-            dataSource={indicationsField}
-          /> */}
           <br />
           <br />
           <AutoComplete
@@ -223,7 +157,7 @@ class PrescribeComponent extends Component {
           <br />
           <br />
 
-          <h5>
+          {/* <h5>
             <span
               style={{
                 fontSize: '18px',
@@ -232,9 +166,9 @@ class PrescribeComponent extends Component {
               }}>
               approved by: Dr. {firstName} {lastName}
             </span>
-          </h5>
-          <br />
-          <br />
+          </h5> */}
+
+          {console.log(this.props.rxInfo)}
 
           <div className="col s12 center">
             <button
@@ -242,7 +176,7 @@ class PrescribeComponent extends Component {
               type="submit"
               name="action"
               style={{ marginRight: '10%' }}>
-              SEND TO PHARMACY
+              ENTER
             </button>
             <br />
             <br />
@@ -252,48 +186,135 @@ class PrescribeComponent extends Component {
                     color: 'red',
                     fontWeight: 'bold',
                     // textAlign: 'center',
-                    marginLeft: '240px'
+                    marginLeft: '280px'
                   }}>
                   Please enter valid data.
                 </p>
               : null}
           </div>
+          <br />
+          <br />
+          {this.state.clearForm
+            ? <h5 style={{ marginLeft: '120px' }}>
+                <span
+                  style={{
+                    fontSize: '18px'
+                    // textDecoration: 'underline'
+                  }}>
+                  Patient Name: &nbsp;&nbsp;
+                  <br />
+                  Patient Date of Birth:&nbsp;&nbsp;
+                  <br /> Drug Generic Name:&nbsp;&nbsp;
+                  <br /> Drug Brand Name:&nbsp;&nbsp;
+                  <br /> Indication:&nbsp;&nbsp;
+                  <br /> Strength:&nbsp;&nbsp;
+                  <br /> Dosage:&nbsp;&nbsp;
+                </span>
+              </h5>
+            : <h5 style={{ marginLeft: '120px' }}>
+                <span
+                  style={{
+                    fontSize: '18px'
+                    // textDecoration: 'underline'
+                  }}>
+                  Patient Name: &nbsp;&nbsp;{this.props.rxInfo &&
+                    this.props.rxInfo.name}
+                  <br />
+                  Patient Date of Birth:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.dob}
+                  <br /> Drug Generic Name:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.generic}
+                  <br /> Drug Brand Name:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.brand}
+                  <br /> Indication:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.indications}
+                  <br /> Strength:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.strength}
+                  <br /> Dosage:&nbsp;&nbsp;
+                  {this.props.rxInfo && this.props.rxInfo.dosage}
+                </span>
+              </h5>}
         </form>
+        <br /> <br />
+        <div className="col s12">
+          {this.state.clearForm
+            ? null
+            : <button
+                className="btn waves-effect waves-light light-blue lighten-1"
+                type="submit"
+                name="action"
+                style={{ marginLeft: '18%' }}>
+                SEND TO PHARMACY
+              </button>}
+          <button
+            onClick={this.handleClick}
+            href="#/prescribe"
+            className="btn waves-effect waves-light light-blue lighten-1"
+            type="submit"
+            name="action"
+            style={{ marginLeft: '15%' }}>
+            CLEAR
+          </button>
+        </div>
       </div>
     );
   }
+
+  handleClick = event => {
+    //const { onSubmit } = this.props;
+    event.preventDefault();
+    this.setState({ clearForm: true, hasValidationError: false });
+  };
+
   handleSubmit = event => {
     //const { onSubmit } = this.props;
     event.preventDefault();
     const $form = event.target;
+
+    const nameField = [];
+    const genericField = [];
+    if (this.props.patients && Array.isArray(this.props.patients)) {
+      for (let patient of this.props.patients) {
+        nameField.push(patient.name);
+      }
+    }
+
+    if (this.props.items && Array.isArray(this.props.items)) {
+      for (let item of this.props.items) {
+        genericField.push(item.generic);
+      }
+    }
     const name = $form.name.value.trim();
-    const dob = $form.dob.value.trim();
+    const nameIndex = nameField.indexOf(name);
+    let dob = '';
+    if (name) {
+      dob = this.props.patients[nameIndex].dob;
+    }
     const generic = $form.generic.value.trim();
-    const brand = $form.brand.value.trim();
+    const genericIndex = genericField.indexOf(generic);
+    let brand = '';
+    let indications = '';
+    if (generic) {
+      brand = this.props.items[genericIndex].brand;
+      indications = this.props.items[genericIndex].indications;
+    }
     const strength = $form.strength.value.trim();
-    const indications = $form.indications.value.trim();
+
     const dosage = $form.dosage.value.trim();
 
-    console.log({ name, dob, generic, brand, strength, indications, dosage });
+    console.log({ name, dob, generic, brand, indications, strength, dosage });
     let regName = /^[a-zA-Z ]{2,30}$/;
-    if (
-      name.match(regName) &&
-      dob &&
-      generic.match(regName) &&
-      brand.match(regName) &&
-      strength &&
-      indications &&
-      dosage
-    ) {
+    if (name.match(regName) && generic.match(regName) && strength && dosage) {
       this.props.onSubmit({
         name,
         dob,
         generic,
         brand,
-        strength,
         indications,
+        strength,
         dosage
       });
+      this.setState({ clearForm: false, hasValidationError: false });
     } else this.setState({ hasValidationError: true });
   };
 }

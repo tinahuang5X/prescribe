@@ -17,7 +17,7 @@ class LoginComponent extends Component {
             style={{
               textAlign: 'center',
               textDecoration: 'underline',
-              color: 'brown'
+              color: '#29b6f6'
             }}>
             <br />
             Welcome! Please log in.
@@ -26,6 +26,7 @@ class LoginComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">email</i>
             <input
+              style={{ fontSize: '18px' }}
               id="icon_email"
               type="text"
               className="validate"
@@ -38,6 +39,7 @@ class LoginComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">lock</i>
             <input
+              style={{ fontSize: '18px' }}
               id="icon_password"
               type="password"
               className="validate"
@@ -48,8 +50,9 @@ class LoginComponent extends Component {
           </div>
 
           <div className="col s12 center">
+            <br />
             <button
-              className="btn waves-effect waves-light red darken-2"
+              className="btn waves-effect waves-light light-blue lighten-1"
               type="submit"
               name="action">
               LOG IN

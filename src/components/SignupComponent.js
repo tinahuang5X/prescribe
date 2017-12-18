@@ -18,7 +18,7 @@ class SignupComponent extends Component {
             style={{
               textAlign: 'center',
               textDecoration: 'underline',
-              color: 'brown'
+              color: '#29b6f6'
             }}>
             <br />
             Welcome! Please sign up.
@@ -26,6 +26,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_firstName"
               type="text"
               className="validate"
@@ -38,6 +39,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_lastName"
               type="text"
               className="validate"
@@ -50,6 +52,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">email</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_email"
               type="text"
               className="validate"
@@ -62,6 +65,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">lock</i>
             <input
+              style={{ fontSize: '20px' }}
               id="icon_password"
               type="password"
               className="validate"
@@ -72,13 +76,14 @@ class SignupComponent extends Component {
           </div>
 
           <div className="col s12 center">
+            <br />
             <button
-              className="btn waves-effect waves-light red darken-2"
+              className="btn waves-effect waves-light light-blue lighten-1"
               type="submit"
               name="action">
               SIGN UP
             </button>
-            <br />
+
             <br />
             {this.props.errorType === 'SUBMIT_MDINFO_ERROR'
               ? <p
@@ -107,10 +112,11 @@ class SignupComponent extends Component {
             <p
               className="header"
               style={{
+                fontSize: '16px',
                 textAlign: 'center',
-                color: 'brown'
+                color: '#29b6f6'
               }}>
-              _____________________________________________________________________________________________________________
+              ______________________________________________________________
               <br />
               <br />If you have already signed up, please click the button below
               to log in.
@@ -118,7 +124,7 @@ class SignupComponent extends Component {
             <br />
             <Link
               to="/login"
-              className="btn waves-effect waves-light red darken-2"
+              className="btn waves-effect waves-light light-blue lighten-1"
               type="submit"
               name="action">
               LOG IN

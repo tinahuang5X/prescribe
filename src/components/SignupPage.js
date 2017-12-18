@@ -13,11 +13,11 @@ export default function SignupPage({
     <div
       className="SignupPage"
       style={{
-        height: '60%',
-        width: '60%',
+        height: '50%',
+        width: '45%',
         margin: '60px auto',
         borderStyle: 'solid',
-        backgroundColor: 'MISTYROSE'
+        backgroundColor: 'white'
         //backgroundImage: 'url(' + { Background } + ')'
       }}>
       <SignupComponent onSignup={onSignup} errorType={errorType} />

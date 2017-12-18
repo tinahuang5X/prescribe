@@ -1,61 +1,47 @@
 import React from 'react';
-
 import DrugsPageLayout from './DrugsPageLayout';
-import ManageRxListComponent from './ManageRxListComponent';
-//import RxComponent from './RxComponent';
 import DrugsComponent from './DrugsComponent';
-import OrderRxFormComponent from './OrderRxFormComponent';
-import RxPadComponent from './RxPadComponent';
 
 export default function DrugsPage({
   //id,
   onAddRx,
   onEditRx,
-  filter,
-  sort,
-  selected,
   RxItems,
-
-  selectedItemIds,
-  orderItems,
-  patientInfo,
-  onSubmitSort,
-  onSubmitFilter,
-  onAddItem,
   onRemoveItem,
-  onSelectItem,
-  onDeselectItem,
-  //onAddRx,
-  onSubmit,
-  onTransmit,
-  onSwitch,
-  onLogout,
-  history
+  onLogout
 }) {
-  //console.log(onLogout);
-  return (
-    //<div id={id} className="OrderPage">
-    <div className="DrugsPage">
-      <DrugsPageLayout onLogout={onLogout} onAddRx={onAddRx}>
-        <DrugsComponent
-          items={RxItems}
-          onRemoveItem={onRemoveItem}
-          onEditRx={onEditRx}
-        />
-        <ManageRxListComponent
-          sort={sort}
-          filter={filter}
-          onSubmitFilter={onSubmitFilter}
-          onSubmitSort={onSubmitSort}
-        />
-        <OrderRxFormComponent patientInfo={patientInfo} onSubmit={onSubmit} />
-
-        <RxPadComponent
-          items={orderItems}
-          patientInfo={patientInfo}
-          onTransmit={onTransmit}
-        />
-      </DrugsPageLayout>
-    </div>
-  );
+  if (RxItems && Array.isArray(RxItems)) {
+    //console.log(onLogout);
+    return (
+      //<div id={id} className="OrderPage">
+      <div className="DrugsPage">
+        <DrugsPageLayout onLogout={onLogout} onAddRx={onAddRx}>
+          <DrugsComponent
+            items={RxItems}
+            onRemoveItem={onRemoveItem}
+            onEditRx={onEditRx}
+          />
+        </DrugsPageLayout>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h5>
+          <p>
+            &nbsp;&nbsp;&nbsp;You are not authorized to view this page or your
+            credentials have expired.
+          </p>
+        </h5>
+        <a
+          href="#/login"
+          className="waves-effect waves-light btn light-blue lighten-1"
+          style={{
+            marginLeft: '20px'
+          }}>
+          BACK TO LOGIN PAGE
+        </a>
+      </div>
+    );
+  }
 }

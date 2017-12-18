@@ -9,7 +9,8 @@ function mapStateToProps(state, ownProps) {
   console.log(state);
   return {
     RxItems: state.RxItems,
-    patients: state.patients
+    patients: state.patients,
+    rxInfo: state.rxInfo
   };
 }
 
@@ -21,7 +22,11 @@ function mapDispatchToProps(dispatch, ownProps) {
         dispatch(getRxItemsProcess());
       });
     },
-
+    onSubmit: ({ name, dob, generic, brand, indications, strength, dosage }) =>
+      dispatch({
+        type: 'SUBMIT_RX',
+        rxInfo: { name, dob, generic, brand, indications, strength, dosage }
+      }),
     onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null })
   };
 }

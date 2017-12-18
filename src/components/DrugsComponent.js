@@ -148,13 +148,13 @@ class DrugsComponent extends Component {
                 <TableHeaderColumn style={{ fontSize: '20px', width: '14%' }}>
                   Generic Name
                 </TableHeaderColumn>
-                <TableHeaderColumn style={{ fontSize: '20px', width: '20%' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '17%' }}>
                   Brand Name
                 </TableHeaderColumn>
                 <TableHeaderColumn
                   style={{
                     fontSize: '20px',
-                    width: '25%'
+                    width: '28%'
                   }}>
                   Indications
                 </TableHeaderColumn>

@@ -5,10 +5,17 @@ export default function getPatients() {
   let storedId = localStorage.getItem('doctorId');
   console.log(storedToken, storedId);
 
-  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
+  // return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
+  //   method: 'GET',
+  //   headers: {
+  //     Authorization: storedToken,
+  //     'Content-Type': 'application/json'
+  //   }
+  // })
+  return fetch(`${env.API_BASE_URL}/patients`, {
     method: 'GET',
     headers: {
-      Authorization: storedToken,
+      Authorization: 'JWT ' + storedToken,
       'Content-Type': 'application/json'
     }
   })
@@ -18,17 +25,18 @@ export default function getPatients() {
     })
     .then(records => {
       console.log(records);
-
-      return records.map(record => ({
-        // .then(record => {
-        //   console.log(record);
-        //   return {
-        id: record.id,
-        doctorId: record.doctorId,
-        name: record.name,
-        dob: record.dob,
-        phone: record.phone,
-        address: record.address
-      }));
+      if (records.error === 'Invalid token') return 'UNAUTHORIZED';
+      else
+        return records.map(record => ({
+          // .then(record => {
+          //   console.log(record);
+          //   return {
+          id: record.id,
+          doctorId: record.doctorId,
+          name: record.name,
+          dob: record.dob,
+          phone: record.phone,
+          address: record.address
+        }));
     });
 }

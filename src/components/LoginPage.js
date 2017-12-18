@@ -13,11 +13,11 @@ export default function LoginPage({
     <div
       className="LoginPage"
       style={{
-        height: '60%',
-        width: '60%',
+        height: '50%',
+        width: '40%',
         margin: '60px auto',
         borderStyle: 'solid',
-        backgroundColor: 'MISTYROSE'
+        backgroundColor: 'white'
         //backgroundImage: 'url(' + { Background } + ')'
       }}>
       <LoginComponent onLogin={onLogin} errorType={errorType} />

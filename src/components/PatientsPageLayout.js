@@ -126,7 +126,7 @@ class PatientsPageLayout extends Component {
                                 id="icon_name"
                                 type="text"
                                 className="validate"
-                                placeholder="name"
+                                placeholder="Name"
                                 //required
                               />
                               <label htmlFor="icon_name" />

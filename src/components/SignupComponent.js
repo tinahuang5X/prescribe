@@ -21,7 +21,7 @@ class SignupComponent extends Component {
               color: '#29b6f6'
             }}>
             <br />
-            Welcome! Please sign up.
+            Welcome to Prescribe! &nbsp;Please sign up.
           </h5>
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>

@@ -20,7 +20,7 @@ class LoginComponent extends Component {
               color: '#29b6f6'
             }}>
             <br />
-            Welcome! Please log in.
+            Welcome to Prescribe! &nbsp;Please log in.
           </h5>
 
           <div className="input-field col s12">

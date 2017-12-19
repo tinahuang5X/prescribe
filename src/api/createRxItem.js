@@ -1,19 +1,20 @@
 import env from '../env';
-
+const jwt = require('jsonwebtoken');
 export default function createRxItem(RxItem) {
   let storedToken = localStorage.getItem('token');
-  let storedId = localStorage.getItem('doctorId');
+  let decodedToken = jwt.decode(storedToken);
+
+  let storedId = decodedToken.identity;
+
   console.log(storedToken, storedId);
   console.log(RxItem);
-  // return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
-  //   method: 'POST',
-  //   headers: {
-  //     Authorization: storedToken,
-  //     'Content-Type': 'application/json'
-  //   },
-  return fetch(`${env.API_BASE_URL}/drugs/1`, {
+
+  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/drugs`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: 'JWT ' + storedToken,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       generic: RxItem.generic,
       brand: RxItem.brand,

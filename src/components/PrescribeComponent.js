@@ -287,14 +287,14 @@ class PrescribeComponent extends Component {
     const name = $form.name.value.trim();
     const nameIndex = nameField.indexOf(name);
     let dob = '';
-    if (name) {
+    if (name && nameIndex !== -1) {
       dob = this.props.patients[nameIndex].dob;
     }
     const generic = $form.generic.value.trim();
     const genericIndex = genericField.indexOf(generic);
     let brand = '';
     let indications = '';
-    if (generic) {
+    if (generic && genericIndex !== -1) {
       brand = this.props.items[genericIndex].brand;
       indications = this.props.items[genericIndex].indications;
     }
@@ -302,8 +302,18 @@ class PrescribeComponent extends Component {
 
     const dosage = $form.dosage.value.trim();
 
-    console.log({ name, dob, generic, brand, indications, strength, dosage });
+    console.log({
+      name,
+      nameIndex,
+      dob,
+      generic,
+      brand,
+      indications,
+      strength,
+      dosage
+    });
     let regName = /^[a-zA-Z ]{2,30}$/;
+
     if (name.match(regName) && generic.match(regName) && strength && dosage) {
       this.props.onSubmit({
         name,

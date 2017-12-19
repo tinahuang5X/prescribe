@@ -1,20 +1,17 @@
 import env from '../env';
-
+const jwt = require('jsonwebtoken');
 export default function createPatient(patient) {
   let storedToken = localStorage.getItem('token');
-  let storedId = localStorage.getItem('doctorId');
+  let decodedToken = jwt.decode(storedToken);
+
+  let storedId = decodedToken.identity;
   console.log(storedToken, storedId);
   console.log(patient);
-  // return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
-  //   method: 'POST',
-  //   headers: {
-  //     Authorization: storedToken,
-  //     'Content-Type': 'application/json'
-  //   },
-  return fetch(`${env.API_BASE_URL}/patients/1`, {
+
+  return fetch(`${env.API_BASE_URL}/doctors/${storedId}/patients`, {
     method: 'POST',
     headers: {
-      // Authorization: storedToken,
+      Authorization: 'JWT ' + storedToken,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({

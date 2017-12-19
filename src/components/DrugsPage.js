@@ -10,7 +10,9 @@ export default function DrugsPage({
   onRemoveItem,
   onLogout
 }) {
-  if (RxItems && Array.isArray(RxItems)) {
+  let storedToken = localStorage.getItem('token');
+
+  if (RxItems && Array.isArray(RxItems) && storedToken) {
     //console.log(onLogout);
     return (
       //<div id={id} className="OrderPage">

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import Snackbar from 'material-ui/Snackbar';
 
 class PrescribeComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasValidationError: false, clearForm: true };
+    this.state = { hasValidationError: false, clearForm: true, open: false };
   }
 
   render() {
@@ -236,29 +237,48 @@ class PrescribeComponent extends Component {
               </h5>}
         </form>
         <br /> <br />
-        <div className="col s12">
-          {this.state.clearForm
-            ? null
-            : <button
+        {this.state.clearForm
+          ? null
+          : <div>
+              <button
+                onClick={this.handleToast}
                 className="btn waves-effect waves-light light-blue lighten-1"
                 type="submit"
                 name="action"
                 style={{ marginLeft: '18%' }}>
                 SEND TO PHARMACY
-              </button>}
-          <button
-            onClick={this.handleClick}
-            href="#/prescribe"
-            className="btn waves-effect waves-light light-blue lighten-1"
-            type="submit"
-            name="action"
-            style={{ marginLeft: '15%' }}>
-            CLEAR
-          </button>
-        </div>
+              </button>
+              <Snackbar
+                open={this.state.open}
+                message="Prescription successfully sent!"
+                autoHideDuration={4000}
+                onRequestClose={this.handleRequestClose}
+              />
+            </div>}
+        <button
+          onClick={this.handleClick}
+          href="#/prescribe"
+          className="btn waves-effect waves-light light-blue lighten-1"
+          type="submit"
+          name="action"
+          style={{ marginLeft: '18%', marginTop: '20px' }}>
+          CLEAR
+        </button>
       </div>
     );
   }
+
+  handleToast = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false
+    });
+  };
 
   handleClick = event => {
     //const { onSubmit } = this.props;

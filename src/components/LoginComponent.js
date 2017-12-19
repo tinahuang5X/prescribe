@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class LoginComponent extends Component {
               name="action">
               LOG IN
             </button>
-
+            <br />
             {this.props.errorType === 'SUBMIT_LOGININFO_ERROR'
               ? <p
                   style={{
@@ -86,6 +86,28 @@ class LoginComponent extends Component {
               name="action">
               LOG IN
             </Link> */}
+            <br />
+            <br />
+            <p
+              className="header"
+              style={{
+                fontSize: '16px',
+                textAlign: 'center',
+                color: '#29b6f6'
+              }}>
+              _______________________________________________________________________
+              <br />
+              <br />If you would like to create an account, please click the
+              button below to sign up.
+            </p>
+            <br />
+            <Link
+              to="/"
+              className="btn waves-effect waves-light light-blue lighten-1"
+              type="submit"
+              name="action">
+              SIGN UP
+            </Link>
           </div>
         </div>
         <br />

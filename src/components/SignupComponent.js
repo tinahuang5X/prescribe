@@ -26,7 +26,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
-              style={{ fontSize: '20px' }}
+              style={{ fontSize: '18px' }}
               id="icon_firstName"
               type="text"
               className="validate"
@@ -39,7 +39,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
-              style={{ fontSize: '20px' }}
+              style={{ fontSize: '18px' }}
               id="icon_lastName"
               type="text"
               className="validate"
@@ -52,7 +52,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">email</i>
             <input
-              style={{ fontSize: '20px' }}
+              style={{ fontSize: '18px' }}
               id="icon_email"
               type="text"
               className="validate"
@@ -65,7 +65,7 @@ class SignupComponent extends Component {
           <div className="input-field col s12">
             <i className="material-icons prefix">lock</i>
             <input
-              style={{ fontSize: '20px' }}
+              style={{ fontSize: '18px' }}
               id="icon_password"
               type="password"
               className="validate"
@@ -116,7 +116,7 @@ class SignupComponent extends Component {
                 textAlign: 'center',
                 color: '#29b6f6'
               }}>
-              ______________________________________________________________
+              ___________________________________________________________
               <br />
               <br />If you have already signed up, please click the button below
               to log in.

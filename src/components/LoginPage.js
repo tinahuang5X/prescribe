@@ -14,7 +14,7 @@ export default function LoginPage({
       className="LoginPage"
       style={{
         height: '50%',
-        width: '40%',
+        width: '45%',
         margin: '60px auto',
         borderStyle: 'solid',
         backgroundColor: 'white'

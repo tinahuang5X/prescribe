@@ -11,11 +11,14 @@ export default function PrescribePage({
   onSubmit,
   rxInfo
 }) {
+  let storedToken = localStorage.getItem('token');
+
   if (
     patients &&
     Array.isArray(patients) &&
     RxItems &&
-    Array.isArray(RxItems)
+    Array.isArray(RxItems) &&
+    storedToken
   ) {
     return (
       //<div id={id} className="OrderPage">

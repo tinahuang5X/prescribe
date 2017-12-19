@@ -10,7 +10,9 @@ export default function PatientsPage({
   onRemovePatient,
   onEditPt
 }) {
-  if (patients && Array.isArray(patients)) {
+  let storedToken = localStorage.getItem('token');
+
+  if (patients && Array.isArray(patients) && storedToken) {
     return (
       <div className="PatientsPage">
         <PatientsPageLayout onLogout={onLogout} onAddPt={onAddPt}>

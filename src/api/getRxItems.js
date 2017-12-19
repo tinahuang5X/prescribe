@@ -40,7 +40,10 @@ export default function getRxItems() {
   let storedToken = localStorage.getItem('token');
   let decodedToken = jwt.decode(storedToken);
   //console.log(storedToken, decodedToken);
-  let storedId = decodedToken.identity;
+  let storedId = null;
+  if (decodedToken) {
+    storedId = decodedToken.identity;
+  }
 
   console.log(storedToken, storedId);
 

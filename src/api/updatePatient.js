@@ -2,9 +2,13 @@ import env from '../env';
 
 export default function updatePatient(patientId, patient, change) {
   console.log(patientId, patient, change);
+  let storedToken = localStorage.getItem('token');
   return fetch(`${env.API_BASE_URL}/patients/${patientId}`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: 'JWT ' + storedToken,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(change)
   })
     .then(response => response.json())

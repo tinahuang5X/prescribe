@@ -1,7 +1,7 @@
-![index](Add Drug in "Prescribe" App.png)
+![add drug](Add Drug in "Prescribe" App.png)
 This page allows signed-in doctors to see their drugs and performed CRUD (create, retrieve, update, delete) operations.
 Pop-up windows appear when doctors click the add, remove and edit buttons.
-![index](Drug Page in "Prescribe" App.png)
+![prescribe](Prescribe Page in "Prescribe" App.png)
 The prescribe form is auto-complete which expedites the prescribing process. Drop down menus appear when doctors type in just one letter in the form. Prescribers can order medications for patients at the click of a button to avoid the
 hassle of handwritten scripts.
 

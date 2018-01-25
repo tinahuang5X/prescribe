@@ -13,13 +13,18 @@ It supports 4 CRUD operations which allows prescribers to create, remove, update
 Frontend: JavaScript ES6, HTML, Materialize CSS, Material UI, JSX, Storybook, React, Redux, React Router
 
 Backend: PostgreSQL, Python, Flask, RESTful API, bCrypt, JWT, Psycopg2
+
 Testing and Other: Super Test, Jest, Enzyme, Postman
 
 **The following are some of the pages in the app:**
 
 ## The Sign-up Page
 
-This page allows the doctor to create an account.  All fields have to be filled in and validation checks are performed.  Correct email address format and passwords which are at least 8 characters long are required for successful registration.
+This page allows the doctor to create an account.  
+
+All fields have to be filled in and validation checks are performed.  
+
+Correct email address format and passwords which are at least 8 characters long are required for successful registration.
 
 ![sign up](Signup-Page-in-"Prescribe"-App.png)
 
@@ -28,7 +33,9 @@ This page allows the doctor to create an account.  All fields have to be filled 
 
 This page allows signed-in doctors to see their drugs and performed CRUD (create, retrieve, update, delete) operations.
 
-I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  Psycopg2 adapter was used to connect Python to PostgreSQL database server.
+I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  
+
+Psycopg2 adapter was used to connect Python to PostgreSQL database server.
 
 ![drug page](Drug-Page-in-"Prescribe"-App.png)
 
@@ -36,7 +43,9 @@ I rebuilt fully functional REST API using Python and Flask (self-taught) for my 
 ## The Add-drug Dialog
 
 
-Pop-up windows appear when doctors click the add, remove and edit buttons on the drug page.  This image shows the add-drug dialog.
+Pop-up windows appear when doctors click the add, remove and edit buttons on the drug page.  
+
+This image shows the add-drug dialog.
 
 ![add drug](Add-Drug-in-"Prescribe"-App.png)
 
@@ -44,7 +53,9 @@ Pop-up windows appear when doctors click the add, remove and edit buttons on the
 ## The Edit-patient Dialog
 
 
-Pop-up windows appear when doctors click the add, remove and edit buttons on the patient page as well.  This image shows the edit-patient dialog.
+Pop-up windows appear when doctors click the add, remove and edit buttons on the patient page as well.  
+
+This image shows the edit-patient dialog.
 
 ![edit patient](Edit-Patient-in-"Prescribe"-App.png)
 

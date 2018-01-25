@@ -9,7 +9,6 @@ hassle of handwritten scripts.
 Prescribe (Capstone Project)
 Nov 2017 – Dec 2017
 
-Project description
 Summary:
 This application is designed for prescribers to prescribe medications by selecting the desired medications and patients from the drug and patient list and electronically send the prescription to the pharmacy. It supports 4 CRUD operations which allows prescribers to create, remove, update, or delete drugs/patients from the drug/patient list.
 

@@ -1,4 +1,4 @@
-![add drug](Add Drug in "Prescribe" App.png)
+![add drug](Add-Drug-in-"Prescribe"-App.png)
 This page allows signed-in doctors to see their drugs and performed CRUD (create, retrieve, update, delete) operations.
 Pop-up windows appear when doctors click the add, remove and edit buttons.
 ![prescribe](Prescribe Page in "Prescribe" App.png)

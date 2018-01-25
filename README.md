@@ -17,40 +17,39 @@ Testing and Other: Super Test, Jest, Enzyme, Postman
 
 **The following are some of the pages in the app:**
 
-## The sign-up page
-
-![sign up](Signup-Page-in-"Prescribe"-App.png)
+## The Sign-up Page
 
 This page allows the doctor to create an account.  All fields have to be filled in and validation checks are performed.  Correct email address format and passwords which are at least 8 characters long are required for successful registration.
 
+![sign up](Signup-Page-in-"Prescribe"-App.png)
 
-## The drug page
 
-![drug page](Drug-Page-in-"Prescribe"-App.png)
-
+## The Drug Page
 
 This page allows signed-in doctors to see their drugs and performed CRUD (create, retrieve, update, delete) operations.
 
 I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  Psycopg2 adapter was used to connect Python to PostgreSQL database server.
 
+![drug page](Drug-Page-in-"Prescribe"-App.png)
 
-## The add-drug dialog
+
+## The Add-drug Dialog
 
 
-Pop-up windows appear when doctors click the add, remove and edit buttons on the drug page.  This image shows the add-drug window.
+Pop-up windows appear when doctors click the add, remove and edit buttons on the drug page.  This image shows the add-drug dialog.
 
 ![add drug](Add-Drug-in-"Prescribe"-App.png)
 
 
-## The edit-patient dialog
+## The Edit-patient Dialog
 
 
-Pop-up windows appear when doctors click the add, remove and edit buttons on the patient page as well.  This image shows the edit-patient window.
+Pop-up windows appear when doctors click the add, remove and edit buttons on the patient page as well.  This image shows the edit-patient dialog.
 
 ![edit patient](Edit-Patient-in-"Prescribe"-App.png)
 
 
-## The prescribe page
+## The Prescribe Page
 
 
 The prescribe form is auto-complete which expedites the prescribing process.

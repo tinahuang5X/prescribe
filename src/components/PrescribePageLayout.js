@@ -106,28 +106,15 @@ class PrescribePageLayout extends Component {
           </div>
         </header>
         {console.log(this.props)}
-        <div className="Container">
-          <div className="Prescribe">
-            {/* style={{
 
-              display: 'inline-table',
-              float: 'left',
-              width: '50%'
-            }}> */}
-            {this.props.children}
-          </div>
-          {/* <div
-            className="Paper"
-            style={{
-              display: 'inline-table',
-              float: 'left',
-              flexdirection: 'column',
-              width: '40%',
-              marginLeft: '10px'
-            }}>
-            {this.props.children[1]}
-          </div> */}
+        <div className="Prescribe">
+          {this.props.children}
         </div>
+
+        <footer
+          className="page-footer"
+          style={{ height: '70px', margin: '-2%', backgroundColor: '#37474f' }}
+        />
       </div>
     );
   }

@@ -17,12 +17,14 @@ class SignupComponent extends Component {
             className="header"
             style={{
               textAlign: 'center',
-              textDecoration: 'underline',
+              fontWeight: '500',
               color: '#29b6f6'
             }}>
             <br />
-            Welcome to Prescribe! &nbsp;Please sign up.
+            Welcome to Prescribe!<br />
+            <br />Please sign up.
           </h5>
+          <br />
           <div className="input-field col s12">
             <i className="material-icons prefix">account_circle</i>
             <input
@@ -108,26 +110,13 @@ class SignupComponent extends Component {
               : null}
 
             <br />
-            <br />
-            <p
-              className="header"
-              style={{
-                fontSize: '16px',
-                textAlign: 'center',
-                color: '#29b6f6'
-              }}>
-              ___________________________________________________________
-              <br />
-              <br />If you have already signed up, please click the button below
-              to log in.
-            </p>
-            <br />
+
             <Link
-              to="/login"
+              to="/"
               className="btn waves-effect waves-light light-blue lighten-1"
               type="submit"
               name="action">
-              LOG IN
+              HOME
             </Link>
           </div>
         </div>

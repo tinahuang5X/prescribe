@@ -2,6 +2,7 @@ import React from 'react';
 
 import PatientsComponent from './PatientsComponent';
 import PatientsPageLayout from './PatientsPageLayout';
+import image from '../images/patients1.jpg';
 
 export default function PatientsPage({
   patients,
@@ -16,11 +17,18 @@ export default function PatientsPage({
     return (
       <div className="PatientsPage">
         <PatientsPageLayout onLogout={onLogout} onAddPt={onAddPt}>
-          <PatientsComponent
-            patients={patients}
-            onRemovePatient={onRemovePatient}
-            onEditPt={onEditPt}
-          />
+          <img alt="patients" src={image} style={{ width: '100%' }} />
+          <div
+            className="Patients"
+            style={{
+              margin: '-0.5% auto'
+            }}>
+            <PatientsComponent
+              patients={patients}
+              onRemovePatient={onRemovePatient}
+              onEditPt={onEditPt}
+            />
+          </div>
         </PatientsPageLayout>
       </div>
     );

@@ -227,11 +227,14 @@ class PatientsPageLayout extends Component {
           </div>
         </header>
         {console.log(this.props)}
-        <div className="Container">
-          <div className="Pt">
-            {this.props.children}
-          </div>
+
+        <div className="Pt">
+          {this.props.children}
         </div>
+        <footer
+          className="page-footer"
+          style={{ height: '70px', margin: '-3%', backgroundColor: '#37474f' }}
+        />
       </div>
     );
   }

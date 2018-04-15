@@ -1,6 +1,7 @@
 import React from 'react';
 import DrugsPageLayout from './DrugsPageLayout';
 import DrugsComponent from './DrugsComponent';
+import image from '../images/drugs2.jpg';
 
 export default function DrugsPage({
   //id,
@@ -18,11 +19,18 @@ export default function DrugsPage({
       //<div id={id} className="OrderPage">
       <div className="DrugsPage">
         <DrugsPageLayout onLogout={onLogout} onAddRx={onAddRx}>
-          <DrugsComponent
-            items={RxItems}
-            onRemoveItem={onRemoveItem}
-            onEditRx={onEditRx}
-          />
+          <img alt="drugs" src={image} style={{ width: '100%' }} />
+          <div
+            className="Drugs"
+            style={{
+              margin: '-0.5% auto'
+            }}>
+            <DrugsComponent
+              items={RxItems}
+              onRemoveItem={onRemoveItem}
+              onEditRx={onEditRx}
+            />
+          </div>
         </DrugsPageLayout>
       </div>
     );

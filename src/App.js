@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DrugsPageContainer from './redux/containers/DrugsPageContainer';
-//import CreateRxPageContainer from './redux/containers/CreateRxPageContainer';
-//import UpdateRxPageContainer from './redux/containers/UpdateRxPageContainer';
+import HelloPage from './components/HelloPage';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import SignupPageContainer from './redux/containers/SignupPageContainer';
 import PatientsPageContainer from './redux/containers/PatientsPageContainer';
@@ -28,6 +27,11 @@ export default class App extends Component {
                 <Route
                   exact
                   path="/"
+                  render={props => <HelloPage {...props} />}
+                />
+                <Route
+                  exact
+                  path="/signup"
                   render={props => <SignupPageContainer {...props} />}
                 />
                 <Route
@@ -40,16 +44,6 @@ export default class App extends Component {
                   path="/drugs"
                   render={props => <DrugsPageContainer {...props} />}
                 />
-                {/* <Route
-                  exact
-                  path="/add-drug"
-                  render={props => <CreateRxPageContainer {...props} />}
-                />
-                <Route
-                  exact
-                  path="/drugs/:drugId"
-                  render={props => <UpdateRxPageContainer {...props} />}
-                /> */}
                 <Route
                   exact
                   path="/patients"

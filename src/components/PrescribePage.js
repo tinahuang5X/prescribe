@@ -1,7 +1,7 @@
 import React from 'react';
 import PrescribePageLayout from './PrescribePageLayout';
 import PrescribeComponent from './PrescribeComponent';
-//import PaperComponent from './PaperComponent';
+import image from '../images/prescribe.png';
 
 export default function PrescribePage({
   //id,
@@ -21,19 +21,14 @@ export default function PrescribePage({
     storedToken
   ) {
     return (
-      //<div id={id} className="OrderPage">
       <div className="PrescribePage">
         <PrescribePageLayout onLogout={onLogout}>
+          <img alt="prescribe" src={image} style={{ width: '100%' }} />
           <div
             className="Prescribe"
             style={{
-              // height: '50%',
-              width: '50%',
-              margin: 'auto',
-              marginTop: '20px',
-              //borderStyle: 'solid',
-              backgroundColor: 'white'
-              //  backgroundImage: 'url(' + { Background } + ')'
+              backgroundColor: 'white',
+              margin: '-0.5% auto'
             }}>
             <PrescribeComponent
               items={RxItems}
@@ -42,7 +37,6 @@ export default function PrescribePage({
               rxInfo={rxInfo}
             />
           </div>
-          {/* <PaperComponent /> */}
         </PrescribePageLayout>
       </div>
     );

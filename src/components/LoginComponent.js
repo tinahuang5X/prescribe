@@ -16,13 +16,14 @@ class LoginComponent extends Component {
             className="header"
             style={{
               textAlign: 'center',
-              textDecoration: 'underline',
+              fontWeight: '500',
               color: '#29b6f6'
             }}>
             <br />
-            Welcome to Prescribe! &nbsp;Please log in.
+            Welcome to Prescribe! <br />
+            <br />Please log in.
           </h5>
-
+          <br />
           <div className="input-field col s12">
             <i className="material-icons prefix">email</i>
             <input
@@ -79,34 +80,15 @@ class LoginComponent extends Component {
                   format and a password at least 8 characters long.
                 </p>
               : null}
-            {/* <Link
-              to="/order"
-              className="btn waves-effect waves-light red darken-2"
-              type="submit"
-              name="action">
-              LOG IN
-            </Link> */}
+
             <br />
-            <br />
-            <p
-              className="header"
-              style={{
-                fontSize: '16px',
-                textAlign: 'center',
-                color: '#29b6f6'
-              }}>
-              _______________________________________________________________________
-              <br />
-              <br />If you would like to create an account, please click the
-              button below to sign up.
-            </p>
-            <br />
+
             <Link
               to="/"
               className="btn waves-effect waves-light light-blue lighten-1"
               type="submit"
               name="action">
-              SIGN UP
+              HOME
             </Link>
           </div>
         </div>

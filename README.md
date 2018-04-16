@@ -26,7 +26,7 @@ All fields have to be filled in and validation checks are performed.
 
 Correct email address format and passwords which are at least 8 characters long are required for successful registration.
 
-![sign up](Signup-Page-in-"Prescribe"-App.png)
+![sign up](screenshots/SignUpPage.png)
 
 
 ## The Drug Page

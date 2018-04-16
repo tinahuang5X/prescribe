@@ -1,5 +1,6 @@
 # Prescribe (Capstone Project)
-Nov 2017 – Dec 2017
+Created: Nov 2017 – Dec 2017
+Updated: April 2018
 
 **Summary:**
 
@@ -16,7 +17,6 @@ Backend: PostgreSQL, Python, Flask, RESTful API, bCrypt, JWT, Psycopg2
 
 Testing and Other: Super Test, Jest, Enzyme, Postman
 
-**The following are some of the pages in the app:**
 
 ## The Home Page
 
@@ -42,7 +42,7 @@ This page allows the doctor to log in.
 
 All fields have to be filled in and validation checks are performed.  
 
-Correct email address format and passwords which are at least 8 characters long are required for successful registration.
+Input validation checks are performed again for correct email address format and password length.
 
 An error message will appear if incorrect email addresses or passwords were entered.
 

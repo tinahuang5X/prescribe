@@ -40,9 +40,7 @@ An error message will appear if the entered email address is already in the syst
 
 This page allows the doctor to log in.  
 
-All fields have to be filled in and validation checks are performed.  
-
-Input validation checks are performed again for correct email address format and password length.
+All fields have to be filled in and input validation checks are performed again for correct email address format and password length.
 
 An error message will appear if incorrect email addresses or passwords were entered.
 

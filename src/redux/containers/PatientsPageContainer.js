@@ -12,7 +12,8 @@ import createPatientProcess from '../thunks/createPatientProcess';
 
 function mapStateToProps(state, ownProps) {
   return {
-    patients: state.patients
+    patients: state.patients,
+    errorType: state.errorType
   };
 }
 
@@ -51,7 +52,11 @@ function mapDispatchToProps(dispatch, ownProps) {
       );
     },
 
-    onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null })
+    onLogout: () => {
+      dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null });
+
+      dispatch({ type: 'REMOVE_LOGININFO_ERROR', errorType: null });
+    }
   };
 }
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

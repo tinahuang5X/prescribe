@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import Snackbar from 'material-ui/Snackbar';
+import image from '../images/medications.png';
 
 class PrescribeComponent extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class PrescribeComponent extends Component {
               <span
                 style={{
                   textDecoration: 'underline',
-                  marginLeft: '120px'
+                  marginLeft: '18%'
                 }}>
                 Date:&nbsp;&nbsp;{d}
               </span>
@@ -154,6 +155,7 @@ class PrescribeComponent extends Component {
               <br />
               <br />
               <br />
+              <br />
 
               {/* <h5>
             <span
@@ -168,7 +170,7 @@ class PrescribeComponent extends Component {
 
               {console.log(this.props.rxInfo)}
 
-              <div className="col s12 offset-s4">
+              <div className="col s12 offset-s5">
                 <button
                   className="btn waves-effect waves-light light-blue lighten-1"
                   type="submit"
@@ -189,21 +191,19 @@ class PrescribeComponent extends Component {
                     </span>
                   : null}
               </div>
-              <br />
-              <br />
-              <br />
-              <br />
             </div>
 
             <div
               className="col s6"
               style={{
                 border: '8px solid paleturquoise',
+                marginTop: '-2%',
                 marginLeft: '6%',
-                width: '35%'
+                marginBottom: '4%',
+                width: '33%'
               }}>
               {this.state.clearForm
-                ? <h5 style={{ margin: '10% 10%' }}>
+                ? <h5 style={{ margin: '6% 8%' }}>
                     <span
                       style={{
                         fontSize: '18px'
@@ -219,7 +219,7 @@ class PrescribeComponent extends Component {
                       <br /> Dosage:&nbsp;&nbsp;
                     </span>
                   </h5>
-                : <h5 style={{ margin: '10% 10%' }}>
+                : <h5 style={{ margin: '6% 8%' }}>
                     <span
                       style={{
                         fontSize: '18px'
@@ -259,6 +259,7 @@ class PrescribeComponent extends Component {
                         message="Prescription successfully sent!"
                         autoHideDuration={4000}
                         onRequestClose={this.handleRequestClose}
+                        // style={{ marginLeft: '25%', width: '25%' }}
                       />
                     </div>}
                 <button
@@ -270,8 +271,17 @@ class PrescribeComponent extends Component {
                   style={{ margin: '20px auto' }}>
                   CLEAR
                 </button>
-                <br /> <br />
+                <br />
               </div>
+              <img
+                alt="medications"
+                src={image}
+                style={{
+                  marginLeft: '13%',
+                  marginTop: '1%',
+                  marginBottom: '6%'
+                }}
+              />
             </div>
           </form>
         </div>
@@ -345,7 +355,7 @@ class PrescribeComponent extends Component {
     });
     let regName = /^[a-zA-Z ]{2,30}$/;
 
-    if (name.match(regName) && generic.match(regName) && strength && dosage) {
+    if (name.match(regName) && generic && strength && dosage) {
       this.props.onSubmit({
         name,
         dob,

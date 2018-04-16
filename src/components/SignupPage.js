@@ -16,7 +16,7 @@ export default function SignupPage({ errorType, onSignup }) {
         style={{
           height: '50%',
           width: '28%',
-          marginLeft: '34%',
+          marginLeft: '32%',
           marginTop: '4%',
           borderStyle: 'solid',
           backgroundColor: 'white'

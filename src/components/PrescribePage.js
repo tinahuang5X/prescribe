@@ -9,7 +9,8 @@ export default function PrescribePage({
   RxItems,
   patients,
   onSubmit,
-  rxInfo
+  rxInfo,
+  errorType
 }) {
   let storedToken = localStorage.getItem('token');
 
@@ -22,7 +23,7 @@ export default function PrescribePage({
   ) {
     return (
       <div className="PrescribePage">
-        <PrescribePageLayout onLogout={onLogout}>
+        <PrescribePageLayout onLogout={onLogout} errorType={errorType}>
           <img alt="prescribe" src={image} style={{ width: '100%' }} />
           <div
             className="Prescribe"

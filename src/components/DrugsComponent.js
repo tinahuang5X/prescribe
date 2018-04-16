@@ -17,6 +17,7 @@ function getItemProperty(items, itemId, propertyName) {
   if (!Array.isArray(items)) return '';
   const item = items.find(item => item.id === itemId);
   if (!item) return '';
+
   return item[propertyName];
 }
 
@@ -67,7 +68,7 @@ class DrugsComponent extends Component {
     let val = tag.getAttribute('value');
     let valNum = parseInt(val, 10);
     console.log(tag, val, valNum);
-    this.setState({ itemId: valNum });
+    this.setState({ itemId: valNum, hasValidationError: false });
   };
 
   handleClose = event => {
@@ -94,22 +95,17 @@ class DrugsComponent extends Component {
     //const { onSubmit } = this.props;
     event.preventDefault();
     let itemId = this.state.itemId;
-    let items = this.props.items;
+
     console.log(itemId);
     const $form = event.target;
-    const generic =
-      $form.icon_generic.value.trim() ||
-      getItemProperty(items, itemId, 'generic');
+    let generic = $form.icon_generic.value.trim();
 
-    const brand =
-      $form.icon_brand.value.trim() || getItemProperty(items, itemId, 'brand');
+    const brand = $form.icon_brand.value.trim();
 
-    const indications =
-      $form.icon_indications.value.trim() ||
-      getItemProperty(items, itemId, 'indications');
+    const indications = $form.icon_indications.value.trim();
 
     let regName = /^[a-zA-Z ]{2,30}$/;
-    if (generic.match(regName) && brand.match(regName)) {
+    if (generic && brand.match(regName) && indications) {
       this.props.onEditRx(itemId, {
         generic,
         brand,
@@ -145,7 +141,7 @@ class DrugsComponent extends Component {
             onCellClick={this.handleCellClick}>
             <TableHeader>
               <TableRow>
-                <TableHeaderColumn style={{ fontSize: '20px', width: '14%' }}>
+                <TableHeaderColumn style={{ fontSize: '20px', width: '19%' }}>
                   Generic Name
                 </TableHeaderColumn>
                 <TableHeaderColumn style={{ fontSize: '20px', width: '17%' }}>
@@ -177,7 +173,7 @@ class DrugsComponent extends Component {
             <TableBody>
               {this.props.items.map((item, index) =>
                 <TableRow key={index} rowNumber={this.rowNumber}>
-                  <TableRowColumn style={{ fontSize: '15px', width: '15%' }}>
+                  <TableRowColumn style={{ fontSize: '15px', width: '19%' }}>
                     {item.generic}
                   </TableRowColumn>
                   <TableRowColumn style={{ fontSize: '15px', width: '15%' }}>

@@ -7,7 +7,8 @@ export default function rootReducer(
     doctorInfo: [],
     doctors: [],
     patients: [],
-    rxInfo: null
+    rxInfo: null,
+    errorType: null
   },
   action
 ) {
@@ -130,6 +131,11 @@ export default function rootReducer(
       return {
         ...currentState,
         errorType: action.type
+      };
+    case 'REMOVE_LOGININFO_ERROR':
+      return {
+        ...currentState,
+        errorType: action.errorType
       };
 
     case 'TRANSMIT_ORDER':

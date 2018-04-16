@@ -9,7 +9,8 @@ export default function DrugsPage({
   onEditRx,
   RxItems,
   onRemoveItem,
-  onLogout
+  onLogout,
+  errorType
 }) {
   let storedToken = localStorage.getItem('token');
 
@@ -18,7 +19,10 @@ export default function DrugsPage({
     return (
       //<div id={id} className="OrderPage">
       <div className="DrugsPage">
-        <DrugsPageLayout onLogout={onLogout} onAddRx={onAddRx}>
+        <DrugsPageLayout
+          onLogout={onLogout}
+          onAddRx={onAddRx}
+          errorType={errorType}>
           <img alt="drugs" src={image} style={{ width: '100%' }} />
           <div
             className="Drugs"

@@ -113,7 +113,11 @@ class PrescribePageLayout extends Component {
 
         <footer
           className="page-footer"
-          style={{ height: '70px', margin: '-2%', backgroundColor: '#37474f' }}
+          style={{
+            height: '70px',
+            margin: '-2%',
+            backgroundColor: '#37474f'
+          }}
         />
       </div>
     );

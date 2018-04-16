@@ -11,8 +11,10 @@ import updateRxItemProcess from '../thunks/updateRxItemProcess';
 import createRxItemProcess from '../thunks/createRxItemProcess';
 
 function mapStateToProps(state, ownProps) {
+  console.log(state.errorType);
   return {
-    RxItems: state.RxItems
+    RxItems: state.RxItems,
+    errorType: state.errorType
   };
 }
 
@@ -22,7 +24,13 @@ function mapDispatchToProps(dispatch, ownProps) {
 
     onRemoveItem: itemId => dispatch(deleteRxItemProcess(itemId)),
 
-    onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null }),
+    // onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null }),
+
+    onLogout: () => {
+      dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null });
+
+      dispatch({ type: 'REMOVE_LOGININFO_ERROR', errorType: null });
+    },
 
     onAddRx: ({ generic, brand, indications }) =>
       dispatch(

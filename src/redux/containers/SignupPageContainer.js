@@ -1,5 +1,4 @@
-import { compose } from 'recompose';
-//import { compose, lifecycle } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 
 import SignupPage from '../../components/SignupPage';
@@ -18,22 +17,26 @@ function mapDispatchToProps(dispatch, ownProps) {
     // onMount: () => {
     //   localStorage.removeItem('message');
     // },
-    onSignup: ({ firstName, lastName, email, password }) =>
+    onMount: () =>
+      dispatch({ type: 'REMOVE_LOGININFO_ERROR', errorType: null }),
+    onSignup: ({ firstName, lastName, email, password }) => {
       dispatch(
         doctorSignupProcess(
           { firstName, lastName, email, password },
           ownProps.history
         )
-      )
+      );
+      dispatch({ type: 'REMOVE_LOGININFO_ERROR', errorType: null });
+    }
   };
 }
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
-// const onDidMount = lifecycle({
-//   componentDidMount() {
-//     this.props.onMount();
-//   }
-// });
+const onDidMount = lifecycle({
+  componentDidMount() {
+    this.props.onMount();
+  }
+});
 
-export default compose(connectToStore)(SignupPage);
+export default compose(connectToStore, onDidMount)(SignupPage);
 //export default compose(connectToStore, onDidMount)(SignupPage);

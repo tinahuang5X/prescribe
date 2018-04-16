@@ -9,14 +9,18 @@ export default function PatientsPage({
   onLogout,
   onAddPt,
   onRemovePatient,
-  onEditPt
+  onEditPt,
+  errorType
 }) {
   let storedToken = localStorage.getItem('token');
 
   if (patients && Array.isArray(patients) && storedToken) {
     return (
       <div className="PatientsPage">
-        <PatientsPageLayout onLogout={onLogout} onAddPt={onAddPt}>
+        <PatientsPageLayout
+          onLogout={onLogout}
+          onAddPt={onAddPt}
+          errorType={errorType}>
           <img alt="patients" src={image} style={{ width: '100%' }} />
           <div
             className="Patients"

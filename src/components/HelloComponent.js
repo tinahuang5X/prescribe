@@ -14,13 +14,13 @@ class HelloComponent extends Component {
           }}>
           <br />
           Hello! This is Dr. John Smith. I'm very excited to introduce
-          "Prescribe" to you. It's a web app which allows me to save the drugs I
-          prescribe often and the patients I see regularly in the database. The
-          last page of the app contains the dropdown menus which I can select
-          the desired drug and patient from, and then with the click of a
-          button, I am able to enter the required information on the
-          prescription pad and send the prescription to the pharmacy. Please
-          select the button below to sign up or log in.
+          "Prescribe" to you. It's a web application which allows me to save my
+          drugs and my patients in the database. The last page of the
+          application contains the dropdown menus from which I can select the
+          desired drug and patient. With the click of a button, I am able to
+          enter the required information on the prescription pad and send the
+          prescription to the pharmacy. Please select the button below to sign
+          up or log in.
         </h5>
         <br />
         <br />

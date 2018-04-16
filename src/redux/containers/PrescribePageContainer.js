@@ -10,7 +10,8 @@ function mapStateToProps(state, ownProps) {
   return {
     RxItems: state.RxItems,
     patients: state.patients,
-    rxInfo: state.rxInfo
+    rxInfo: state.rxInfo,
+    errorType: state.errorType
   };
 }
 
@@ -27,7 +28,11 @@ function mapDispatchToProps(dispatch, ownProps) {
         type: 'SUBMIT_RX',
         rxInfo: { name, dob, generic, brand, indications, strength, dosage }
       }),
-    onLogout: () => dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null })
+    onLogout: () => {
+      dispatch({ type: 'REMOVE_MDINFO', doctorInfo: null });
+
+      dispatch({ type: 'REMOVE_LOGININFO_ERROR', errorType: null });
+    }
   };
 }
 

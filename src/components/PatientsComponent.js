@@ -80,7 +80,10 @@ class PatientsComponent extends Component {
     let val = tag.getAttribute('value');
     let valNum = parseInt(val, 10);
     console.log(tag, val, valNum);
-    this.setState({ patientId: valNum });
+    this.setState({
+      patientId: valNum,
+      hasValidationError: false
+    });
   };
 
   handleClose = event => {
@@ -108,30 +111,25 @@ class PatientsComponent extends Component {
     //const { onSubmit } = this.props;
     event.preventDefault();
     let patientId = this.state.patientId;
-    let patients = this.props.patients;
+
     console.log(patientId);
     const $form = event.target;
-    const name =
-      $form.icon_name.value.trim() ||
-      getPatientProperty(patients, patientId, 'name');
+    const name = $form.icon_name.value.trim();
 
-    const dob =
-      $form.icon_cake.value.trim() ||
-      getPatientProperty(patients, patientId, 'dob');
+    const dob = $form.icon_cake.value.trim();
 
-    const phone =
-      $form.icon_phone.value.trim() ||
-      getPatientProperty(patients, patientId, 'phone');
-
-    const address =
-      $form.icon_address.value.trim() ||
-      getPatientProperty(patients, patientId, 'address');
-
+    const phone = $form.icon_phone.value.trim();
+    const address = $form.icon_address.value.trim();
     let regName = /^[a-zA-Z ]{2,30}$/;
 
     let regDob = /^(([1-9])|(0[1-9])|(1[0-2]))\/(([0-9])|([0-2][0-9])|(3[0-1]))\/(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$/;
     let regPhone = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
-    if (name.match(regName) && phone.match(regPhone) && dob.match(regDob)) {
+    if (
+      name.match(regName) &&
+      dob.match(regDob) &&
+      phone.match(regPhone) &&
+      address
+    ) {
       this.props.onEditPt(patientId, {
         name,
         dob,

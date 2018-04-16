@@ -15,7 +15,7 @@ class HelloPage extends Component {
           className="col s4"
           style={{
             marginTop: '4%',
-            marginLeft: '31%'
+            marginLeft: '30%'
           }}>
           <HelloComponent />
         </div>

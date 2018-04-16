@@ -12,7 +12,7 @@ class DrugsPageLayout extends Component {
   };
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({ open: true, hasValidationError: false });
   };
   handleClose = () => {
     this.setState({ open: false });
@@ -27,7 +27,7 @@ class DrugsPageLayout extends Component {
     const indications = $form.icon_indications.value.trim();
 
     let regName = /^[a-zA-Z ]{2,30}$/;
-    if (generic.match(regName) && brand.match(regName) && indications) {
+    if (generic && brand.match(regName) && indications) {
       this.props.onAddRx({ generic, brand, indications });
       this.setState({ open: false });
     } else {
@@ -43,7 +43,6 @@ class DrugsPageLayout extends Component {
     let token1 = localStorage.getItem('token');
     console.log('this', token1, this.props);
     this.props.onLogout();
-
     this.props.history.push('/');
   };
 

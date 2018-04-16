@@ -20,7 +20,7 @@ export default function LoginPage({
         style={{
           height: '50%',
           width: '25%',
-          marginLeft: '35%',
+          marginLeft: '32%',
           marginTop: '8%',
           borderStyle: 'solid',
           backgroundColor: 'white'

@@ -12,7 +12,7 @@ class PatientsPageLayout extends Component {
   };
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({ open: true, hasValidationError: false });
   };
   handleClose = () => {
     this.setState({ open: false });

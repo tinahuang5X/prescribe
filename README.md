@@ -1,7 +1,8 @@
 # Prescribe (Capstone Project)
-Branch phase-7 was created.
-Created: Nov 2017 – Dec 2017
-Updated: April 2018
+**Branch phase-7 is alive now!!**
+
+Project Created: Nov 2017 – Dec 2017
+Project Updated: April 2018
 
 **Summary:**
 

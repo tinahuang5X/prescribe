@@ -94,7 +94,7 @@ class SignupComponent extends Component {
                     fontWeight: 'bold',
                     textAlign: 'center'
                   }}>
-                  Email already taken
+                  email already taken
                 </p>
               : null}
             {this.state.hasValidationError

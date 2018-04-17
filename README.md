@@ -24,6 +24,7 @@ Dr. John Smith introduced and described the major functionality of the app.
 
 ![home](screenshots/HomePage.png)
 
+
 ## The Sign Up Page
 
 This page allows the doctor to create an account.  
@@ -36,6 +37,7 @@ An error message will appear if the entered email address is already in the syst
 
 ![signup](screenshots/SignUpPage.png)
 
+
 ## The Log In Page
 
 This page allows the doctor to log in.  
@@ -47,6 +49,7 @@ An error message will appear if incorrect email addresses or passwords were ente
 ![login](screenshots/LogInPage.png)
 
 
+
 ## CRUD Operations on Two Large Databases
 
 Both the drug and the patient page allow signed-in doctors to see their drugs/patients and perform CRUD (create, retrieve, update, delete) operations.
@@ -55,21 +58,26 @@ I rebuilt fully functional REST API using Python and Flask (self-taught) for my 
 
 Psycopg2 adapter is used to connect Python to PostgreSQL database server.
 
+
 **Top of the Drug Page**
 
 ![drugs](screenshots/DrugPageTop.png)
+
 
 **Bottom of the Drug Page**
 
 ![drugs](screenshots/DrugPageBottom.png)
 
+
 **Top of the Patient Page**
 
 ![patients](screenshots/PatientPageTop.png)
 
+
 **Bottom of the Patient Page**
 
 ![patients](screenshots/PatientPageBottom.png)
+
 
 
 ## Dialogs
@@ -80,17 +88,21 @@ An error message will occur if there is any information missing or inputs did no
 
 Below are the dialogs on the drug page.
 
+
 **Add Drug**
 
 ![add](screenshots/AddDrug.png)
+
 
 **Edit Drug**
 
 ![edit](screenshots/EditDrug.png)
 
+
 **Remove Drug**
 
 ![remove](screenshots/RemoveDrug.png)
+
 
 
 ## The Prescribe Page
@@ -103,13 +115,16 @@ Prescribers can order medications for patients with the click of a button to avo
 
 A success message is toasted when the prescription is sent to the pharmacy.
 
+
 **Top of the Prescribe Page**
 
 ![prescribe](screenshots/PrescribePageTop.png)
 
+
 **Bottom of the Prescribe Page**
 
 ![prescribe](screenshots/PrescribePageBottom.png)
+
 
 **Prescription Successfully Sent!!**
 

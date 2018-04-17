@@ -66,7 +66,7 @@ class LoginComponent extends Component {
                     fontWeight: 'bold',
                     textAlign: 'center'
                   }}>
-                  Wrong email or password
+                  wrong email or password
                 </p>
               : null}
             {this.state.hasValidationError

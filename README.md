@@ -16,14 +16,14 @@ Frontend: JavaScript ES6, HTML, Materialize CSS, Material UI, JSX, Storybook, Re
 
 Backend: PostgreSQL, Python, Flask, RESTful API, bCrypt, JWT, Psycopg2
 
-Testing and Other: Super Test, Jest, Enzyme, Postman <br />
+Testing and Other: Super Test, Jest, Enzyme, Postman <br /><br />
 
 
 ## The Home Page
 
 Dr. John Smith introduced and described the major functionality of the app.
 
-![home](screenshots/HomePage.png) <br />
+![home](screenshots/HomePage.png) <br /><br />
 
 
 ## The Sign Up Page
@@ -36,7 +36,7 @@ Correct email address format and passwords which are at least 8 characters long 
 
 An error message will appear if the entered email address is already in the system or invalid inputs were entered.
 
-![signup](screenshots/SignUpPage.png) <br />
+![signup](screenshots/SignUpPage.png) <br /><br />
 
 
 ## The Log In Page
@@ -47,7 +47,7 @@ All fields have to be filled in and input validation checks are performed again 
 
 An error message will appear if incorrect email addresses or passwords were entered or inputs were invalid.
 
-![login](screenshots/LogInPage.png) <br />
+![login](screenshots/LogInPage.png) <br /><br />
 
 
 
@@ -57,27 +57,27 @@ Both the drug and the patient page allow signed-in doctors to see their drugs/pa
 
 I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  
 
-Psycopg2 adapter is used to connect Python to PostgreSQL database server. <br />
+Psycopg2 adapter is used to connect Python to PostgreSQL database server. <br /><br />
 
 
 **Top of the Drug Page**
 
-![drugs](screenshots/DrugPageTop.png) <br />
+![drugs](screenshots/DrugPageTop.png) <br /><br />
 
 
 **Bottom of the Drug Page**
 
-![drugs](screenshots/DrugPageBottom.png) <br />
+![drugs](screenshots/DrugPageBottom.png) <br /><br />
 
 
 **Top of the Patient Page**
 
-![patients](screenshots/PatientPageTop.png) <br />
+![patients](screenshots/PatientPageTop.png) <br /><br />
 
 
 **Bottom of the Patient Page**
 
-![patients](screenshots/PatientPageBottom.png) <br />
+![patients](screenshots/PatientPageBottom.png) <br /><br />
 
 
 
@@ -87,22 +87,22 @@ Pop-up windows appear when doctors click the add, edit or remove button on the d
 
 An error message will occur if there is any information missing or inputs did not pass validation checks.
 
-Below are the dialogs on the drug page. <br />
+Below are the dialogs on the drug page. <br /><br />
 
 
 **Add Drug**
 
-![add](screenshots/AddDrug.png) <br />
+![add](screenshots/AddDrug.png) <br /><br />
 
 
 **Edit Drug**
 
-![edit](screenshots/EditDrug.png) <br />
+![edit](screenshots/EditDrug.png) <br /><br />
 
 
 **Remove Drug**
 
-![remove](screenshots/RemoveDrug.png) <br />
+![remove](screenshots/RemoveDrug.png) <br /><br />
 
 
 
@@ -114,19 +114,19 @@ Drop down menus appear when doctors type in just one letter in the form.
 
 Prescribers can order medications for patients with the click of a button to avoid the hassle of handwritten scripts.
 
-A success message is toasted when the prescription is sent to the pharmacy. <br />
+A success message is toasted when the prescription is sent to the pharmacy. <br /><br />
 
 
 **Top of the Prescribe Page**
 
-![prescribe](screenshots/PrescribePageTop.png) <br />
+![prescribe](screenshots/PrescribePageTop.png) <br /><br />
 
 
 **Bottom of the Prescribe Page**
 
-![prescribe](screenshots/PrescribePageBottom.png) <br />
+![prescribe](screenshots/PrescribePageBottom.png) <br /><br />
 
 
 **Prescription Successfully Sent!!**
 
-![prescribe](screenshots/PrescribePageSent.png) <br />
+![prescribe](screenshots/PrescribePageSent.png) <br /><br />

@@ -207,7 +207,11 @@ class DrugsPageLayout extends Component {
         </div>
         <footer
           className="page-footer"
-          style={{ height: '70px', margin: '-3%', backgroundColor: '#37474f' }}
+          style={{
+            height: '160px',
+            margin: '-3.1%',
+            backgroundColor: '#37474f'
+          }}
         />
       </div>
     );

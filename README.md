@@ -32,7 +32,7 @@ All fields have to be filled in and validation checks are performed.
 
 Correct email address format and passwords which are at least 8 characters long are required for successful registration.
 
-An error message will appear if the entered email address is already in the system.
+An error message will appear if the entered email address is already in the system or invalid inputs were entered.
 
 ![signup](screenshots/SignUpPage.png)
 
@@ -42,7 +42,7 @@ This page allows the doctor to log in.
 
 All fields have to be filled in and input validation checks are performed again for correct email address format and password length.
 
-An error message will appear if incorrect email addresses or passwords were entered.
+An error message will appear if incorrect email addresses or passwords were entered or invalid inputs were entered.
 
 ![login](screenshots/LogInPage.png)
 
@@ -57,24 +57,26 @@ Psycopg2 adapter was used to connect Python to PostgreSQL database server.
 
 **Top of the Drug Page**
 
-![drugs](screenshots/DrugsPageTop.png)
+![drugs](screenshots/DrugPageTop.png)
 
 **Bottom of the Drug Page**
 
-![drugs](screenshots/DrugsPageBottom.png)
+![drugs](screenshots/DrugPageBottom.png)
 
 **Top of the Patient Page**
 
-![patients](screenshots/PatientsPageTop.png)
+![patients](screenshots/PatientPageTop.png)
 
 **Bottom of the Patient Page**
 
-![patients](screenshots/PatientsPageBottom.png)
+![patients](screenshots/PatientPageBottom.png)
 
 
 ## Dialogs
 
 Pop-up windows appear when doctors click the add, edit or remove button on the drug and the patient page.
+
+An error message will occur if there is any information missing or inputs did not pass validation checks.
 
 Below are the dialogs on the drug page.
 

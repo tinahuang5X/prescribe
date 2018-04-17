@@ -42,18 +42,18 @@ This page allows the doctor to log in.
 
 All fields have to be filled in and input validation checks are performed again for correct email address format and password length.
 
-An error message will appear if incorrect email addresses or passwords were entered or invalid inputs were entered.
+An error message will appear if incorrect email addresses or passwords were entered or inputs were invalid.
 
 ![login](screenshots/LogInPage.png)
 
 
-## CRUD operations on Two Large Databases
+## CRUD Operations on Two Large Databases
 
 Both the drug and the patient page allow signed-in doctors to see their drugs/patients and perform CRUD (create, retrieve, update, delete) operations.
 
 I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  
 
-Psycopg2 adapter was used to connect Python to PostgreSQL database server.
+Psycopg2 adapter is used to connect Python to PostgreSQL database server.
 
 **Top of the Drug Page**
 

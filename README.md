@@ -34,7 +34,7 @@ All fields have to be filled in and validation checks are performed.
 
 Correct email address format and passwords which are at least 8 characters long are required for successful registration.
 
-An error message will appear if the entered email address is already in the system or invalid inputs were entered.
+An error message will appear if the entered email address is already in the system or invalid inputs were submitted.
 
 ![signup](screenshots/SignUpPage.png) <br /><br />
 
@@ -53,7 +53,7 @@ An error message will appear if incorrect email addresses or passwords were ente
 
 ## CRUD Operations on Two Large Databases
 
-Both the drug and the patient page allow signed-in doctors to see their drugs/patients and perform CRUD (create, retrieve, update, delete) operations.
+Both the drug and the patient page allow signed-in doctors to see their drugs/patients and perform CRUD (create, retrieve, update, delete) operations.  Drugs and patients which were added by the doctor were linked to the doctor by the doctor ID in the database and therefore they can be accessed/edited only by the doctor who added them to the system.
 
 I rebuilt fully functional REST API using Python and Flask (self-taught) for my backend.  
 
